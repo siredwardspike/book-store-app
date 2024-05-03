@@ -12,8 +12,8 @@ export default function AppHeader() {
             </View>
 
             <View style={{flexDirection:'row',gap:10}}>
-                <TextInput placeholder='Search for a book !' style={{borderRadius:50, backgroundColor:'white', borderWidth:2, width:width>1200?width*0.8:width*0.5,textAlign:'center'}}></TextInput>
-                <Pressable style={{borderWidth:2,padding:5,borderRadius:10,backgroundColor:'white'}}>
+                <TextInput placeholder='Search for a book !' style={{borderRadius:50, backgroundColor:'white', borderWidth:2, width:width>1200?width*0.8:width*0.5,textAlign:'center',borderColor:'#B3C8CF'}}></TextInput>
+                <Pressable style={{borderWidth:2,padding:5,borderRadius:10,backgroundColor:'white',borderColor:'#B3C8CF'}}>
                     <Image source={require('../assets/images/search.png')} style={{width:width>1200?width*0.03:width*0.1,height:height>900?height*0.05:height*0.05}}></Image>
                 </Pressable>
             </View>
