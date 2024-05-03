@@ -11,7 +11,7 @@ export default function _layout() {
 
        <Stack>
       <Stack.Screen
-        name="index"
+        name="profile"
         options={{header:()=><AppHeader></AppHeader> }}
       />
        
