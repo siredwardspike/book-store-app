@@ -8,7 +8,7 @@ export default function AppHeader() {
   return (
     <View style={{padding:10,paddingBottom:10, backgroundColor:'#BED7DC',gap:5}}>
             <View>
-                <Text style={{fontSize:width>1200?fontScale*50:fontScale*20,color:'#E3FEF7',fontWeight:'bold',marginRight:250}}>Book Store</Text>
+                <Text style={{fontSize:width>1200?fontScale*50:fontScale*20,color:'#E3FEF7',fontWeight:'bold',marginRight:210}}>Book Store</Text>
             </View>
 
             <View style={{flexDirection:'row',gap:10,justifyContent:'space-around'}}>
