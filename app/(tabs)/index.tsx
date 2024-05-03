@@ -1,8 +1,10 @@
 import {useWindowDimensions,View , Text} from 'react-native';
 import React from 'react';
 import { Stack } from 'expo-router';
-
+import Item from '../../components/bookItem';
 import AppHeader from '../../components/AppHeader';
+
+let book1={name:"magic book" , author:"segara" , category:"fantasy"}
 
 export default function index() {
     const {height, width,fontScale} = useWindowDimensions();
@@ -10,11 +12,8 @@ export default function index() {
     return(
 
        
-        <View style={{flex:1,backgroundColor:'#B3C8CF'}}>
-          <Text> width:{width}</Text>
-          <Text> height:{height}</Text>
-
-          
+        <View>
+          <Item item={book1}></Item>
         </View>
        
       
