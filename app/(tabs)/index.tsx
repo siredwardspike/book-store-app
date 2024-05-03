@@ -10,7 +10,7 @@ export default function index() {
     return(
 
        
-        <View>
+        <View style={{flex:1,backgroundColor:'#B3C8CF'}}>
           <Text> width:{width}</Text>
           <Text> height:{height}</Text>
 
