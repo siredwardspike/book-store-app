@@ -26,7 +26,7 @@ export default function index() {
         <SafeAreaProvider>
             <View>
                 <View>
-                    <View style={{ flexDirection: "row", alignItems: "center" ,marginVertical:5}}>
+                    <View style={{ flexDirection: "row", alignItems: "center" ,marginVertical:8}}>
                         <Text style={styles.recomendations}>recomendation</Text>
                         <Icon name='star' type="material" color="#2C4E70" style={{ marginLeft: 10, marginTop: 2 }} />
                     </View>
@@ -39,7 +39,7 @@ export default function index() {
                 </View>
             </View>
             <View>
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <View style={{ flexDirection: "row", alignItems: "center" ,marginVertical:5}}>
                     <Text style={styles.recomendations}>categories</Text>
                     <Icon name='book' type="material" color="#2C4E70" style={{ marginLeft: 10, marginTop: 4 }} />
                 </View>
