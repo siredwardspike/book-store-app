@@ -8,7 +8,7 @@ let book2 = { id: 2, name: "Magic Book 2", author: "Segara", category: "Fantasy"
 export default function index() {
     const { height, width, fontScale } = useWindowDimensions();
 
-    const renderItem = ({ item }) => (
+    const renderItem = ({item}) => (
         <Item item={item} />
     );
 
@@ -17,6 +17,7 @@ export default function index() {
             data={[book1, book2]}
             renderItem={renderItem}
             keyExtractor={(item) => item.id.toString()}
+            style={{alignSelf:'center'}}
         />
     );
 }
