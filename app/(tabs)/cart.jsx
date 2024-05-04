@@ -5,8 +5,8 @@ export default function profile() {
     const {height, width,fontScale} = useWindowDimensions();
 
   return (
-    <View > 
-      
+    <View style={{flex:1,backgroundColor:'#B3C8CF',justifyContent:'center'}}> 
+      <Text>cart</Text>
     </View>
   
   )
