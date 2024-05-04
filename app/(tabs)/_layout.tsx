@@ -5,6 +5,7 @@ import { Pressable } from 'react-native';
 import AppHeader from '../../components/AppHeader';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
+import { Tab } from 'react-native-elements';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -23,7 +24,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{header:()=><AppHeader></AppHeader>,
-          title: 'home',
+          title: 'Home',
           tabBarIcon: () => <TabBarIcon name="book"  color={"#2C4E70"} />,
      
         }}
@@ -31,7 +32,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'profile',
+          title: 'Profile',
           tabBarIcon: () => <TabBarIcon name="user-circle"  color={"#2C4E70"} />,
      
         }}
@@ -39,11 +40,22 @@ export default function TabLayout() {
       <Tabs.Screen
         name="cart"
         options={{
-          title: 'cart',
+          title: 'Cart',
           tabBarIcon: () => <TabBarIcon name="shopping-cart"  color={"#2C4E70"} />,
      
         }}
       />
+
+      <Tabs.Screen
+        name="results"
+        options={{header:()=>null,
+          title: 'results',
+          tabBarIcon: () => <TabBarIcon name="car"  color={"#2C4E70"} />,
+     
+        }}
+      />
+      
     </Tabs>
   );
 }
+
