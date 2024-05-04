@@ -1,9 +1,10 @@
-import { View, Text ,useWindowDimensions, Pressable, TextInput} from 'react-native'
+import { View, Text, useWindowDimensions, Pressable, TextInput } from 'react-native'
 import React from 'react'
 import { Image } from 'react-native';
+import Icon from 'react-native-elements/dist/icons/Icon';
 
 export default function AppHeader() {
-    const {height,width,fontScale} = useWindowDimensions();
+  const { height, width, fontScale } = useWindowDimensions();
 
   return (
     <View style={{padding:5, backgroundColor:'#BED7DC',gap:5}}>
