@@ -7,17 +7,17 @@ export default function AppHeader() {
   const { height, width, fontScale } = useWindowDimensions();
 
   return (
-    <View style={{ padding: 10, paddingBottom: 10, gap: 5 }}>
-      <View>
-        <Text style={{ fontSize: width > 1200 ? fontScale * 50 : fontScale * 20, color: '#2C4E80', fontWeight: 'bold'}}>Book Store</Text>
-      </View>
+    <View style={{padding:5, backgroundColor:'white',gap:5}}>
+            <View>
+                <Text style={{fontSize:height*0.04,color:'#2C4E70',fontWeight:'bold'}}>Book Store</Text>
+            </View>
 
-      <View style={{ flexDirection: 'row', gap: 10, justifyContent: 'space-around' }}>
-        <TextInput placeholder='Search for a book !' style={{ borderRadius: 50, backgroundColor: 'white', borderWidth: 2, width: width * 0.8, textAlign: 'center', borderColor: '#B3C8CF' }}></TextInput>
-        <Pressable style={{ borderWidth: 2, padding: 5, borderRadius: 10, backgroundColor: 'white', borderColor: '#B3C8CF' }}>
-          <Icon name='search' type="material" color="#2C4E70" style={{}}/>
-        </Pressable>
-      </View>
+            <View style={{flexDirection:'row',gap:10,justifyContent:'space-around'}}>
+                <TextInput placeholder='Search for a book !' style={{borderRadius:50, backgroundColor:'white', borderWidth:2, width:width*0.8,textAlign:'center',borderColor:'#B3C8CF',placeholderTextColor:'grey',fontSize:height*0.02}}></TextInput>
+                <Pressable style={{borderWidth:2,padding:5,borderRadius:10,backgroundColor:'white',borderColor:'#B3C8CF'}}>
+                    <Image source={require('../assets/images/search.png')} style={{width:width*0.1,height:height*0.05}}></Image>
+                </Pressable>
+            </View>
 
     </View>
   )
