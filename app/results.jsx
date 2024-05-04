@@ -1,6 +1,6 @@
 import { View, Text,useWindowDimensions,StyleSheet, FlatList,TextInput , Pressable  } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Item from '../../components/bookItem';
+import Item from '../components/bookItem';
 import React, { useState } from 'react'
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { router,Link } from 'expo-router';
@@ -33,16 +33,23 @@ const [displayData,setDisplayData]=useState(data);
   return (
     <SafeAreaProvider>
       <View style={{padding:5, backgroundColor:'white',gap:5}}>
+
             <View>
                 <Text style={{fontSize:height*0.04,color:'#2C4E70',fontWeight:'bold'}}>Book Store</Text>
             </View>
-
-            <View style={{flexDirection:'row',gap:10,justifyContent:'space-around'}}>
+              
+            <View style={{flexDirection:'row',gap:15,justifyContent:'space-around'}}>
+            <Link href='/' asChild>
+              <Pressable style={{borderWidth:2,padding:5,borderRadius:10,backgroundColor:'white',borderColor:'#B3C8CF'}} >
+                <Icon name='arrow-back' type="material" color="#2C4E70" />
+                </Pressable>
+                </Link>
                 <TextInput placeholder='Search for a book !' onChangeText={text => setSearchQuery(text)}
-                style={{borderRadius:50, backgroundColor:'white', borderWidth:2, width:width*0.8,textAlign:'center',borderColor:'#B3C8CF',fontSize:height*0.02}}></TextInput>
+                style={{borderRadius:50, backgroundColor:'white', borderWidth:2, width:width*0.7,textAlign:'center',borderColor:'#B3C8CF',fontSize:height*0.02}}></TextInput>
                 <Pressable style={{borderWidth:2,padding:5,borderRadius:10,backgroundColor:'white',borderColor:'#B3C8CF'}} onPress={handleSearch} >
                 <Icon name='search' type="material" color="#2C4E70" />
                 </Pressable>
+               
             </View>
     </View>
 

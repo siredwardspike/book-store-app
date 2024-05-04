@@ -46,14 +46,7 @@ export default function TabLayout() {
         }}
       />
 
-      <Tabs.Screen
-        name="results"
-        options={{header:()=>null,
-          title: 'results',
-          tabBarIcon: () => <TabBarIcon name="car"  color={"#2C4E70"} />,
-     
-        }}
-      />
+      
       
     </Tabs>
   );

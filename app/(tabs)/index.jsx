@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList ,Pressable} from 'react-native';
 import Item from '../../components/bookItem';
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { router,Link } from 'expo-router';
 
 let color = "#ccc";
 let books = [{ id: 1, name: "Magic Book 1", author: "Segara", category: "scientific" }
