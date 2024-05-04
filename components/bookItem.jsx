@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, useWindowDimensions, Pressable, TextInput } from 'react-native';
 import { Image } from 'react-native';
+import Icon from 'react-native-elements/dist/icons/Icon';
+
 
 export default function Item({ item }) {
     const { height, width, fontScale } = useWindowDimensions();
@@ -20,8 +22,8 @@ export default function Item({ item }) {
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.author}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.category}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.price}</Text>
-                    <Pressable onPress={() => { }} style={{ borderRadius: 10, backgroundColor: "#2C4E80", alignItems: "center", justifyContent: "center", width: 50, height: 30, marginTop: 5 }}>
-                        <Text style={{ color: "white" }}>Add</Text>
+                    <Pressable onPress={() => { }} style={{ borderRadius: 10, alignItems: "center", justifyContent: "center",}}>
+                    <Icon name='add' type="material" color="#2C4E70" style={{ marginLeft: 10, marginTop: 2 }} />
                     </Pressable>
                 </View>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useWindowDimensions, View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { useWindowDimensions, View, Text, StyleSheet, FlatList, Image, ScrollView } from 'react-native';
 import Item from '../../components/bookItem';
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -24,11 +24,14 @@ export default function index() {
 
     return (
         <SafeAreaProvider>
+            <ScrollView>
+
             <View>
                 <View>
                     <View style={{ flexDirection: "row", alignItems: "center" ,marginVertical:8}}>
-                        <Text style={styles.recomendations}>newest</Text>
+                        <Text style={styles.recomendations}>New Releases</Text>
                         <Icon name='history' type="material" color="#2C4E70" style={{ marginLeft: 10, marginTop: 2 }} />
+                        
                     </View>
                     <FlatList
                         data={[book1, book2]}
@@ -40,7 +43,7 @@ export default function index() {
             </View>
             <View>
                 <View style={{ flexDirection: "row", alignItems: "center" ,marginVertical:5}}>
-                    <Text style={styles.recomendations}>categories</Text>
+                    <Text style={styles.recomendations}>Categories</Text>
                     <Icon name='book' type="material" color="#2C4E70" style={{ marginLeft: 10, marginTop: 4 }} />
                 </View>
                 <FlatList
@@ -58,6 +61,9 @@ export default function index() {
                     keyExtractor={(item) => item.id.toString()}
                 />
             </View>
+
+            </ScrollView>
+           
 
         </SafeAreaProvider>
     );

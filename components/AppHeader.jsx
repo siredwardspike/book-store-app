@@ -7,9 +7,9 @@ export default function AppHeader() {
   const { height, width, fontScale } = useWindowDimensions();
 
   return (
-    <View style={{padding:5, backgroundColor:'#BED7DC',gap:5}}>
+    <View style={{padding:5, backgroundColor:'white',gap:5}}>
             <View>
-                <Text style={{fontSize:height*0.04,color:'#E3FEF7',fontWeight:'bold',marginRight:250}}>Book Store</Text>
+                <Text style={{fontSize:height*0.04,color:'#2C4E70',fontWeight:'bold'}}>Book Store</Text>
             </View>
 
             <View style={{flexDirection:'row',gap:10,justifyContent:'space-around'}}>
