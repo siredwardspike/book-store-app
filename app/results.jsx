@@ -1,7 +1,7 @@
 import { View, Text,useWindowDimensions,StyleSheet, FlatList,TextInput , Pressable  } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Item from '../components/bookItem';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { router,Link } from 'expo-router';
 
@@ -13,18 +13,20 @@ export default function results() {
 );
 const {height, width,fontScale} = useWindowDimensions();
 let book1 = { id: 1, name: "Magic Book 1", author: "Segara", category: "Fantasy" };
-let book2 = { id: 2, name: "cow", author: "Segara", category: "Fantasy" };
+let book2 = { id: 2, name: "dog", author: "Segara", category: "Fantasy" };
 let book3 = { id: 3, name: "cat", author: "Segara", category: "Fantasy" };
-const [searchQuery,setSearchQuery] = useState('');
+const [searchQuery,setSearchQuery] = useState("");
 const [data,setData]=useState([book1,book2,book3]);
 const [displayData,setDisplayData]=useState(data);
- const handleSearch= ()=>{
+
+const handleSearch= ()=>{
   if(searchQuery===""){
     setDisplayData(data);
   }else{
-    const filteredData = data.filter(item=>item.name.includes(searchQuery))
-    setDisplayData(data.filter(item=>item.name.includes(searchQuery)));
+    const filteredData = data.filter(item=>item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    setDisplayData(filteredData);
   }
+  
 
 }
 
@@ -44,7 +46,7 @@ const [displayData,setDisplayData]=useState(data);
                 <Icon name='arrow-back' type="material" color="#2C4E70" />
                 </Pressable>
                 </Link>
-                <TextInput placeholder='Search for a book !' onChangeText={text => setSearchQuery(text) } onChange={handleSearch}
+                <TextInput placeholder='Search for a book !' onChangeText={text => setSearchQuery(text) } onChange={handleSearch} 
                 style={{borderRadius:50, backgroundColor:'white', borderWidth:2, width:width*0.7,textAlign:'center',borderColor:'#B3C8CF',fontSize:height*0.02}}></TextInput>
                 <Pressable style={{borderWidth:2,padding:5,borderRadius:10,backgroundColor:'white',borderColor:'#B3C8CF'}} onPress={handleSearch} >
                 <Icon name='search' type="material" color="#2C4E70" />
