@@ -13,13 +13,13 @@ export default function Item({ item }) {
     const[favorite,setFavorite]=useState([])
     return (
         <View style={{ marginHorizontal: 12 }}>
-            <View style={{ flexDirection: "row", marginLeft: 1, marginTop: 5, backgroundColor: "#BED7DC", borderRadius: 20, padding: 10 }}>
+            <View style={{ flexDirection: "row", marginLeft: 1, marginTop: 5, backgroundColor: "#BED7DC", borderRadius: 20, padding: 7 }}>
                 <Image
                     source={{ uri: 'https://i.pinimg.com/564x/22/63/82/226382aa5680ba4c76a8c6697bbe4321.jpg' }}
-                    style={{ width: imageWidth, height: imageHeight, marginTop: 0, marginLeft: 20, borderRadius: 10 }}
+                    style={{ width: imageWidth*.9, height: imageHeight*.9, marginTop: 0, marginLeft: 2, borderRadius: 10 }}
                 />
                 <View style={{ flex: 1, marginLeft: 10 }}>
-                    <Text style={{ fontSize: width > 1200 ? fontScale * 22 : fontScale * 22, marginTop: 20 }}>{item.name}</Text>
+                    <Text style={{ fontSize: width > 1200 ? fontScale * 22 : fontScale * 22, marginTop: 7}}>{item.name}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.author}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.category}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.price}</Text>

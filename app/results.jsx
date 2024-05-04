@@ -53,7 +53,7 @@ export default function results() {
           </Link>
           <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',borderRadius: 50, backgroundColor: 'white', borderWidth: 2, width: width * 0.8, borderColor: '#B3C8CF',padding:5}}>
             <TextInput placeholder='Search for a book!' onChangeText={(t) => searchElement(t.toLowerCase())}
-              style={{ textAlign:'left' ,fontSize: height * 0.02 , maxWidth:width * 0.6}}></TextInput>
+              style={{ textAlign:'center' ,fontSize: height * 0.02 , maxWidth:width * 0.6}}></TextInput>
               <Icon name='search' type="material" color="#B3C8CF"/>
           </View>
          

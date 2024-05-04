@@ -26,7 +26,7 @@ export default function Index() {
 
     const categoryItem = ({ item }) => (
         <Pressable
-            style={{ margin: 5, backgroundColor: selectedCategory == item.name ? color : "#fff", borderRadius: 10 }}
+            style={{ marginHorizontal: 5, backgroundColor: selectedCategory == item.name ? color : "#fff", borderRadius: 10 }}
             onPress={() => {
                 setSelectedCategory(item.name);
                 let filteredData = books.filter(element => element.category === item.name);
@@ -46,13 +46,17 @@ export default function Index() {
             <FlatList
                 contentContainerStyle={styles.container}
                 data={[
-                    { key: 'New Releases', data: books },
-                    { key: 'Categories', data: categories },
+                    { key: 'New Releases', data: books ,icon:"history"},
+                    { key: 'Categories', data: categories},
                     { key: '', data: categoryList },
                 ]}
                 renderItem={({ item }) => (
                     <View style={styles.section}>
+                        <View style={{flexDirection:"row"}}> 
                         <Text style={styles.heading}>{item.key}</Text>
+                        <Icon name={item.icon} type="material" color="#2C4E70" style={{ margin:3 }} />
+                        </View>
+                       
                         <FlatList
                             data={item.data}
                             renderItem={item.key === 'Categories' ? categoryItem : renderItem}
