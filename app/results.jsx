@@ -51,12 +51,12 @@ export default function results() {
               <Icon name='arrow-back' type="material" color="#2C4E70" />
             </Pressable>
           </Link>
-          <TextInput placeholder='Search for a book !' onChangeText={(t) => searchElement(t.toLowerCase())}
-            style={{ borderRadius: 50, backgroundColor: 'white', borderWidth: 2, width: width * 0.7, textAlign: 'center', borderColor: '#B3C8CF', fontSize: height * 0.02 }}></TextInput>
-          <Pressable style={{ borderWidth: 2, padding: 5, borderRadius: 10, backgroundColor: 'white', borderColor: '#B3C8CF' }} onPress={{}} >
-            <Icon name='search' type="material" color="#2C4E70" />
-          </Pressable>
-
+          <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',borderRadius: 50, backgroundColor: 'white', borderWidth: 2, width: width * 0.8, borderColor: '#B3C8CF',padding:5}}>
+            <TextInput placeholder='Search for a book!' onChangeText={(t) => searchElement(t.toLowerCase())}
+              style={{ textAlign:'left' ,fontSize: height * 0.02 , maxWidth:width * 0.6}}></TextInput>
+              <Icon name='search' type="material" color="#B3C8CF"/>
+          </View>
+         
         </View>
       </View>
 
