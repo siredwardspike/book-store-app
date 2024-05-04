@@ -27,8 +27,8 @@ export default function index() {
             <View>
                 <View>
                     <View style={{ flexDirection: "row", alignItems: "center" ,marginVertical:8}}>
-                        <Text style={styles.recomendations}>recomendation</Text>
-                        <Icon name='star' type="material" color="#2C4E70" style={{ marginLeft: 10, marginTop: 2 }} />
+                        <Text style={styles.recomendations}>newest</Text>
+                        <Icon name='history' type="material" color="#2C4E70" style={{ marginLeft: 10, marginTop: 2 }} />
                     </View>
                     <FlatList
                         data={[book1, book2]}
