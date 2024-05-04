@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, useWindowDimensions, Pressable, TextInput } from 'react-native';
 import { Image } from 'react-native';
 import Icon from 'react-native-elements/dist/icons/Icon';
@@ -10,8 +10,9 @@ export default function Item({ item }) {
     const imageWidth = width > 1200 ? width * 0.2 : width * 0.28;
     const imageHeight = height > 900 ? height * 0.15 : height * 0.2;
 
+    const[favorite,setFavorite]=useState([])
     return (
-        <View style={{marginHorizontal:12}}>
+        <View style={{ marginHorizontal: 12 }}>
             <View style={{ flexDirection: "row", marginLeft: 1, marginTop: 5, backgroundColor: "#BED7DC", borderRadius: 20, padding: 10 }}>
                 <Image
                     source={{ uri: 'https://i.pinimg.com/564x/22/63/82/226382aa5680ba4c76a8c6697bbe4321.jpg' }}
@@ -22,9 +23,15 @@ export default function Item({ item }) {
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.author}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.category}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.price}</Text>
-                    <Pressable onPress={() => { }} style={{ borderRadius: 10, alignItems: "center", justifyContent: "center",}}>
-                    <Icon name='add' type="material" color="#2C4E70" />
-                    </Pressable>
+                    <View style={{flexDirection:"row"}}> 
+                        <Pressable onPress={() => { }} style={{ borderRadius: 10, alignItems: "center", justifyContent: "center", }}>
+                            <Icon name='add' type="material" color="#2C4E70" />
+                        </Pressable>
+                        <Pressable onPress={() => {item.pres }} style={{ borderRadius: 10, alignItems: "center", justifyContent: "center", }}>
+                            <Icon name='star' type="material" color="#2C4E70" />
+                        </Pressable>
+                    </View>
+
                 </View>
 
             </View>
