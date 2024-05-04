@@ -23,7 +23,7 @@ export default function Item({ item }) {
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.category}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.price}</Text>
                     <Pressable onPress={() => { }} style={{ borderRadius: 10, alignItems: "center", justifyContent: "center",}}>
-                    <Icon name='add' type="material" color="#2C4E70" style={{ marginLeft: 10, marginTop: 2 }} />
+                    <Icon name='add' type="material" color="#2C4E70" />
                     </Pressable>
                 </View>
 
