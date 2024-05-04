@@ -1,24 +1,49 @@
-import {useWindowDimensions,View , Text} from 'react-native';
 import React from 'react';
-import { Stack } from 'expo-router';
-
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Link, Tabs } from 'expo-router';
+import { Pressable } from 'react-native';
 import AppHeader from '../../components/AppHeader';
+import Colors from '@/constants/Colors';
+import { useColorScheme } from '@/components/useColorScheme';
 
-export default function _layout() {
-    const {height, width,fontScale} = useWindowDimensions();
+// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
+function TabBarIcon(props: {
+  name: React.ComponentProps<typeof FontAwesome>['name'];
+  color: string;
+  
+}) {
+  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+}
 
-    return(
+export default function TabLayout() {
+  const colorScheme = useColorScheme();
 
-       <Stack>
-      <Stack.Screen
+  return (
+    <Tabs>
+      <Tabs.Screen
         name="index"
-        options={{header:()=><AppHeader></AppHeader> }}
-        
+        options={{header:()=><AppHeader></AppHeader>,
+          title: 'home',
+          tabBarIcon: () => <TabBarIcon name="book"  color={"#2C4E70"} />,
+     
+        }}
       />
-       
-       </Stack>
-      
-       
-    )
-    
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'profile',
+          tabBarIcon: () => <TabBarIcon name="user-circle"  color={"#2C4E70"} />,
+     
+        }}
+      />
+      <Tabs.Screen
+        name="cart"
+        options={{
+          title: 'cart',
+          tabBarIcon: () => <TabBarIcon name="shopping-cart"  color={"#2C4E70"} />,
+     
+        }}
+      />
+    </Tabs>
+  );
 }
