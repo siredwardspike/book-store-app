@@ -65,6 +65,7 @@ export default function results() {
         contentContainerStyle={styles.container}
         data={search === "" ? books : searchData}
         renderItem={renderItem}
+        numColumns={2}
         keyExtractor={(item) => item.id.toString()}
       />
       

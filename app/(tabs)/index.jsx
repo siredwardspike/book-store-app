@@ -11,15 +11,15 @@ let books = [{ id: 0, name: "Magic Book 1", author: "Segara", category: "scienti
 { id: 2, name: "Magic Book 3", author: "Segara", category: "coding" }
 ]
 let categories = [
-    { id: 0, icon: "book", name: "all books" }
-    , { id: 1, icon: "science", name: "scientific" },
-    { id: 2, icon: "code", name: "coding" }
+    { id: 0, icon: "book", name: "All Books" }
+    , { id: 1, icon: "science", name: "Science" },
+    { id: 2, icon: "code", name: "Coding" }
 ]
 
 
 export default function Index() {
     const [categoryList, setCategoryList] = useState(books);
-    const [selectedCategory, setSelectedCategory] = useState("all books");
+    const [selectedCategory, setSelectedCategory] = useState("All books");
     const renderItem = ({ item }) => (
         <Item item={item} />
     );
@@ -48,7 +48,7 @@ export default function Index() {
                 data={[
                     { key: 'New Releases', data: books ,icon:"history"},
                     { key: 'Categories', data: categories},
-                    { key: '', data: categoryList },
+                    { key: "", data: categoryList },
                 ]}
                 renderItem={({ item }) => (
                     <View style={styles.section}>
@@ -58,10 +58,12 @@ export default function Index() {
                         </View>
                        
                         <FlatList
+                            contentContainerStyle={styles.container}
                             data={item.data}
                             renderItem={item.key === 'Categories' ? categoryItem : renderItem}
                             horizontal={item.key !== ''}
                             keyExtractor={(item) => item.id.toString()}
+                            numColumns={item.key===''?2:0}
                         />
                     </View>
                 )}
@@ -73,8 +75,8 @@ export default function Index() {
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 20,
-        paddingHorizontal: 10,
+       padding:10
+        
     },
     section: {
         marginBottom: 20,
