@@ -21,7 +21,7 @@ export default function Item({ item }) {
                 <View style={{ flex: 1, marginLeft: 10 }}>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 22 : fontScale * 22, marginTop: 7}}>{item.name}</Text>
                     <Text style={{ fontSize: width > 1200 ? fontScale * 22 : fontScale * 22}}>{item.category}</Text>
-                    <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>$50{item.price}</Text>
+                    <Text style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}>{item.price}$</Text>
                     <View style={{flexDirection:"row"}}> 
                         <Pressable onPress={() => { }} style={{ borderRadius: 10,  }}>
                             <Icon name='add' type="material" color="#2C4E70" />

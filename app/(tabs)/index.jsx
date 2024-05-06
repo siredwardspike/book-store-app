@@ -7,9 +7,9 @@ import { router, Link } from 'expo-router';
 
 let color = "#ccc";
 
-let books = [{ id: 0, name: "Magic Book", author: "Segara", category: "science", favorite: false }
-    , { id: 1, name: "Magic Book", author: "Segara", category: "Fantasy", favorite: false },
-{ id: 2, name: "Magic Book", author: "Segara", category: "coding", favorite: false }
+let books = [{ id: 0, name: "Magic Book", author: "Segara", category: "science",price:25 ,favorite: false }
+    , { id: 1, name: "Magic Book", author: "Segara", category: "Fantasy",price:25 ,favorite: false },
+{ id: 2, name: "Magic Book", author: "Segara", category: "coding",price:25 ,favorite: false }
 ]
 let categories = [
     { id: 0, icon: "book", name: "All Books" }

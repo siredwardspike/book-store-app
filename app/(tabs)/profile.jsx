@@ -7,12 +7,12 @@ export default function profile() {
     const {height, width,fontScale} = useWindowDimensions();
 
   return (
-    <View style={{flex:1,justifyContent:'center',alignContent:'flex-start',backgroundColor:'#EEF7FF'}}> 
+    <View style={{flex:1,justifyContent:'center',alignContent:'flex-start',backgroundColor:'white'}}> 
           <View style={{flexDirection:'row',alignSelf:'center'}}>
             <View style={{alignItems:'center',padding:30,gap:5}}>
                 
                 
-                <View style={{borderRadius:10,padding:10,alignItems:'center', marginBottom:20,borderWidth:2 ,borderBottomColor:'#CDE8E5', borderTopColor:'#EEF7FF',borderLeftColor:'#EEF7FF', borderRightColor:'#EEF7FF', borderCurve:-4}}>
+                <View style={{borderRadius:30,padding:10,alignItems:'center', marginBottom:20,borderWidth:2 ,borderBottomColor:'#CDE8E5', borderTopColor:'#EEF7FF',borderLeftColor:'#EEF7FF', borderRightColor:'#EEF7FF', borderCurve:-4}}>
 
                 <Image source={{uri:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaT2WozXdM9ChvdlD38Wp0--s6sgOqG4lbgwvrO5Ou16gUzNsE'}} 
                 style={{height:height>1200?height*0.25:height*0.15,width:width*0.15, borderRadius:30, aspectRatio:1}}></Image>
