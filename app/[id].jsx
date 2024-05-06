@@ -4,11 +4,11 @@ import React from 'react'
 import Icon from 'react-native-elements/dist/icons/Icon';
 import BookHeader from '../components/bookHeader';
 import Item from "../components/bookItem"
-let books = [{ id: 0, name: "Magic Book", author: "Segara", category: "science", price: 40, description: "jjjjjjjjjjjjjsdsdskdjskjdksjdskdjskjdksjdksjdkjsdj" }
-    , { id: 1, name: "Magic Book", author: "Segara", category: "Fantasy", price: 30, description: "jjjjjjjjjjjjjsdsdskdjskjdksjdskdjskjdksjdksjdkjsdj" },
-{ id: 4, name: "Magic Book", author: "Segara", category: "Fantasy", price: 305, description: "jjjjjjjjjjjjjsdsdskdjskjdksjdskdjskjdksjdksjdkjsdj" },
-{ id: 2, name: "Magic Book", author: "Segara", category: "coding", price: 20, description: "jjjjjjjjjjjjjsdsdskdjskjdksjdskdjskjdksjdksjdkjsdj" }]
 
+let books = [{ id: 0, name: "book1", author: "Segara", category: "science",price:120,favorite:false }
+    , { id: 1, name: "book2", author: "Segara", category: "Fantasy",price:15,favorite:false  },
+{ id: 2, name: "book3", author: "Segara", category: "coding" ,price:25,favorite:false }
+]
 
 
 export default function Book() {
@@ -57,21 +57,13 @@ export default function Book() {
 
                     </View>
                     <View style={{ flexDirection: 'column', alignContent: "center", alignItems: "center" }}>
-                        <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize: width > 1200 ? fontScale * 20 : fontScale * 15 }}>{books[id].description}</Text>
+                        <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize: width > 1200 ? fontScale * 20 : fontScale * 15 }}>discription</Text>
                     </View>
                 </View>
 
 
             </View>
-            <View style={{alignContent:"center",alignItems:"center"}}>
-                <Text style={styles.heading}>similar books</Text>
-                <FlatList
-                    data={books}
-                    renderItem={({ item }) => books[id].category == item.category && books[id].id !== item.id ? <Item item={item} /> : null}
-                    keyExtractor={(item) => item.id.toString()}
-                    horizontal={true}
-                />
-            </View>
+           
 
         </ScrollView>
 
@@ -92,6 +84,6 @@ const styles = StyleSheet.create({
         color: "#2C4E70",
         marginHorizontal: 10,
        borderColor:"#ccc"
-    
+       ,borderRadius:"20" 
     }
 });
