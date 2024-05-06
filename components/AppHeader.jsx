@@ -4,7 +4,7 @@ import { Image } from 'react-native';
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { router,Link } from 'expo-router';
 
-export default function AppHeader() {
+export default function AppHeader(link) {
   const { height, width, fontScale } = useWindowDimensions();
 
   return (
@@ -15,7 +15,7 @@ export default function AppHeader() {
 
             
                 <Link href='/results' asChild>
-                <Pressable style={{borderWidth:2,padding:5,borderRadius:10,backgroundColor:'white',borderColor:'#B3C8CF'}}>
+                <Pressable style={{borderWidth:2,padding:5,borderRadius:10,backgroundColor:'white',borderColor:'#B3C8CF',width: 38, height: 38}}>
                 <Icon name='search' type="material" color="#2C4E70" />
                 </Pressable>
                 </Link >
