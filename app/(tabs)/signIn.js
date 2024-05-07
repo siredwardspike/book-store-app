@@ -24,7 +24,7 @@ export default function signIn() {
         <View style={{alignSelf:'center', fontSize:height*0.02}}>
 
             <Pressable >
-                <Text style={{textAlign:'center',borderWidth:2, borderRadius:50, borderColor: '#B3C8CF', backgroundColor: 'white',padding:5, fontWeight:'500',color:"#4D869C"}}>Sign in</Text>
+                <Text style={{textAlign:'center',borderWidth:2, borderRadius:50, borderColor: '#B3C8CF', backgroundColor: 'white',padding:5, fontWeight:'400',color:"#82aab9"}}>Sign in</Text>
             </Pressable>
 
             <Pressable>
