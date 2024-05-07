@@ -7,7 +7,7 @@ export default function profile() {
     const {height, width,fontScale} = useWindowDimensions();
 
   return (
-    <View style={{flex:1,justifyContent:'center',alignContent:'flex-start',backgroundColor:'#EEF7FF'}}> 
+    <View style={{flex:1,justifyContent:'center',alignContent:'flex-start',backgroundColor:'white'}}> 
           <View style={{flexDirection:'row',alignSelf:'center'}}>
             <View style={{alignItems:'center',padding:30,gap:5}}>
                 

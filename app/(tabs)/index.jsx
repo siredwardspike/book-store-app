@@ -6,40 +6,45 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { router,Link } from 'expo-router';
 
 let color = "#ccc";
-let books = [{ id: 0, name: "Magic Book 1", author: "Segara", category: "scientific" }
-    , { id: 1, name: "Magic Book 2", author: "Segara", category: "Fantasy" },
-{ id: 2, name: "Magic Book 3", author: "Segara", category: "coding" }
+
+let books = [{ id: 0, name: "book1", author: "Segara", category: "science",price:120,favorite:false }
+    , { id: 1, name: "book2", author: "Segara", category: "Fantasy",price:15,favorite:false  },
+{ id: 2, name: "book3", author: "Segara", category: "coding" ,price:25,favorite:false }
 ]
+
 let categories = [
     { id: 0, icon: "book", name: "All Books" }
-    , { id: 1, icon: "science", name: "Science" },
-    { id: 2, icon: "code", name: "Coding" }
+    , { id: 1, icon: "science", name: "science" },
+    { id: 2, icon: "code", name: "coding" }
 ]
 
 
 export default function Index() {
     const [categoryList, setCategoryList] = useState(books);
     const [selectedCategory, setSelectedCategory] = useState("All books");
+    
+    //book item
     const renderItem = ({ item }) => (
         <Item item={item} />
     );
-
+    
     const categoryItem = ({ item }) => (
         <Pressable
-            style={{ marginHorizontal: 5, backgroundColor: selectedCategory == item.name ? color : "#fff", borderRadius: 10 }}
-            onPress={() => {
-                setSelectedCategory(item.name);
-                let filteredData = books.filter(element => element.category === item.name);
-                setCategoryList(filteredData.length > 0 ? filteredData : books);
-            }}
-        >
-
+        style={{ margin: 5 ,backgroundColor: selectedCategory == item.name ? color : "#fff",borderRadius:10}}
+        onPress={() => {
+            setSelectedCategory(item.name);
+            let filteredData = books.filter(element => element.category === item.name);
+            setCategoryList(filteredData.length > 0 ? filteredData : books);
+        }}
+    >
+    
             <View style={{ marginHorizontal: 12 }}>
                 <Icon name={item.icon} type="material" color="#2C4E70" style={{ marginTop: 7 }} />
                 <Text style={{ fontWeight: "bold", color: "#2C4E70" }}>{item.name}</Text>
             </View>
         </Pressable>
     );
+
 
     return (
         <SafeAreaProvider>
@@ -48,7 +53,7 @@ export default function Index() {
                 data={[
                     { key: 'New Releases', data: books ,icon:"history"},
                     { key: 'Categories', data: categories},
-                    { key: "", data: categoryList },
+                    { key: '', data: categoryList },
                 ]}
                 renderItem={({ item }) => (
                     <View style={styles.section}>

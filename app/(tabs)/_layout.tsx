@@ -40,7 +40,7 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="cart"
-        options={{
+        options={{header:()=><AppHeader></AppHeader>,
           title: 'Cart',
           tabBarIcon: () => <TabBarIcon name="shopping-cart"  color={"#2C4E70"} />,
      

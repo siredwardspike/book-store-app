@@ -6,7 +6,10 @@ import Icon from 'react-native-elements/dist/icons/Icon';
 import { router, Link } from 'expo-router';
 
 
-
+let books = [{ id: 0, name: "book1", author: "Segara", category: "science",price:120,favorite:false }
+    , { id: 1, name: "book2", author: "Segara", category: "Fantasy",price:15,favorite:false  },
+{ id: 2, name: "book3", author: "Segara", category: "coding" ,price:25,favorite:false }
+]
 export default function results() {
 
   const renderItem = ({ item }) => (
@@ -14,10 +17,7 @@ export default function results() {
   );
 
   const { height, width, fontScale } = useWindowDimensions();
-  let books = [{ id: 0, name: "Magic Book 1", author: "Segara", category: "scientific" }
-    , { id: 1, name: "Hello Book 2", author: "Segara", category: "Fantasy" },
-  { id: 2, name: "jo Book 3", author: "Segara", category: "coding" }
-  ]
+  
   const [searchData, setsearchData] = useState(books);
   const [search, setSearch] = useState("");
 
