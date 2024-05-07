@@ -12,21 +12,21 @@ export default function profile() {
             <View style={{alignItems:'center',padding:30,gap:5}}>
                 
                 
-                <View style={{borderRadius:10,padding:10,alignItems:'center', marginBottom:20,borderWidth:2 ,borderBottomColor:'#CDE8E5', borderTopColor:'#EEF7FF',borderLeftColor:'#EEF7FF', borderRightColor:'#EEF7FF', borderCurve:-4}}>
+                <View style={{borderRadius:10,padding:10,gap:10,alignItems:'center', marginBottom:20}}>
 
                 <Image source={{uri:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaT2WozXdM9ChvdlD38Wp0--s6sgOqG4lbgwvrO5Ou16gUzNsE'}} 
                 style={{height:height>1200?height*0.25:height*0.15,width:width*0.15, borderRadius:30, aspectRatio:1}}></Image>
 
                       <View style={{flexDirection:'row',alignItems:'center',alignSelf:'flex-start'}}>
                       <Icon name='person' type="material" color="#2C4E70" style={{ margin:3 }} />
-                        <Text style={{fontSize:fontScale*20 , fontWeight:'normal' ,color:'black'}}>: The Rock</Text>
+                        <Text style={{fontSize:fontScale*20 , fontWeight:'normal' ,color:'black'}}>The Rock</Text>
                       </View>
 
 
 
                       <View style={{flexDirection:'row',alignItems:'center',alignSelf:'flex-start'}}>
                       <Icon name='mail' type="material" color="#2C4E70" style={{ margin:3 }} />
-                        <Text style={{fontSize:fontScale*20 , fontWeight:'normal' ,color:'black'}}>:dwaynejohnson@rock.com</Text>
+                        <Text style={{fontSize:fontScale*20 , fontWeight:'normal' ,color:'black'}}>dwaynejohnson@rock.com</Text>
                       </View>
 
                 </View>
