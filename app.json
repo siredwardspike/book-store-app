@@ -4,7 +4,7 @@
     "slug": "booklyapp",
     "version": "1.0.0",
     "scheme": "booklyapp",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
