@@ -4,8 +4,8 @@ import TabLayout from "./users/(tabs)";
 import Results from "./admin/(tabs)/results";
 export default function Page() {
   return (
-      <AdminIndex></AdminIndex>
-     /* <TabLayout/>*/
+      //<AdminIndex></AdminIndex>
+     <TabLayout/>
    
   );
 }
