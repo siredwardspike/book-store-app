@@ -19,7 +19,8 @@ export default function results() {
 
   const { height, width, fontScale } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
-  let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
+  let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
+
   
   const [searchData, setsearchData] = useState(books);
   const [search, setSearch] = useState("");
@@ -50,13 +51,13 @@ export default function results() {
 
         <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'space-around' }}>
           <Link href='/' asChild>
-            <Pressable style={{ borderWidth: 2, padding: 5, borderRadius: 10, backgroundColor: 'white', borderColor: '#B3C8CF' }} >
+            <Pressable style={{ borderWidth: 2, padding: 5, borderRadius: 10, backgroundColor: 'white', borderColor: '#B3C8CF' ,alignSelf:'flex-start'}} >
               <Icon name='arrow-back' type="material" color="#2C4E70" />
             </Pressable>
           </Link>
           <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',borderRadius: 50, backgroundColor: 'white', borderWidth: 2, width: width * 0.8, borderColor: '#B3C8CF',padding:5}}>
             <TextInput placeholder='Search for a book!' onChangeText={(t) => searchElement(t.toLowerCase())}
-              style={{ textAlign:'justify' ,fontSize: height * 0.02 , maxWidth:width * 0.6}}></TextInput>
+              style={{ textAlign:'justify' ,fontSize: imageHeight * imageWidth* 0.001, maxWidth:width * 0.6}}></TextInput>
               <Icon name='search' type="material" color="#B3C8CF"/>
           </View>
          
