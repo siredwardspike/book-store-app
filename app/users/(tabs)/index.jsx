@@ -50,6 +50,8 @@ export default function Index() {
         <SafeAreaProvider style={{flex:1}}>
             <FlatList
                 contentContainerStyle={styles.container}
+                showsHorizontalScrollIndicator={false} 
+                showsVerticalScrollIndicator={false}
                 data={[
                     { key: 'New Releases', data: books ,icon:"history"},
                     { key: 'Categories', data: categories},
@@ -69,6 +71,8 @@ export default function Index() {
                             horizontal={item.key !== ''}
                             keyExtractor={(item) => item.id.toString()}
                             numColumns={item.key===''?2:0}
+                            showsHorizontalScrollIndicator={false}
+                            showsVerticalScrollIndicator={false}
                         />
                     </View>
                 )}

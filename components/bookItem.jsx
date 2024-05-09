@@ -11,9 +11,8 @@ import Icon from "react-native-elements/dist/icons/Icon";
 
 export default function Item({ item, onDeleteBook }) {
   const { height, width, fontScale } = useWindowDimensions();
-
-  const imageWidth = width > 1200 ? width * 0.2 : width * 0.28;
-  const imageHeight = height > 900 ? height * 0.15 : height * 0.2;
+  let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
+  let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
 
   return (
     <View style={{ marginHorizontal: 12 }}>
@@ -30,11 +29,10 @@ export default function Item({ item, onDeleteBook }) {
         <Image
           source={{ uri: item.imageUri }}
           style={{
-            width: imageWidth * 0.9,
-            height: imageHeight * 0.9,
-            marginTop: 0,
-            marginLeft: 2,
-            borderRadius: 10,
+          width: imageWidth*imageHeight*0.01,
+          height: imageHeight*imageWidth*0.015,
+          marginLeft: 2,
+          borderRadius: 10,
           }}
         />
         <View style={{ flex: 1, marginLeft: 10 }}>
