@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import AdminIndex from "./admin";
-import TabLayout from "./users/(tabs)/_layout";
+import TabLayout from "./users/(tabs)";
 import Results from "./admin/(tabs)/results";
 export default function Page() {
   return (
@@ -11,7 +11,8 @@ export default function Page() {
       </View>
        */}
        {/*<AdminIndex></AdminIndex>*/}
-      <AdminIndex/>
+     
+      <TabLayout/>
     </View>
   );
 }

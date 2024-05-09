@@ -17,7 +17,7 @@ export default function BookHeader(link) {
                 <Icon name='arrow-back' type="material" color="#2C4E70" />
             </Pressable>
         </Link>
-        <Link href='/results' asChild>
+        <Link href='/users/results' asChild>
             <Pressable style={{ borderWidth: 2, padding: 5, borderRadius: 10, backgroundColor: 'white', borderColor: '#B3C8CF',width: 38, height: 38 }}>
                 <Icon name='search' type="material" color="#2C4E70" />
             </Pressable>
