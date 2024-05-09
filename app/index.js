@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import AdminIndex from "./admin";
-import TabLayout from "./users/(tabs)";
+import TabLayout from "./users/(tabs)/";
 import Results from "./admin/(tabs)/results";
 export default function Page() {
   return (
       //<AdminIndex></AdminIndex>
-     <TabLayout/>
-   
+     <TabLayout></TabLayout>
+   //<View></View>
   );
 }
 

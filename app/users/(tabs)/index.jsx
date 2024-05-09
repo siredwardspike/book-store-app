@@ -47,7 +47,7 @@ export default function Index() {
 
 
     return (
-        <SafeAreaProvider style={{flex:1}}>
+        <SafeAreaProvider style={{flex:1}} >
             <FlatList
                 contentContainerStyle={styles.container}
                 showsHorizontalScrollIndicator={false} 
