@@ -15,7 +15,7 @@ export default function profile() {
                 <View style={{borderRadius:10,padding:10,gap:10,alignItems:'center', marginBottom:20}}>
 
                 <Image source={{uri:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaT2WozXdM9ChvdlD38Wp0--s6sgOqG4lbgwvrO5Ou16gUzNsE'}} 
-                style={{height:height>1200?height*0.25:height*0.15,width:width*0.15, borderRadius:30, aspectRatio:1}}></Image>
+                style={{height:height>1200?height*0.2:height*0.15,width:width*0.15, borderRadius:30, aspectRatio:1}}></Image>
 
                       <View style={{flexDirection:'row',alignItems:'center',alignSelf:'flex-start'}}>
                       <Icon name='person' type="material" color="#2C4E70" style={{ margin:3 }} />
