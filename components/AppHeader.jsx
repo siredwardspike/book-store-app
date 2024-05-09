@@ -19,7 +19,7 @@ export default function AppHeader() {
   return (
     <View style={{ padding: 5, backgroundColor: 'white', gap: 5, flexDirection: 'row', justifyContent: 'space-between' }}>
 
-      <Text style={{ fontSize: height * width * 0.0001, color: '#2C4E70', fontWeight: 'bold' }}>Book Store</Text>
+      <Text style={{ fontSize: imageWidth * imageHeight * 0.002, color: '#2C4E70', fontWeight: 'bold' }}>Book Store</Text>
 
 
       <View style={{ flexDirection: "row" }}>
