@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
-import Item from '../../../components/bookItem';
+import { View, Text, StyleSheet, FlatList, Pressable,useWindowDimensions } from 'react-native';
+import Item from '../../../components/userBookItem';
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { router,Link } from 'expo-router';
-
+import AppHeader from '../../../components/AppHeader';
 let color = "#ccc";
 
 let books = [{ id: 0, name: "book1", author: "Segara", category: "science",price:120,favorite:false }
@@ -22,6 +22,10 @@ let categories = [
 export default function Index() {
     const [categoryList, setCategoryList] = useState(books);
     const [selectedCategory, setSelectedCategory] = useState("All books");
+    const { height, width, fontScale } = useWindowDimensions();
+    let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
+    let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
+
     
     //book item
     const renderItem = ({ item }) => (
@@ -30,7 +34,7 @@ export default function Index() {
     
     const categoryItem = ({ item }) => (
         <Pressable
-        style={{ margin: 5 ,backgroundColor: selectedCategory == item.name ? color : "#fff",borderRadius:10}}
+        style={{  backgroundColor: selectedCategory == item.name ? color : "#fff",borderRadius:10}}
         onPress={() => {
             setSelectedCategory(item.name);
             let filteredData = books.filter(element => element.category === item.name);
@@ -38,8 +42,8 @@ export default function Index() {
         }}
     >
     
-            <View style={{ marginHorizontal: 12 }}>
-                <Icon name={item.icon} type="material" color="#2C4E70" style={{ marginTop: 7 }} />
+            <View style={{ paddingHorizontal:20}}>
+                <Icon name={item.icon} type="material" color="#2C4E70"  />
                 <Text style={{ fontWeight: "bold", color: "#2C4E70" }}>{item.name}</Text>
             </View>
         </Pressable>
@@ -47,9 +51,12 @@ export default function Index() {
 
 
     return (
-        <SafeAreaProvider>
+        <SafeAreaProvider style={{flex:1}} >
+            <AppHeader></AppHeader>
             <FlatList
                 contentContainerStyle={styles.container}
+                showsHorizontalScrollIndicator={false} 
+                showsVerticalScrollIndicator={false}
                 data={[
                     { key: 'New Releases', data: books ,icon:"history"},
                     { key: 'Categories', data: categories},
@@ -58,8 +65,10 @@ export default function Index() {
                 renderItem={({ item }) => (
                     <View style={styles.section}>
                         <View style={{flexDirection:"row"}}> 
-                        <Text style={styles.heading}>{item.key}</Text>
-                        <Icon name={item.icon} type="material" color="#2C4E70" style={{ margin:3 }} />
+                        <Text style={{fontWeight: "bold",
+                                      fontSize: imageHeight*imageWidth*0.0015,
+                                      color: "#2C4E70",}}>{item.key}</Text>
+                        <Icon name={item.icon} type="material" color="#2C4E70"  style={{margin:8}}/>
                         </View>
                        
                         <FlatList
@@ -69,6 +78,8 @@ export default function Index() {
                             horizontal={item.key !== ''}
                             keyExtractor={(item) => item.id.toString()}
                             numColumns={item.key===''?2:0}
+                            showsHorizontalScrollIndicator={false}
+                            showsVerticalScrollIndicator={false}
                         />
                     </View>
                 )}
@@ -80,16 +91,13 @@ export default function Index() {
 
 const styles = StyleSheet.create({
     container: {
-       padding:10
+       padding:5
         
     },
     section: {
-        marginBottom: 20,
+       
     },
     heading: {
-        fontWeight: "bold",
-        fontSize: 20,
-        color: "#2C4E70",
-        marginBottom: 10,
+        
     }
 });
