@@ -30,7 +30,7 @@ export default function Book() {
                     <View style={{  alignItems: 'center',gap:10}}>
 
                         <Image source={{ uri: 'https://m.media-amazon.com/images/I/71HJkYnQG-L._AC_UF894,1000_QL80_.jpg' }}
-                            style={{  width: imageWidth*imageHeight*0.01,height: imageHeight*imageWidth*0.015}}></Image>
+                            style={{  width: imageWidth*imageHeight*0.01,height: imageHeight*imageWidth*0.015, borderRadius:10}}></Image>
 
                             
 

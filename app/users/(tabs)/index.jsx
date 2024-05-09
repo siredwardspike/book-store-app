@@ -68,7 +68,7 @@ export default function Index() {
                         <Text style={{fontWeight: "bold",
                                       fontSize: imageHeight*imageWidth*0.0015,
                                       color: "#2C4E70",}}>{item.key}</Text>
-                        <Icon name={item.icon} type="material" color="#2C4E70"  />
+                        <Icon name={item.icon} type="material" color="#2C4E70"  style={{margin:8}}/>
                         </View>
                        
                         <FlatList
