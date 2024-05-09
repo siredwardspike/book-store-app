@@ -43,4 +43,8 @@ async function login(email, password) {
   return cred;
 }
 
-export { register, login };
+async function resetPass(email) {
+  await sendPasswordResetEmail(auth, email);
+}
+
+export { register, login, resetPass };
