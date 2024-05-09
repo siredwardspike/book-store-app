@@ -4,6 +4,8 @@ import Item from '../../../components/userBookItem';
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { router,Link } from 'expo-router';
+import AppHeader from '../../../components/AppHeader';
+
 
 let color = "#ccc";
 
@@ -30,7 +32,7 @@ export default function Index() {
     
     const categoryItem = ({ item }) => (
         <Pressable
-        style={{ margin: 5 ,backgroundColor: selectedCategory == item.name ? color : "#fff",borderRadius:10}}
+        style={{  backgroundColor: selectedCategory == item.name ? color : "#fff",borderRadius:10}}
         onPress={() => {
             setSelectedCategory(item.name);
             let filteredData = books.filter(element => element.category === item.name);
@@ -39,7 +41,7 @@ export default function Index() {
     >
     
             <View style={{ marginHorizontal: 12 }}>
-                <Icon name={item.icon} type="material" color="#2C4E70" style={{ marginTop: 7 }} />
+                <Icon name={item.icon} type="material" color="#2C4E70"  />
                 <Text style={{ fontWeight: "bold", color: "#2C4E70" }}>{item.name}</Text>
             </View>
         </Pressable>
@@ -48,6 +50,7 @@ export default function Index() {
 
     return (
         <SafeAreaProvider style={{flex:1}} >
+            <AppHeader></AppHeader>
             <FlatList
                 contentContainerStyle={styles.container}
                 showsHorizontalScrollIndicator={false} 
@@ -88,12 +91,11 @@ const styles = StyleSheet.create({
         
     },
     section: {
-        marginBottom: 20,
+       
     },
     heading: {
         fontWeight: "bold",
         fontSize: 20,
         color: "#2C4E70",
-        marginBottom: 10,
     }
 });
