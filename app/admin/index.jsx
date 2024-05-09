@@ -7,6 +7,7 @@ import {
   Pressable,
   TextInput,
   Alert,
+  ScrollView,
 } from "react-native";
 import Icon from "react-native-elements/dist/icons/Icon";
 import Item from "../../components/bookItem";
@@ -168,6 +169,7 @@ export default function AdminIndex() {
   };
   return (
     <SafeAreaProvider>
+      <ScrollView>
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <TextInput
@@ -242,6 +244,8 @@ export default function AdminIndex() {
         renderItem={renderItem}
         // keyExtractor={(item) => item.id.toString()}
       />
+      </ScrollView>
+      
     </SafeAreaProvider>
   );
 }
