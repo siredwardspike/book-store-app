@@ -1,50 +1,19 @@
 import { collection, doc, updateDoc,deleteDoc, addDoc, getDocs } from "firebase/firestore";
 import { db } from "./config";
 
-// async function addBook(book){
-//  const bookRef = await addDoc(collection(db,"books"), {
-//     name: book.name,
-//     price: `${book.price}$`,
-//     author: book.author,
-//     image: book.imageUri,
-//     category: book.category,
-//   });
-//   const bookid= bookRef.id;
-//   await updateDoc(bookRef,{
-//     id: bookid
-//   })
-// }
-
 async function addBook(book){
-  const bookRef = collection(db,"books");
-  const bookDoc=await addDoc(bookRef,{
-    name:book.name,
-    category:book.category,
-    price:book.price,
-    author:book.author,
-    image:book.imageUri,
+ const bookRef = await addDoc(collection(db,"books"), {
+    name: book.name,
+    price: `${book.price}$`,
+    author: book.author,
+    image: book.imageUri,
+    category: book.category,
   });
-  await updateDoc(bookDoc,{
-    id: bookDoc.id,
+  const bookid= bookRef.id;
+  await updateDoc(bookRef,{
+    id: bookid
   })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 async function delete_BooK(book){
     await deleteDoc(doc(db,"books",book.id));
 }
