@@ -4,8 +4,8 @@ import React from 'react'
 import Icon from 'react-native-elements/dist/icons/Icon';
 import BookHeader from '../../components/bookHeader';
 
-let books = [{ id: 0, name: "book1", author: "Segara", category: "science",price:120,favorite:false }
-    , { id: 1, name: "book2", author: "Segara", category: "Fantasy",price:15,favorite:false  },
+let books = [{ id: 0, name: "Book1", author: "Segara", category: "science",price:120,favorite:false }
+    , { id: 1, name: "Book2", author: "Segara", category: "Fantasy",price:15,favorite:false  },
 { id: 2, name: "book3", author: "Segara", category: "coding" ,price:25,favorite:false }
 ]
 
@@ -19,47 +19,95 @@ export default function Book() {
 
     return (
 
-        <ScrollView style={{ flex: 1, alignContent: 'flex-start', backgroundColor: 'white' }} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
+        <ScrollView style={{ flex: 1, backgroundColor: 'white' }} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
             <BookHeader></BookHeader>
+            
 
-            <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
-                <View style={{ alignItems: 'center', padding: 10, gap: 5 }}>
+            <View style={{ flex:1,flexDirection:'column'}}>
+                <View style={{ padding: 10, gap: 5 ,flexDirection:'colmun'}}>
 
 
-                    <View style={{ borderRadius: 10, padding: 10, alignItems: 'center', marginBottom: 20, borderWidth: 0, borderBottomColor: '#CDE8E5', borderTopColor: '#EEF7FF', borderLeftColor: '#EEF7FF', borderRightColor: '#EEF7FF', borderCurve: -4 }}>
+                    <View style={{  alignItems: 'center',gap:10}}>
 
                         <Image source={{ uri: 'https://i.pinimg.com/564x/22/63/82/226382aa5680ba4c76a8c6697bbe4321.jpg' }}
-                            style={{  width: imageWidth*imageHeight*0.01,height: imageHeight*imageWidth*0.015, marginTop: 0, marginLeft: 2, borderRadius: 10 }}></Image>
+                            style={{  width: imageWidth*imageHeight*0.01,height: imageHeight*imageWidth*0.015}}></Image>
 
-                        <View style={{ flexDirection: "column", alignContent: "center", alignItems: "center" }}>
-                            <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize: width > 1200 ? fontScale * 20 : fontScale * 25, borderRadius: 10, marginRight: 10 }}>
-                                {books[id].name}
-                            </Text>
-                            <Text style={{ color: "#2C4E70", fontWeight: "bold", marginBottom: 7, fontSize: width > 1200 ? fontScale * 20 : fontScale * 15 }}>{books[id].author} </Text>
+                            
 
-                        </View>
 
-                        <View style={{ flexDirection: 'row' }}>
-                            <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize: width > 1200 ? fontScale * 20 : fontScale * 20, borderRadius: 10, marginRight: 10 }}>
-                                {books[id].price}$
+                    <View >
+                        
+                        <Text style={{ color: "#2C4E70", fontWeight: "500", fontSize: imageHeight*imageWidth*0.002}}>
+                            {books[id].name}
+                        </Text>
+                        
 
-                            </Text>
+                        <Text style={{ color: "#2C4E70", fontWeight: "300", fontSize:imageHeight*imageWidth*0.0012}}>by {books[id].author} </Text>
 
-                            <Pressable onPress={() => { }} style={{ borderRadius: 10 }}>
-                                <Icon name='add' type="material" color="#2C4E70" style={{ marginRight: 5, borderRadius: 9, borderColor: "#2C4E70", borderWidth: 3 }} />
-                            </Pressable>
+                       
 
+                        
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
                             <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
-                                <Icon name='star' type="material" color={"#2C4E70"} style={{ marginTop: 2, borderRadius: 9, borderColor: "#2C4E70", }} />
+                                <Icon name='star' type="material" color={"#4D869C"} />
                             </Pressable>
-                        </View>
+                            <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
+                                <Icon name='star' type="material" color={"#4D869C"}  />
+                            </Pressable>
+                            <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
+                                <Icon name='star' type="material" color={"#4D869C"}  />
+                            </Pressable>
+                            <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
+                                <Icon name='star' type="material" color={"#4D869C"}  />
+                            </Pressable>
+                            <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
+                                <Icon name='star' type="material" color={"#4D869C"}/>
+                            </Pressable>
 
-                    </View>
-                    <View style={{ flexDirection: 'column', alignContent: "center", alignItems: "center" }}>
-                        <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize: width > 1200 ? fontScale * 20 : fontScale * 15 }}>Description</Text>
-                    </View>
+                            <Text style={{color:"#2C4E70",fontWeight:"700"}}>
+                                4.5
+                        </Text>
+                           
+                        </View>
+                       
+
+                       
                 </View>
 
+                <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center', gap:30}}>
+
+                        <View style={{backgroundColor:'#2C4E70',padding:5 ,borderRadius:10,flexDirection:'row',paddingHorizontal:30}}>
+                            <Text style={{ color: "white", fontWeight: "bold", fontSize: imageHeight*imageWidth*0.0015}}>
+                                {books[id].price}$
+                            </Text>
+                            
+                            <Icon name='add' type="material" color="white" style={{ borderRadius: 9, borderColor: "#2C4E70", borderWidth: 3 }} />
+
+                        </View>
+
+                        <Pressable>
+                        <Icon name='favorite' type="material" color="#2C4E70"  />
+
+                        </Pressable>
+
+                </View>
+
+                <View style={{ flexDirection: 'column', alignContent: "center", alignItems: "center"  }}>
+                            <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize:imageHeight*imageWidth*0.0009}}>Reading Chomsky today is sobering and instructive . . .
+                             He is a global phenomenon . . . perhaps the most widely read voice on foreign policy on the planet." -
+                             The New York Times Book Review An immediate national bestseller, Hegemony or Survival demonstrates how, 
+                             for more than half a century the United States has been pursuing a grand imperial strategy with the aim of staking out the globe. </Text>
+                </View>
+                        
+                    </View>
+
+                  
+
+                </View>
+
+                
+               
+              
 
             </View>
            
