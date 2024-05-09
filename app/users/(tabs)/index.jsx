@@ -76,25 +76,28 @@ export default function Index() {
   const categoryItem = ({ item }) => (
     <Pressable
       style={{
-        backgroundColor: selectedCategory == item.name ? color : "#fff",
+        backgroundColor: selectedCategory === item.name ? color : "#fff",
         borderRadius: 10,
       }}
       onPress={() => {
         setSelectedCategory(item.name);
-        let filteredData = books.filter(
-          (element) => element.category === item.name
-        );
-        setCategoryList(filteredData.length > 0 ? filteredData : books);
+        if (item.name === "All Books") {
+          setCategoryList(books);
+        } else {
+          let filteredData = books.filter(
+            (element) => element.category.toLowerCase() === item.name.toLowerCase()
+          );
+          setCategoryList(filteredData);
+        }
       }}
     >
       <View style={{ paddingHorizontal: 20 }}>
         <Icon name={item.icon} type="material" color="#2C4E70" />
-        <Text style={{ fontWeight: "bold", color: "#2C4E70" }}>
-          {item.name}
-        </Text>
+        <Text style={{ fontWeight: "bold", color: "#2C4E70" }}>{item.name}</Text>
       </View>
     </Pressable>
   );
+  
 
   return (
     <SafeAreaProvider style={{ flex: 1 }}>
