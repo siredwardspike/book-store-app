@@ -89,45 +89,27 @@ export default function Book() {
                 </View>
 
                 <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center', gap:30}}>
-
                         <View style={{backgroundColor:'#2C4E70' ,borderRadius:10,flexDirection:'row',paddingHorizontal:30,gap:20,alignItems:'center'}}>
                             <Text style={{ color: "white", fontWeight: "bold", fontSize: imageHeight*imageWidth*0.001}}>
-                            ${books[id].price}
+                                ${books[id].price}
                             </Text>
-                            
-                            <Pressable>
-                            <Icon name='add' type="material" color="white" size={imageHeight*imageWidth*0.001}/>
-
-                            </Pressable>
-
-                        </View>
-
-                       
-
-                </View>
-
-                <View style={{ flexDirection: 'column', alignContent: "center", alignItems: "center" ,padding:20}}>
-                            <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize:imageHeight*imageWidth*0.0007}}>Reading Chomsky today is sobering and instructive . . .
-                             He is a global phenomenon . . . perhaps the most widely read voice on foreign policy on the planet." -
-                             The New York Times Book Review An immediate national bestseller, Hegemony or Survival demonstrates how, 
-                             for more than half a century the United States has been pursuing a grand imperial strategy with the aim of staking out the globe. </Text>
-                </View>
                         
-                    </View>
-
-                  
-
+                            <Pressable>
+                                <Icon name='add' type="material" color="white" size={imageHeight*imageWidth*0.001}/>
+                            </Pressable>
+                        </View>
                 </View>
 
-                
-               
-              
-
+                        <View style={{ flexDirection: 'column', alignContent: "center", alignItems: "center" ,padding:20}}>
+                                    <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize:imageHeight*imageWidth*0.0007}}>Reading Chomsky today is sobering and instructive . . .
+                                    He is a global phenomenon . . . perhaps the most widely read voice on foreign policy on the planet." -
+                                    The New York Times Book Review An immediate national bestseller, Hegemony or Survival demonstrates how, 
+                                    for more than half a century the United States has been pursuing a grand imperial strategy with the aim of staking out the globe. </Text>
+                        </View>     
+                    </View>
+                </View>
             </View>
-           
-
         </ScrollView>
-
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Pressable,useWindowDimensions } from 'react-native';
 import Item from '../../../components/userBookItem';
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -22,6 +22,10 @@ let categories = [
 export default function Index() {
     const [categoryList, setCategoryList] = useState(books);
     const [selectedCategory, setSelectedCategory] = useState("All books");
+    const { height, width, fontScale } = useWindowDimensions();
+    let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
+    let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
+
     
     //book item
     const renderItem = ({ item }) => (
@@ -38,7 +42,7 @@ export default function Index() {
         }}
     >
     
-            <View style={{ marginHorizontal: 12 }}>
+            <View style={{ paddingHorizontal:20}}>
                 <Icon name={item.icon} type="material" color="#2C4E70"  />
                 <Text style={{ fontWeight: "bold", color: "#2C4E70" }}>{item.name}</Text>
             </View>
@@ -61,8 +65,10 @@ export default function Index() {
                 renderItem={({ item }) => (
                     <View style={styles.section}>
                         <View style={{flexDirection:"row"}}> 
-                        <Text style={styles.heading}>{item.key}</Text>
-                        <Icon name={item.icon} type="material" color="#2C4E70" style={{ margin:3 }} />
+                        <Text style={{fontWeight: "bold",
+                                      fontSize: imageHeight*imageWidth*0.0015,
+                                      color: "#2C4E70",}}>{item.key}</Text>
+                        <Icon name={item.icon} type="material" color="#2C4E70"  />
                         </View>
                        
                         <FlatList
@@ -85,15 +91,13 @@ export default function Index() {
 
 const styles = StyleSheet.create({
     container: {
-       padding:10
+       padding:5
         
     },
     section: {
        
     },
     heading: {
-        fontWeight: "bold",
-        fontSize: 20,
-        color: "#2C4E70",
+        
     }
 });
