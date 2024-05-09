@@ -10,6 +10,7 @@ let books = [{ id: 0, name: "book1", author: "Segara", category: "science",price
     , { id: 1, name: "book2", author: "Segara", category: "Fantasy",price:15,favorite:false  },
 { id: 2, name: "book3", author: "Segara", category: "coding" ,price:25,favorite:false }
 ]
+
 export default function results() {
 
   const renderItem = ({ item }) => (
@@ -17,6 +18,8 @@ export default function results() {
   );
 
   const { height, width, fontScale } = useWindowDimensions();
+  let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
+  let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
   
   const [searchData, setsearchData] = useState(books);
   const [search, setSearch] = useState("");
@@ -42,7 +45,7 @@ export default function results() {
       <View style={{ padding: 5, backgroundColor: 'white', gap: 5 }}>
 
         <View>
-          <Text style={{ fontSize: height * 0.04, color: '#2C4E70', fontWeight: 'bold' }}>Book Store</Text>
+          <Text style={{ fontSize: imageHeight * imageWidth* 0.002, color: '#2C4E70', fontWeight: 'bold' }}>Book Store</Text>
         </View>
 
         <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'space-around' }}>
@@ -53,7 +56,7 @@ export default function results() {
           </Link>
           <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',borderRadius: 50, backgroundColor: 'white', borderWidth: 2, width: width * 0.8, borderColor: '#B3C8CF',padding:5}}>
             <TextInput placeholder='Search for a book!' onChangeText={(t) => searchElement(t.toLowerCase())}
-              style={{ textAlign:'center' ,fontSize: height * 0.02 , maxWidth:width * 0.6}}></TextInput>
+              style={{ textAlign:'justify' ,fontSize: height * 0.02 , maxWidth:width * 0.6}}></TextInput>
               <Icon name='search' type="material" color="#B3C8CF"/>
           </View>
          
@@ -67,6 +70,8 @@ export default function results() {
         renderItem={renderItem}
         numColumns={2}
         keyExtractor={(item) => item.id.toString()}
+        showsHorizontalScrollIndicator={false} 
+        showsVerticalScrollIndicator={false}
       />
       
 

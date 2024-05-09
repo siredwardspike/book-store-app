@@ -13,13 +13,13 @@ let books = [{ id: 0, name: "book1", author: "Segara", category: "science",price
 export default function Book() {
     const { id } = useLocalSearchParams();
     const { height, width, fontScale } = useWindowDimensions();
-    let imageWidth = width > 1200 ? width * 0.2 : width * 0.28;
+    let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
     let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
 
 
     return (
 
-        <ScrollView style={{ flex: 1, alignContent: 'flex-start', backgroundColor: 'white' }}>
+        <ScrollView style={{ flex: 1, alignContent: 'flex-start', backgroundColor: 'white' }} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
             <BookHeader></BookHeader>
 
             <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
@@ -29,7 +29,7 @@ export default function Book() {
                     <View style={{ borderRadius: 10, padding: 10, alignItems: 'center', marginBottom: 20, borderWidth: 0, borderBottomColor: '#CDE8E5', borderTopColor: '#EEF7FF', borderLeftColor: '#EEF7FF', borderRightColor: '#EEF7FF', borderCurve: -4 }}>
 
                         <Image source={{ uri: 'https://i.pinimg.com/564x/22/63/82/226382aa5680ba4c76a8c6697bbe4321.jpg' }}
-                            style={{ width: imageWidth * 1.9, height: imageHeight * 2, marginTop: 0, marginLeft: 2, borderRadius: 10 }}></Image>
+                            style={{  width: imageWidth*imageHeight*0.01,height: imageHeight*imageWidth*0.015, marginTop: 0, marginLeft: 2, borderRadius: 10 }}></Image>
 
                         <View style={{ flexDirection: "column", alignContent: "center", alignItems: "center" }}>
                             <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize: width > 1200 ? fontScale * 20 : fontScale * 25, borderRadius: 10, marginRight: 10 }}>
@@ -56,7 +56,7 @@ export default function Book() {
 
                     </View>
                     <View style={{ flexDirection: 'column', alignContent: "center", alignItems: "center" }}>
-                        <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize: width > 1200 ? fontScale * 20 : fontScale * 15 }}>discription</Text>
+                        <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize: width > 1200 ? fontScale * 20 : fontScale * 15 }}>Description</Text>
                     </View>
                 </View>
 
