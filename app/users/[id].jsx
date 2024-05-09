@@ -5,7 +5,7 @@ import Icon from 'react-native-elements/dist/icons/Icon';
 import BookHeader from '../../components/bookHeader';
 
 let books = [{ id: 0, name: "Book1", author: "Segara", category: "science",price:120,favorite:false }
-    , { id: 1, name: "Book2", author: "Segara", category: "Fantasy",price:15,favorite:false  },
+    , { id: 1, name: "Hegemony or Survival? : America's Quest for Global Dominance ", author: "Noam Chomsky", category: "Fantasy",price:15,favorite:false  },
 { id: 2, name: "book3", author: "Segara", category: "coding" ,price:25,favorite:false }
 ]
 
@@ -24,51 +24,65 @@ export default function Book() {
             
 
             <View style={{ flex:1,flexDirection:'column'}}>
-                <View style={{ padding: 10, gap: 5 ,flexDirection:'colmun'}}>
+                <View style={{ padding: 10,flexDirection:'colmun'}}>
 
 
                     <View style={{  alignItems: 'center',gap:10}}>
 
-                        <Image source={{ uri: 'https://i.pinimg.com/564x/22/63/82/226382aa5680ba4c76a8c6697bbe4321.jpg' }}
+                        <Image source={{ uri: 'https://m.media-amazon.com/images/I/71HJkYnQG-L._AC_UF894,1000_QL80_.jpg' }}
                             style={{  width: imageWidth*imageHeight*0.01,height: imageHeight*imageWidth*0.015}}></Image>
 
                             
 
 
                     <View >
-                        
-                        <Text style={{ color: "#2C4E70", fontWeight: "500", fontSize: imageHeight*imageWidth*0.002}}>
+
+                        <View style={{alignItems:'center'}}>
+                        <Text style={{ color: "#2C4E70", fontWeight: "500", fontSize: imageHeight*imageWidth*0.0015,padding:20}}>
                             {books[id].name}
                         </Text>
                         
+                        
 
-                        <Text style={{ color: "#2C4E70", fontWeight: "300", fontSize:imageHeight*imageWidth*0.0012}}>by {books[id].author} </Text>
+                        <Text style={{ color: "#2C4E70", fontWeight: "300", fontSize:imageHeight*imageWidth*0.001}}>{books[id].author} </Text>
+
+                        </View>
+                        
+                        
 
                        
 
                         
-                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                        <View style={{flexDirection:'row',alignItems:'center',alignSelf:'center'}}>
                             <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
-                                <Icon name='star' type="material" color={"#4D869C"} />
+                                <Icon name='star' type="material" color={"#4D869C"} size={imageHeight*imageWidth*0.001} />
                             </Pressable>
                             <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
-                                <Icon name='star' type="material" color={"#4D869C"}  />
+                                <Icon name='star' type="material" color={"#4D869C"}  size={imageHeight*imageWidth*0.001} />
                             </Pressable>
                             <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
-                                <Icon name='star' type="material" color={"#4D869C"}  />
+                                <Icon name='star' type="material" color={"#4D869C"}  size={imageHeight*imageWidth*0.001} />
                             </Pressable>
                             <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
-                                <Icon name='star' type="material" color={"#4D869C"}  />
+                                <Icon name='star' type="material" color={"#4D869C"}   size={imageHeight*imageWidth*0.001}/>
                             </Pressable>
-                            <Pressable onPress={() => { }} style={{ borderRadius: 10, }}>
-                                <Icon name='star' type="material" color={"#4D869C"}/>
+                            <Pressable  onPress={() => { }} style={{ borderRadius: 10, }}>
+                                <Icon name='star' type="material" color={"#4D869C"}  size={imageHeight*imageWidth*0.001}/>
                             </Pressable>
-
-                            <Text style={{color:"#2C4E70",fontWeight:"700"}}>
-                                4.5
-                        </Text>
                            
                         </View>
+
+                        <View style={{flexDirection:'row',alignSelf:'center',alignItems:'center',gap:20}}>
+                                    
+                                <Text style={{color:"#2C4E70",fontWeight:"700",alignSelf:'center',fontSize:imageHeight*imageWidth*0.0006}}>
+                                        4.5
+                                    </Text>
+                                    <Pressable>
+                                <Icon name='favorite' type="material" color="#2C4E70"   size={imageHeight*imageWidth*0.0007}/>
+
+                                </Pressable>
+                        </View>
+
                        
 
                        
@@ -76,24 +90,24 @@ export default function Book() {
 
                 <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center', gap:30}}>
 
-                        <View style={{backgroundColor:'#2C4E70',padding:5 ,borderRadius:10,flexDirection:'row',paddingHorizontal:30}}>
-                            <Text style={{ color: "white", fontWeight: "bold", fontSize: imageHeight*imageWidth*0.0015}}>
-                                {books[id].price}$
+                        <View style={{backgroundColor:'#2C4E70' ,borderRadius:10,flexDirection:'row',paddingHorizontal:30,gap:20,alignItems:'center'}}>
+                            <Text style={{ color: "white", fontWeight: "bold", fontSize: imageHeight*imageWidth*0.001}}>
+                            ${books[id].price}
                             </Text>
                             
-                            <Icon name='add' type="material" color="white" style={{ borderRadius: 9, borderColor: "#2C4E70", borderWidth: 3 }} />
+                            <Pressable>
+                            <Icon name='add' type="material" color="white" size={imageHeight*imageWidth*0.001}/>
+
+                            </Pressable>
 
                         </View>
 
-                        <Pressable>
-                        <Icon name='favorite' type="material" color="#2C4E70"  />
-
-                        </Pressable>
+                       
 
                 </View>
 
-                <View style={{ flexDirection: 'column', alignContent: "center", alignItems: "center"  }}>
-                            <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize:imageHeight*imageWidth*0.0009}}>Reading Chomsky today is sobering and instructive . . .
+                <View style={{ flexDirection: 'column', alignContent: "center", alignItems: "center" ,padding:20}}>
+                            <Text style={{ color: "#2C4E70", fontWeight: "bold", fontSize:imageHeight*imageWidth*0.0007}}>Reading Chomsky today is sobering and instructive . . .
                              He is a global phenomenon . . . perhaps the most widely read voice on foreign policy on the planet." -
                              The New York Times Book Review An immediate national bestseller, Hegemony or Survival demonstrates how, 
                              for more than half a century the United States has been pursuing a grand imperial strategy with the aim of staking out the globe. </Text>
