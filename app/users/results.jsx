@@ -45,7 +45,7 @@ export default function results() {
       <View style={{ padding: 5, backgroundColor: 'white', gap: 5 }}>
 
         <View>
-          <Text style={{ fontSize: imageHeight * imageWidth* 0.002, color: '#2C4E70', fontWeight: 'bold' }}>Book Store</Text>
+          <Text style={{ fontSize: imageHeight * imageWidth* 0.00178, color: '#2C4E70', fontWeight: 'bold' }}>Book Store</Text>
         </View>
 
         <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'space-around' }}>
