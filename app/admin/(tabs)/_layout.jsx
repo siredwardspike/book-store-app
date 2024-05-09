@@ -16,19 +16,7 @@ export default function TabLayout() {
          tabBarIcon:<Icon name="book" />
         }}
       />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-        }}
-      />
-      <Tabs.Screen
-        name="cart"
-        options={{
-          title: "Cart",
-          
-        }}
-      />
+      
     </Tabs>
   );
 }
