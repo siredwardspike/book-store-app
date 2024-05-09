@@ -35,4 +35,12 @@ async function register(email, password, userName) {
   return cred;
 }
 
-export { register };
+async function login(email, password) {
+  const cred = await signInWithEmailAndPassword(auth, email, password);
+  if (!cred.user.emailVerified) {
+    throw new Error("not emailVerified");
+  }
+  return cred;
+}
+
+export { register, login };
