@@ -2,19 +2,11 @@ import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
-import AppHeader from "../../../components/AppHeader";
+import AppHeader from '../../../components/AppHeader';
 import { Tab } from 'react-native-elements';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-const TabBarIcon = ({ name, color }) => {
-  return (
-    <FontAwesome
-      name={name}
-      size={28}
-      style={{ marginBottom: -3, color }} // Use the color prop directly
-    />
-  );
-}; 
+
 
 export default function TabLayout() {
 
@@ -51,4 +43,3 @@ export default function TabLayout() {
     </Tabs>
   );
 }
-
