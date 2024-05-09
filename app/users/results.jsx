@@ -1,6 +1,6 @@
 import { View, Text, useWindowDimensions, StyleSheet, FlatList, TextInput, Pressable } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Item from '../../components/bookItem';
+import Item from '../../components/userBookItem';
 import React, { useEffect, useState } from 'react'
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { router, Link } from 'expo-router';

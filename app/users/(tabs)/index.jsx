@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
-import Item from '../../../components/bookItem';
+import Item from '../../../components/userBookItem';
 import Icon from 'react-native-elements/dist/icons/Icon';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { router,Link } from 'expo-router';
@@ -47,7 +47,7 @@ export default function Index() {
 
 
     return (
-        <SafeAreaProvider>
+        <SafeAreaProvider style={{flex:1}}>
             <FlatList
                 contentContainerStyle={styles.container}
                 data={[
