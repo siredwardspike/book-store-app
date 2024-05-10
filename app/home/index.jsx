@@ -52,7 +52,7 @@ let color = "#ccc";
 export default function Index() {
   const [categoryList, setCategoryList] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("All Books");
+  const [selectedCategory, setSelectedCategory] = useState("all books");
   const [books, setBooks] = useState([]);
   const { height, width } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
