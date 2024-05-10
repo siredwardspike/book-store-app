@@ -48,7 +48,7 @@ export default function UsrItem({ item }) {
           <Text
             style={{
               fontWeight: "bold",
-              fontSize: imageHeight * imageWidth * 0.0015,
+              fontSize: imageHeight * imageWidth * 0.0012,
               color: "#2C4E70",
               
             }}

@@ -144,7 +144,7 @@ export default function profile() {
               />
               <Text
                 style={{
-                  fontSize: imageWidth * imageHeight * 0.0015,
+                  fontSize: imageWidth * imageHeight * 0.0012,
                   fontWeight: "normal",
                   color: "black",
                 }}
@@ -168,7 +168,7 @@ export default function profile() {
               />
               <Text
                 style={{
-                  fontSize: imageWidth * imageHeight * 0.0015,
+                  fontSize: imageWidth * imageHeight * 0.0012,
                   fontWeight: "normal",
                   color: "black",
                 }}
