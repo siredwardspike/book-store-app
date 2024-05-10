@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import AdminIndex from "./admin";
-import TabLayout from "./home";
+import TabLayout from "./users/(tabs)/";
 import Results from "./admin/(tabs)/results";
 import SignIn from "./account/signIn";
 import SignUp from "./account/signup";
+import Index from "./home";
 export default function Page() {
   return (
-    //  <TabLayout></TabLayout>
-    //<View></View>
-
-    <SignIn></SignIn>
+      
+     <TabLayout></TabLayout>
+   //<View></View>
   );
 }
 

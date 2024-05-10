@@ -1,4 +1,4 @@
-import { collection, doc, updateDoc,deleteDoc, addDoc, getDocs,getDoc } from "firebase/firestore";
+import { collection, doc, updateDoc,deleteDoc, addDoc, getDocs,getDoc, query } from "firebase/firestore";
 import { db } from "./config";
 
 async function addBook(book){
@@ -49,6 +49,11 @@ async function addCategory(category){
 }
 async function deleteCategory(category){
   await deleteDoc(doc(db,"categories",category.id));
+  const q= query(collection(db,"books"),("category","==",category.name));
+  const snapshot = await getDocs(q);
+  snapshot.forEach(async(doc)=>{
+     await deleteDoc(doc.ref);
+  })
 }
 async function getCategories(){
   const catRef = collection(db,"categories");
