@@ -9,8 +9,9 @@ import React, { useEffect } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import { Link, router } from "expo-router";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { signOut } from "firebase/auth";
 
 export default function profile() {
   const { height, width, fontScale } = useWindowDimensions();
@@ -25,6 +26,15 @@ export default function profile() {
       const _user =await getDoc(userRef);
       setUser(_user.data());
     }
+  }
+  const handelSignOut=async()=>{
+   try {
+     await signOut(auth);
+     AsyncStorage.removeItem("userUID");
+     router.replace("/account/signIn");
+   } catch (error) {
+    console.error(error);
+   }
   }
   useEffect(()=>{
     fetchUser();
@@ -235,6 +245,7 @@ export default function profile() {
             </Pressable>
 
             <Pressable
+              onPress={handelSignOut}
               style={{ flexDirection: "row-reverse", alignItems: "center" }}
             >
               <Text
