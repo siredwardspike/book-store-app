@@ -43,7 +43,7 @@ export default function profile() {
       setBookData(updatedBooks);
     };
     return (
-      <View style={{ alignContent: "center", alignItems: "center" }}>
+      <View style={{ alignContent: "center", alignItems: "center" ,padding:50}}>
         <Item item={item} />
         <View style={{ flexDirection: "row", gap: 15 }}>
        

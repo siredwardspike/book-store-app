@@ -14,6 +14,7 @@ import Icon from "react-native-elements/dist/icons/Icon";
 import { router, Link } from "expo-router";
 import { getBooks } from "../../firebase/firestore_fun";
 
+
 // let books = [
 //   {
 //     id: 0,
@@ -41,6 +42,7 @@ import { getBooks } from "../../firebase/firestore_fun";
 //   },
 // ];
 
+
 let books = [
   {
     id: 0,
@@ -67,6 +69,7 @@ let books = [
     favorite: false,
   },
 ];
+
 
 export default function results() {
   const renderItem = ({ item }) => <Item item={item} />;

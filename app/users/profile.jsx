@@ -184,7 +184,7 @@ export default function profile() {
               alignSelf: "center",
             }}
           >
-            <Pressable
+            {/* <Pressable
               style={{ flexDirection: "row-reverse", alignItems: "center" }}
               onPress={()=>router.navigate(`/users/cartHistory`)}
             >
@@ -203,9 +203,9 @@ export default function profile() {
                 color="#4D869C"
                 style={{ margin: 3 }}
               />
-            </Pressable>
+            </Pressable> */}
 
-            <Pressable
+            {/* <Pressable
               style={{ flexDirection: "row-reverse", alignItems: "center" }}
               onPress={()=>router.navigate(`/users/favorites`)}
             >
@@ -224,7 +224,7 @@ export default function profile() {
                 color="#4D869C"
                 style={{ margin: 3 }}
               />
-            </Pressable>
+            </Pressable> */}
 
             <Pressable onPress={handelChangePass}
               style={{ flexDirection: "row-reverse", alignItems: "center" }}
