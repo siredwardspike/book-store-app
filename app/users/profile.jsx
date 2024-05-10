@@ -188,7 +188,7 @@ export default function profile() {
                   color: "#4D869C",
                 }}
               >
-                favorites
+                Favorites
               </Text>
               <Icon
                 name="favorite"
