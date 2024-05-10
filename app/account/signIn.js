@@ -16,8 +16,13 @@ export default function SignIn() {
   const { height, width } = useWindowDimensions();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const adminPass = "12345678";
+  const adminMail = "admin@bookstore.com";
 
   const handleSignIn = async () => {
+    if (adminMail == adminMail && adminPass == adminPass) {
+      router.replace("/admin");
+    }
     try {
       const cred = await login(email, password);
       await AsyncStorage.setItem("userUID", cred.user.uid);
