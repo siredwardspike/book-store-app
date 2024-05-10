@@ -38,9 +38,9 @@ async function register(email, password, userName, _imageurl) {
 
 async function login(email, password) {
   const cred = await signInWithEmailAndPassword(auth, email, password);
-  // if (!cred.user.emailVerified) {
-  //   throw new Error("not emailVerified");
-  // }
+  if (!cred.user.emailVerified) {
+    throw new Error("not emailVerified");
+  }
   return cred;
 }
 
@@ -48,4 +48,4 @@ async function resetPass(email) {
   await sendPasswordResetEmail(auth, email);
 }
 
-export { register, login, resetPass};
+export { register, login, resetPass };
