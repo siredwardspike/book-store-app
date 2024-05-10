@@ -19,7 +19,7 @@ export default function UsrItem({ item }) {
 
   return (
     <Pressable
-      style={{ padding: 12 }}
+      style={{ padding: 12 ,marginHorizontal:3}}
       onPress={async () => {
         router.navigate(`/users/${item.id}`);
       }}

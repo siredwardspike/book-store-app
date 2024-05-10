@@ -12,7 +12,7 @@ export default function UsrItem({ item }) {
     let imageHeight = height > 900 ? height * 0.1 : height * 0.2;
 
     return (
-        <Pressable style={{ padding:12 }} onPress={() => {router.navigate(`/users/${item.id}`)}}>
+        <Pressable style={{ padding:12,marginHorizontal:3 }} onPress={() => {router.navigate(`/users/${item.id}`)}}>
             <View style={{ flexDirection: "column",  backgroundColor: "white", borderRadius: 20,alignSelf:'center',alignItems:'center', width:width*0.4 }}>
                 <Image
                     source={{ uri: 'https://i.pinimg.com/564x/22/63/82/226382aa5680ba4c76a8c6697bbe4321.jpg' }}
