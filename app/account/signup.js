@@ -83,6 +83,7 @@ export default function SignUp() {
         value={password}
         onChangeText={setPassword}
         textAlign='center'
+        secureTextEntry={true}
         style={{
           fontSize: imageHeight*imageWidth * 0.0003 , 
           maxWidth:width * 0.6 ,
