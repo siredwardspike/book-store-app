@@ -13,7 +13,7 @@ import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import BookHeader from "../../components/bookHeader";
 import { getBook } from "../../firebase/firestore_fun";
-import { ActivityIndicator } from "react-native-web";
+import { ActivityIndicator } from "react-native";
 
 // let books = [
 //   {
@@ -65,6 +65,7 @@ export default function Book() {
  if(!book){
     return <ActivityIndicator />
  }
+ 
   return (
     <ScrollView
       style={{ flex: 1, backgroundColor: "white" }}
