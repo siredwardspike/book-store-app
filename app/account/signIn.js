@@ -31,6 +31,10 @@ export default function signIn() {
                 <Text style={{color:"#4D869C", fontWeight:'200'}}>Forgot your password?</Text>
             </Pressable>
 
+            <Pressable>
+                <Text style={{color:"#4D869C", fontWeight:'100'}}>Do not have an account?</Text>
+            </Pressable>
+
         </View>
         
 
