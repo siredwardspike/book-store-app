@@ -8,6 +8,7 @@ import { Link, router } from 'expo-router';
 export default function UsrItem({ item }) {
     const { height, width, fontScale } = useWindowDimensions();
     const [text,setText] = useState("approve")
+    const [quantity,setQuantity]=useState(1)
     let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
     let imageHeight = height > 900 ? height * 0.1 : height * 0.2;
 
@@ -27,6 +28,15 @@ export default function UsrItem({ item }) {
                         </Pressable>
                         <Text style={{ fontWeight: "400",fontSize: imageHeight*imageWidth*0.0009,color:'#2C4E70'}}>{item.price}$</Text>
                         
+                    </View>
+                    <View style={{flexDirection:"row",gap:15}}>
+                    <Pressable onPress={()=>setQuantity(quantity-1)}>
+                        <Icon name="remove" type="material" color="#2C4E70" />
+                        </Pressable>
+                        <Text style={{marginTop:2,color:"#2C4E70"}}>{quantity}</Text>
+                        <Pressable  onPress={()=>setQuantity(quantity+1)}>
+                        <Icon name="add" type="material" color="#2C4E70" />
+                        </Pressable>
                     </View>
 
                 </View>

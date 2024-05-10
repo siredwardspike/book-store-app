@@ -21,6 +21,7 @@ let books = [
     category: "science",
     price: 120,
     favorite: false,
+    quantity:0
   },
   {
     userId: 0,
@@ -29,6 +30,7 @@ let books = [
     category: "Fantasy",
     price: 15,
     favorite: false,
+    quantity:0
   },
   {
     userId: 2,
@@ -37,6 +39,7 @@ let books = [
     category: "coding",
     price: 25,
     favorite: false,
+    quantity:0
   },
 ];
 
