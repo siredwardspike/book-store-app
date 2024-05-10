@@ -6,7 +6,7 @@ import SignIn from "./account/signIn";
 import SignUp from "./account/signup";
 export default function Page() {
   return (
-      //<AdminIndex></AdminIndex>
+      
      <TabLayout></TabLayout>
    //<View></View>
   );

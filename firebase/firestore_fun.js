@@ -8,14 +8,15 @@ async function addBook(book){
     author: book.author,
     image: book.imageUri,
     category: book.category,
+    des: book.description
   });
   const bookid= bookRef.id;
   await updateDoc(bookRef,{
     id: bookid
   })
 }
-async function delete_BooK(book){
-    await deleteDoc(doc(db,"books",book.id));
+async function delete_BooK(id){
+    await deleteDoc(doc(db,"books",id));
 }
 async function addToFav(book,uid){
     const favRef= await addDoc(collection(db,"favorites"),{

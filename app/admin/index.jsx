@@ -12,10 +12,18 @@ import {
 import Icon from "react-native-elements/dist/icons/Icon";
 import Item from "../../components/bookItem";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { addBook, delet_BooK, getBooks, getCategories, addCategory as addCategoryToFirestore,deleteCategory } from "../../firebase/firestore_fun"; // Rename addCategory import
+import {
+  addBook,
+  delet_BooK,
+  getBooks,
+  getCategories,
+  addCategory as addCategoryToFirestore,
+  deleteCategory,
+} from "../../firebase/firestore_fun"; // Rename addCategory import
 
 export default function AdminIndex() {
   const [categoryList, setCategoryList] = useState([]);
+  const [newBookDescription, setNewBookDescription] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all books");
   const [newCategoryName, setNewCategoryName] = useState("");
   const [newCategoryIcon, setNewCategoryIcon] = useState("");
@@ -66,7 +74,9 @@ export default function AdminIndex() {
     fetchBooks();
     fetchCategories();
   }, []);
-  const renderItem = ({ item }) => <Item item={item} onDeleteBook={deleteBook} />;
+  const renderItem = ({ item }) => (
+    <Item item={item} onDeleteBook={deleteBook} />
+  );
   const categoryItem = ({ item }) => (
     <View style={styles.categoryItemContainer}>
       <Pressable
@@ -93,7 +103,10 @@ export default function AdminIndex() {
           {item.name}
         </Text>
       </Pressable>
-      <Pressable onPress={() => _deleteCategory(item)} style={styles.deleteCategoryButton}>
+      <Pressable
+        onPress={() => _deleteCategory(item)}
+        style={styles.deleteCategoryButton}
+      >
         <Icon name="delete" type="material" color="#FF6347" />
       </Pressable>
     </View>
@@ -104,16 +117,22 @@ export default function AdminIndex() {
       newBookAuthor.trim() === "" ||
       newBookCategory.trim() === "" ||
       newBookImageUri.trim() === "" ||
-      newBookPrice.trim() === ""
+      newBookPrice.trim() === "" ||
+      newBookDescription.trim() === ""
     ) {
-      Alert.alert("Error", "Please enter book name, author, category, price, and image URI.");
+      Alert.alert(
+        "Error",
+        "Please enter book name, author, category, price, and image URI."
+      );
       return;
     }
     if (newBookCategory === "all books") {
       Alert.alert("Error", "The book must have a specific category.");
       return;
     }
-    const categoryExists = categoryList.some((category) => category.name === newBookCategory);
+    const categoryExists = categoryList.some(
+      (category) => category.name === newBookCategory
+    );
     if (!categoryExists) {
       Alert.alert("Error", "Category does not exist.");
       return;
@@ -125,6 +144,7 @@ export default function AdminIndex() {
         category: newBookCategory,
         price: newBookPrice,
         imageUri: newBookImageUri,
+        description: newBookDescription,
       };
       await addBook(newBook);
       setBooksData((prevBooks) => [...prevBooks, newBook]);
@@ -133,25 +153,30 @@ export default function AdminIndex() {
       setNewBookCategory("");
       setNewBookPrice("");
       setNewBookImageUri("");
+      setNewBookDescription("");
       Alert.alert("Success", "New book added.");
     } catch (error) {
       console.error(error);
       Alert.alert("Error", "Failed to add new book.");
     }
   };
-  const _deleteCategory =async (category) => {
-   try {
-     console.log("Deleting category:", category.name);
-     await deleteCategory(category);
-     const updatedCategories = categoryList.filter((_category) => _category.id !== category.id);
-     const updatedBooks = booksData.filter((book) => book.category !== category.name);
-     setCategoryList(updatedCategories);
-     setBooksData(updatedBooks);
-   } catch (error) {
-    console.error(error);
-   }
+  const _deleteCategory = async (category) => {
+    try {
+      console.log("Deleting category:", category.name);
+      await deleteCategory(category);
+      const updatedCategories = categoryList.filter(
+        (_category) => _category.id !== category.id
+      );
+      const updatedBooks = booksData.filter(
+        (book) => book.category !== category.name
+      );
+      setCategoryList(updatedCategories);
+      setBooksData(updatedBooks);
+    } catch (error) {
+      console.error(error);
+    }
   };
-  const deleteBook = (id) => {
+  const deleteBook = async (id) => {
     Alert.alert("Delete Book", "Are you sure you want to delete this book?", [
       {
         text: "Cancel",
@@ -160,7 +185,7 @@ export default function AdminIndex() {
       {
         text: "Delete",
         onPress: async () => {
-          await delet_BooK(booksData.filter((book) => book.id == id));
+          await delet_BooK(id);
           const updatedBooks = booksData.filter((book) => book.id !== id);
           setBooksData(updatedBooks);
         },
@@ -170,82 +195,93 @@ export default function AdminIndex() {
   return (
     <SafeAreaProvider>
       <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={[styles.input, styles.smallInput]}
-            placeholder="New category name"
-            value={newCategoryName}
-            onChangeText={setNewCategoryName}
-          />
-          <TextInput
-            style={[styles.input, styles.smallInput]}
-            placeholder="Icon"
-            value={newCategoryIcon}
-            onChangeText={setNewCategoryIcon}
-          />
-          <Pressable style={styles.addButton} onPress={addCategory}>
+        <View style={styles.container}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={[styles.input, styles.smallInput]}
+              placeholder="New category name"
+              value={newCategoryName}
+              onChangeText={setNewCategoryName}
+            />
+            <TextInput
+              style={[styles.input, styles.smallInput]}
+              placeholder="Icon"
+              value={newCategoryIcon}
+              onChangeText={setNewCategoryIcon}
+            />
+            <Pressable style={styles.addButton} onPress={addCategory}>
+              <Icon name="add" type="material" color="#2C4E70" />
+              <Text style={styles.buttonText}>Add category</Text>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.container}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={[styles.input, styles.smallInput]}
+              placeholder="New book name"
+              value={newBookName}
+              onChangeText={setNewBookName}
+            />
+            <TextInput
+              style={[styles.input, styles.smallInput]}
+              placeholder="Author"
+              value={newBookAuthor}
+              onChangeText={setNewBookAuthor}
+            />
+            <TextInput
+              style={[styles.input, styles.smallInput]}
+              placeholder="Category"
+              value={newBookCategory}
+              onChangeText={setNewBookCategory}
+            />
+            <TextInput
+              style={[styles.input, styles.smallInput]}
+              placeholder="Price"
+              value={newBookPrice}
+              onChangeText={setNewBookPrice}
+              keyboardType="numeric"
+            />
+            <TextInput
+              style={[styles.input, styles.imageInput]}
+              placeholder="Image URL"
+              value={newBookImageUri}
+              onChangeText={setNewBookImageUri}
+            />
+            <TextInput
+              style={[styles.input, styles.imageInput]}
+              placeholder="Description"
+              value={newBookDescription}
+              onChangeText={setNewBookDescription}
+              multiline
+              numberOfLines={4}
+            />
+          </View>
+          <Pressable style={styles.addButton} onPress={addNewBook}>
             <Icon name="add" type="material" color="#2C4E70" />
-            <Text style={styles.buttonText}>Add category</Text>
+            <Text style={styles.buttonText}>Add book</Text>
           </Pressable>
         </View>
-      </View>
-      <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={[styles.input, styles.smallInput]}
-            placeholder="New book name"
-            value={newBookName}
-            onChangeText={setNewBookName}
-          />
-          <TextInput
-            style={[styles.input, styles.smallInput]}
-            placeholder="Author"
-            value={newBookAuthor}
-            onChangeText={setNewBookAuthor}
-          />
-          <TextInput
-            style={[styles.input, styles.smallInput]}
-            placeholder="Category"
-            value={newBookCategory}
-            onChangeText={setNewBookCategory}
-          />
-          <TextInput
-            style={[styles.input, styles.smallInput]}
-            placeholder="Price"
-            value={newBookPrice}
-            onChangeText={setNewBookPrice}
-            keyboardType="numeric"
-          />
-          <TextInput
-            style={[styles.input, styles.imageInput]}
-            placeholder="Image URL"
-            value={newBookImageUri}
-            onChangeText={setNewBookImageUri}
+        <View style={styles.section}>
+          <Text style={styles.heading}>Categories</Text>
+          <FlatList
+            data={categoryList}
+            renderItem={categoryItem}
+            horizontal={true}
+            // keyExtractor={(item) => item.id.toString()}
           />
         </View>
-        <Pressable style={styles.addButton} onPress={addNewBook}>
-          <Icon name="add" type="material" color="#2C4E70" />
-          <Text style={styles.buttonText}>Add book</Text>
-        </Pressable>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.heading}>Categories</Text>
         <FlatList
-          data={categoryList}
-          renderItem={categoryItem}
-          horizontal={true}
+          contentContainerStyle={styles.flatListContainer}
+          data={booksData.filter(
+            (book) =>
+              book.category === selectedCategory ||
+              selectedCategory === "all books"
+          )}
+          renderItem={renderItem}
           // keyExtractor={(item) => item.id.toString()}
         />
-      </View>
-      <FlatList
-        contentContainerStyle={styles.flatListContainer}
-        data={booksData.filter((book) => book.category === selectedCategory || selectedCategory === "all books")}
-        renderItem={renderItem}
-        // keyExtractor={(item) => item.id.toString()}
-      />
       </ScrollView>
-      
     </SafeAreaProvider>
   );
 }
