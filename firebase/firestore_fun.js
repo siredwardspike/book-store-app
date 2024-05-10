@@ -27,14 +27,12 @@ async function addBook(book) {
 }
 async function delete_BooK(id) {
   await deleteDoc(doc(db, "books", id));
+  const querySnapshot = await getDoc(
+    query(collection(db,"cart"), where("id", "==", book.id))
+  );
+  await deleteDoc(querySnapshot)
 }
-async function addToFav(book, uid) {
-  const favRef = await addDoc(collection(db, "favorites"), {
-    date: Date.now().toString(),
-    book: book,
-    uid: uid,
-  });
-}
+
 async function addToCart(uid, book) {
   const cartRef = collection(db, "cart");
   const querySnapshot = await getDocs(
@@ -105,7 +103,6 @@ async function getCategories() {
 export {
   addBook,
   delete_BooK as delet_BooK,
-  addToFav,
   getBooks,
   addCategory,
   deleteCategory,
