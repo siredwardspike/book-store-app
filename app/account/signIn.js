@@ -16,6 +16,8 @@ export default function SignIn() {
   const { height, width } = useWindowDimensions();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let imageWidth = width > 700 ? width * 0.5 : width ;
+  let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
 
   const handleSignIn = async () => {
     try {
@@ -37,100 +39,76 @@ export default function SignIn() {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignSelf: "center",
-        gap: 20,
-      }}
-    >
-      <View
+    <View style={{flex:1,justifyContent:'center',alignSelf:'center',gap:20}}>
+     
+
+        <View style={{flexDirection:'row-reverse',justifyContent:'space-between',alignItems:'center',borderRadius: 50, 
+      backgroundColor: 'white', borderWidth: 2, width: imageWidth*0.8 , borderColor: '#B3C8CF',padding:5}}>
+      <TextInput
+        placeholder="Enter your email"
+        value={email}
+        onChangeText={setEmail}
+        textAlign='center'
         style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          width: width * 0.8,
-          borderColor: "#B3C8CF",
-          padding: 5,
+          fontSize: imageHeight*imageWidth * 0.0003 , 
+          maxWidth:width * 0.6 ,
+          flex:1,
+          textAlign:'left'
         }}
-      >
-        <TextInput
-          placeholder="Enter your email"
-          value={email}
-          onChangeText={setEmail}
-          textAlign="center"
-          style={{
-            fontSize: height * 0.02,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
-          }}
-        />
-        <Icon name="mail" type="material" color="#B3C8CF" />
+      />
+      
+      <Icon name='mail' type="material" color="#B3C8CF"/>
+      </View>
+      
+      <View style={{flexDirection:'row-reverse',justifyContent:'space-between',alignItems:'center',borderRadius: 50, 
+      backgroundColor: 'white', borderWidth: 2, width: imageWidth*0.8, borderColor: '#B3C8CF',padding:5}}>
+      <TextInput
+        placeholder="Enter your password"
+        value={password}
+        onChangeText={setPassword}
+        textAlign='center'
+        style={{
+          fontSize:imageHeight*imageWidth * 0.0003 , 
+          maxWidth:width * 0.6 ,
+          flex:1,
+          textAlign:'left'
+        }}
+      />
+      
+      <Icon name='lock' type="material" color="#B3C8CF"/>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          width: width * 0.8,
-          borderColor: "#B3C8CF",
-          padding: 5,
-        }}
-      >
-        <TextInput
-          placeholder="Enter your password"
-          value={password}
-          onChangeText={setPassword}
-          textAlign="center"
-          secureTextEntry={true}
+      <Pressable onPress={handleSignIn}>
+        <Text
           style={{
-            fontSize: height * 0.02,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
+            textAlign: "center",
+            borderWidth: 2,
+            borderRadius: 50,
+            borderColor: "#B3C8CF",
+            backgroundColor: "white",
+            padding: 5,
+            fontWeight: "400",
+            color: "#82aab9",
           }}
-        />
-        <Icon name="pin" type="material" color="#B3C8CF" />
-      </View>
+        >
+          Sign In
+        </Text>
+      </Pressable>
 
-      <View style={{ alignSelf: "center", fontSize: height * 0.02 }}>
-        <Pressable onPress={handleSignIn}>
-          <Text
-            style={{
-              textAlign: "center",
-              borderWidth: 2,
-              borderRadius: 50,
-              borderColor: "#B3C8CF",
-              backgroundColor: "white",
-              padding: 5,
-              fontWeight: "400",
-              color: "#82aab9",
-            }}
-          >
-            Sign in
-          </Text>
-        </Pressable>
-
-        <Pressable onPress={handelResetPass}>
+      
+          <Pressable onPress={handelResetPass}>
           <Text style={{ color: "#4D869C", fontWeight: "200" }}>
             Forgot your password ?
           </Text>
-        </Pressable>
-        <Pressable onPress={() => router.replace("/account/signup")}>
-          <Text style={{ color: "#4D869C", fontWeight: "200", padding: 8 }}>
+          </Pressable>
+          <Pressable onPress={() => router.replace("/account/signup")}>
+          <Text style={{ color: "#4D869C", fontWeight: "200" }}>
             Don't have an account ?
           </Text>
-        </Pressable>
-      </View>
+          </Pressable>
+
+     
     </View>
   );
 }
+
