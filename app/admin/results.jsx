@@ -22,7 +22,12 @@ export default function Results() {
   const [books,setBooks]=useState();
   const [searchData, setsearchData] = useState();
   const [search, setSearch] = useState("");
+<<<<<<< HEAD
   const [admin,setAdmin]=useState();
+=======
+  let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
+  let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
+>>>>>>> 8756f081edf119e59eda3f271dd8b87791a92193
 
   const searchElement = (searchText) => {
     setSearch(searchText);
@@ -63,7 +68,7 @@ export default function Results() {
         <View>
           <Text
             style={{
-              fontSize: height * 0.04,
+              fontSize:  imageHeight * imageWidth * 0.002,
               color: "#2C4E70",
               fontWeight: "bold",
             }}
@@ -110,7 +115,7 @@ export default function Results() {
               onChangeText={(t) => searchElement(t.toLowerCase())}
               style={{
                 textAlign: "center",
-                fontSize: height * 0.02,
+                fontSize: imageHeight * imageWidth * 0.001,
                 maxWidth: width * 0.6,
               }}
             ></TextInput>
