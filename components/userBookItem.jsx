@@ -21,7 +21,7 @@ export default function UsrItem({ item }) {
                 <View style={{ flex: 1, }}>
                     <Text style={{ fontWeight: "bold",fontSize: imageHeight*imageWidth*0.0015,color:'#2C4E70'}}>{item.name}</Text>
                     <Text style={{ fontWeight: "400",fontSize: imageHeight*imageWidth*0.001,color:'#2C4E70'}}>{item.category}</Text>
-                    <View style={{flexDirection:"row-reverse",alignItems:'center'}}> 
+                    <View style={{flexDirection:"row-reverse",alignItems:'center',justifyContent:'flex-end'}}> 
                         <Pressable onPress={() => { }} style={{  }}>
                             <Icon name='add' type="material" color="#2C4E70" />
                         </Pressable>
