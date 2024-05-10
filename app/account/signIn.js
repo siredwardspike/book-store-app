@@ -31,7 +31,7 @@ export default function SignIn() {
       await AsyncStorage.setItem("userUID", cred.user.uid);
       router.replace("/home");
     } catch (error) {
-      Alert.alert("Error", "Invalid email or password. Please try again.");
+      Alert.alert("Error", `${error}. Please try again.`);
       console.error("Sign-in error:", error);
     }
   };
