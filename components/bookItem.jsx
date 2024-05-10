@@ -27,7 +27,7 @@ export default function Item({ item, onDeleteBook }) {
         }}
       >
         <Image
-          source={{ uri: item.imageUri }}
+          source={{ uri: item.image }}
           style={{
           width: imageWidth*imageHeight*0.01,
           height: imageHeight*imageWidth*0.015,
