@@ -21,7 +21,7 @@ export default function SignIn() {
   const adminMail = "admin@bookstore.com";
   const adminPass = "12345678";
   const handleSignIn = async () => {
-    if (adminMail == email && adminPass == adminPass) {
+    if (adminMail == email && adminPass == password) {
       await AsyncStorage.setItem("adminEmail", adminMail);
       router.replace("/admin");
       return;
