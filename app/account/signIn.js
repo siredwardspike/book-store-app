@@ -24,6 +24,7 @@ export default function SignIn() {
     if (adminMail == email && adminPass == adminPass) {
       await AsyncStorage.setItem("adminEmail", adminMail);
       router.replace("/admin");
+      return;
     }
     try {
       const cred = await login(email, password);
