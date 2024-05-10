@@ -128,12 +128,7 @@ export default function profile() {
                 aspectRatio: 1,
               }}
             ></Image>
-            <Icon  name="person"
-                type="material"
-                color="#2C4E70"
-                size={100}
-                style={{ margin: 3 }}
-              /> 
+           
             <View
               style={{
                 flexDirection: "row",
