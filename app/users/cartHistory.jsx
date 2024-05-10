@@ -57,9 +57,9 @@ export default function profile() {
     };
 
     return (
-      <View style={{ alignContent: "center", alignItems: "center" }}>
+      <View style={{ alignContent: "center", alignItems: "center" ,padding:50}}>
         <Item item={item} />
-        <View style={{ flexDirection: "row", gap: 15 }}>
+        <View style={{ flexDirection: "row", gap: 15,alignSelf:'flex-start',flex:1 }}>
           <Pressable onPress={() => updateQuantity(item.quantity - 1)}>
             <Icon name="remove" type="material" color="#2C4E70" />
           </Pressable>
@@ -133,7 +133,7 @@ export default function profile() {
         contentContainerStyle={styles.container}
         data={bookData} 
         renderItem={renderItem}
-        numColumns={2}
+        numColumns={1}
         keyExtractor={(item) => item.userId.toString()}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
