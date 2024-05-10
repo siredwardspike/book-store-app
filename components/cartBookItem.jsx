@@ -29,15 +29,7 @@ export default function UsrItem({ item }) {
                         <Text style={{ fontWeight: "400",fontSize: imageHeight*imageWidth*0.0009,color:'#2C4E70'}}>{item.price}$</Text>
                         
                     </View>
-                    <View style={{flexDirection:"row",gap:15}}>
-                    <Pressable onPress={()=>setQuantity(quantity-1)}>
-                        <Icon name="remove" type="material" color="#2C4E70" />
-                        </Pressable>
-                        <Text style={{marginTop:2,color:"#2C4E70"}}>{quantity}</Text>
-                        <Pressable  onPress={()=>setQuantity(quantity+1)}>
-                        <Icon name="add" type="material" color="#2C4E70" />
-                        </Pressable>
-                    </View>
+                   
 
                 </View>
 

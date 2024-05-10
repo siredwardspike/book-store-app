@@ -21,7 +21,7 @@ let books = [
     category: "science",
     price: 120,
     favorite: false,
-    quantity:0
+    quantity: 1,
   },
   {
     userId: 0,
@@ -30,7 +30,7 @@ let books = [
     category: "Fantasy",
     price: 15,
     favorite: false,
-    quantity:0
+    quantity: 1,
   },
   {
     userId: 2,
@@ -39,7 +39,7 @@ let books = [
     category: "coding",
     price: 25,
     favorite: false,
-    quantity:0
+    quantity: 1,
   },
 ];
 
@@ -47,8 +47,30 @@ export default function profile() {
   const { height, width, fontScale } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
+  const [bookData, setBookData] = useState([...books]); 
 
-  const renderItem = ({ item }) => <Item item={item} />;
+  const renderItem = ({ item, index }) => {
+    const updateQuantity = (newQuantity) => {
+      const updatedBooks = [...bookData]; 
+      updatedBooks[index].quantity = newQuantity; 
+      setBookData(updatedBooks); 
+    };
+
+    return (
+      <View style={{ alignContent: "center", alignItems: "center" }}>
+        <Item item={item} />
+        <View style={{ flexDirection: "row", gap: 13 }}>
+          <Pressable onPress={() => updateQuantity(item.quantity - 1)}>
+            <Icon name="remove" type="material" color="#2C4E70" />
+          </Pressable>
+          <Text style={{ marginTop: 2, color: "#2C4E70" }}>{item.quantity}</Text>
+          <Pressable onPress={() => updateQuantity(item.quantity + 1)}>
+            <Icon name="add" type="material" color="#2C4E70" />
+          </Pressable>
+        </View>
+      </View>
+    );
+  };
 
   return (
     <SafeAreaProvider>
@@ -109,7 +131,7 @@ export default function profile() {
       </View>
       <FlatList
         contentContainerStyle={styles.container}
-        data={books}
+        data={bookData} 
         renderItem={renderItem}
         numColumns={2}
         keyExtractor={(item) => item.userId.toString()}
