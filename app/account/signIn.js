@@ -127,7 +127,7 @@ export default function SignIn() {
         </Pressable>
         <Pressable onPress={() => router.replace("/account/signup")}>
           <Text style={{ color: "#4D869C", fontWeight: "200", padding: 8 }}>
-            Don't have account ?
+            Don't have an account ?
           </Text>
         </Pressable>
       </View>
