@@ -7,7 +7,8 @@ import SignUp from "./account/signup";
 export default function Page() {
   return (
       
-     <TabLayout></TabLayout>
+    //  <TabLayout></TabLayout>
+     <AdminIndex></AdminIndex>
    //<View></View>
   );
 }
