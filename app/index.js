@@ -6,9 +6,9 @@ import SignUp from "./account/signup";
 import Index from "./home";
 export default function Page() {
   return (
-     <Index></Index>
+    //  <Index></Index>
     //<View></View>
-   // <SignIn></SignIn>
+   <SignIn></SignIn>
   );
 }
 
