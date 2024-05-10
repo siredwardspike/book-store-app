@@ -7,13 +7,13 @@ import {
   Pressable,
   useWindowDimensions,
 } from "react-native";
-import Item from "../../../components/userBookItem";
+import Item from "../../components/userBookItem";
 import Icon from "react-native-elements/dist/icons/Icon";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { router, Link } from "expo-router";
-import AppHeader from "../../../components/AppHeader";
+import AppHeader from "../../components/AppHeader";
 import { collection, onSnapshot } from "firebase/firestore";
-import { db } from "../../../firebase/config";
+import { db } from "../../firebase/config";
 let color = "#ccc";
 
 // let books = [
