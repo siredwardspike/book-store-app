@@ -33,14 +33,14 @@ async function register(email, password, userName, _imageurl) {
   const favDocRef = await addDoc(favRef, {});
   //   await deleteDoc(favDocRef);
 
-  return { cartDocRef, favDocRef };
+  return cred;
 }
 
 async function login(email, password) {
   const cred = await signInWithEmailAndPassword(auth, email, password);
-  if (!cred.user.emailVerified) {
-    throw new Error("not emailVerified");
-  }
+  // if (!cred.user.emailVerified) {
+  //   throw new Error("not emailVerified");
+  // }
   return cred;
 }
 

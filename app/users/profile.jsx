@@ -36,7 +36,7 @@ export default function profile() {
         </Text>
 
         <View style={{ flexDirection: "row" }}>
-          <Link href="/" asChild>
+          <Link href="/user/(tabs)/index" asChild>
             <Pressable
               style={{
                 marginHorizontal: 5,

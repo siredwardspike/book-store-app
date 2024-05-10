@@ -9,12 +9,11 @@ import {
   Alert,
 } from "react-native";
 import Icon from "react-native-elements/dist/icons/Icon";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { login } from "../../firebase/auth";
 import { router } from "expo-router";
 
 export default function SignIn() {
-  const { height, width, fontScale } = useWindowDimensions();
+  const { height, width } = useWindowDimensions();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,6 +21,7 @@ export default function SignIn() {
     try {
       const cred = await login(email, password);
       await AsyncStorage.setItem("userUID", cred.user.uid);
+      router.replace("/home");
     } catch (error) {
       Alert.alert("Error", "Invalid email or password. Please try again.");
       console.error("Sign-in error:", error);
@@ -52,6 +52,8 @@ export default function SignIn() {
       >
         <TextInput
           placeholder="Enter your email"
+          value={email}
+          onChangeText={setEmail}
           textAlign="center"
           style={{
             fontSize: height * 0.02,
@@ -59,7 +61,7 @@ export default function SignIn() {
             flex: 1,
             textAlign: "left",
           }}
-        ></TextInput>
+        />
         <Icon name="mail" type="material" color="#B3C8CF" />
       </View>
 
@@ -78,6 +80,8 @@ export default function SignIn() {
       >
         <TextInput
           placeholder="Enter your password"
+          value={password}
+          onChangeText={setPassword}
           textAlign="center"
           secureTextEntry={true}
           style={{
@@ -86,12 +90,12 @@ export default function SignIn() {
             flex: 1,
             textAlign: "left",
           }}
-        ></TextInput>
+        />
         <Icon name="pin" type="material" color="#B3C8CF" />
       </View>
 
       <View style={{ alignSelf: "center", fontSize: height * 0.02 }}>
-        <Pressable>
+        <Pressable onPress={handleSignIn}>
           <Text
             style={{
               textAlign: "center",
@@ -113,12 +117,12 @@ export default function SignIn() {
             Forgot your password ?
           </Text>
         </Pressable>
+        <Pressable onPress={() => router.replace("/account/signup")}>
+          <Text style={{ color: "#4D869C", fontWeight: "200", padding: 8 }}>
+            Don't have account ?
+          </Text>
+        </Pressable>
       </View>
-      <Pressable onPress={() => router.replace("/account/signup")}>
-        <Text style={{ color: "#4D869C", fontWeight: "200", padding: 8 }}>
-          Don't have account ?
-        </Text>
-      </Pressable>
     </View>
   );
 }

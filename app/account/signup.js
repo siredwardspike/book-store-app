@@ -1,17 +1,17 @@
+import { router } from "expo-router";
+import React, { useState } from "react";
 import {
   View,
   Text,
-  Image,
-  useWindowDimensions,
-  Pressable,
   TextInput,
+  Pressable,
+  useWindowDimensions,
 } from "react-native";
-import React from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
-import { router } from "expo-router";
+import { register } from "../../firebase/auth";
 
-export default function signUp() {
-  const { height, width, fontScale } = useWindowDimensions();
+export default function SignUp() {
+  const { height, width } = useWindowDimensions();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,12 +20,7 @@ export default function signUp() {
 
   const handleSignUp = async () => {
     try {
-      const userInfo = {
-        name,
-        email,
-        password,
-        profileUrl,
-      };
+      const userInfo = { name, email, password, profileUrl };
 
       const cred = await register(
         userInfo.email,
@@ -33,6 +28,7 @@ export default function signUp() {
         userInfo.name,
         userInfo.profileUrl
       );
+
       router.replace("/account/signIn");
     } catch (error) {
       console.error(error);
@@ -40,117 +36,90 @@ export default function signUp() {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignSelf: "center",
-        gap: 20,
-      }}
-    >
-      <View
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <TextInput
+        placeholder="Enter your name"
+        value={name}
+        onChangeText={setName}
         style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
+          fontSize: height * 0.02,
+          maxWidth: width * 0.8,
           borderRadius: 50,
           backgroundColor: "white",
           borderWidth: 2,
-          width: width * 0.8,
           borderColor: "#B3C8CF",
           padding: 5,
+          marginBottom: 10,
         }}
-      >
-        <TextInput
-          placeholder="Enter your email"
-          textAlign="center"
-          style={{
-            fontSize: height * 0.02,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
-          }}
-        ></TextInput>
-        <Icon name="mail" type="material" color="#B3C8CF" />
-      </View>
-
-      <View
+      />
+      <TextInput
+        placeholder="Enter your email"
+        value={email}
+        onChangeText={setEmail}
         style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
+          fontSize: height * 0.02,
+          maxWidth: width * 0.8,
           borderRadius: 50,
           backgroundColor: "white",
           borderWidth: 2,
-          width: width * 0.8,
           borderColor: "#B3C8CF",
           padding: 5,
+          marginBottom: 10,
         }}
-      >
-        <TextInput
-          placeholder="Enter your password"
-          textAlign="center"
-          secureTextEntry={true}
-          style={{
-            fontSize: height * 0.02,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
-          }}
-        ></TextInput>
-        <Icon name="pin" type="material" color="#B3C8CF" />
-      </View>
-
-      <View
+      />
+      <TextInput
+        placeholder="Enter your password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry={true}
         style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
+          fontSize: height * 0.02,
+          maxWidth: width * 0.8,
           borderRadius: 50,
           backgroundColor: "white",
           borderWidth: 2,
-          width: width * 0.8,
           borderColor: "#B3C8CF",
           padding: 5,
+          marginBottom: 10,
         }}
-      >
-        <TextInput
-          placeholder="Enter your profile url"
-          textAlign="center"
+      />
+      <TextInput
+        placeholder="Enter your profile url"
+        value={profileUrl}
+        onChangeText={setProfileUrl}
+        style={{
+          fontSize: height * 0.02,
+          maxWidth: width * 0.8,
+          borderRadius: 50,
+          backgroundColor: "white",
+          borderWidth: 2,
+          borderColor: "#B3C8CF",
+          padding: 5,
+          marginBottom: 10,
+        }}
+      />
+      <Pressable onPress={handleSignUp}>
+        <Text
           style={{
-            fontSize: height * 0.02,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
+            textAlign: "center",
+            borderWidth: 2,
+            borderRadius: 50,
+            borderColor: "#B3C8CF",
+            backgroundColor: "white",
+            padding: 5,
+            fontWeight: "400",
+            color: "#82aab9",
           }}
-        ></TextInput>
-        <Icon name="image" type="material" color="#B3C8CF" />
-      </View>
+        >
+          Sign Up
+        </Text>
+      </Pressable>
 
-      <View style={{ alignSelf: "center", fontSize: height * 0.02 }}>
-        <Pressable>
-          <Text
-            style={{
-              textAlign: "center",
-              borderWidth: 2,
-              borderRadius: 50,
-              borderColor: "#B3C8CF",
-              backgroundColor: "white",
-              padding: 5,
-              fontWeight: "400",
-              color: "#82aab9",
-            }}
-          >
-            Sign Up
-          </Text>
-        </Pressable>
-
-        <Pressable onPress={() => router.replace("/account/signIn")}>
-          <Text style={{ color: "#4D869C", fontWeight: "200" }}>
-            Already registerd?
-          </Text>
-        </Pressable>
-      </View>
+      <Pressable onPress={() => router.replace("/account/signIn")}>
+        <Text style={{ color: "#4D869C", fontWeight: "200" }}>
+          Already registerd?
+        </Text>
+      </Pressable>
     </View>
   );
 }
