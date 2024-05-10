@@ -59,15 +59,20 @@ export default function profile() {
       return (
         <View style={{ alignContent: "center", alignItems: "center" }}>
           <Item item={item} />
-          <View style={{ flexDirection: "row", gap: 13 }}>
-            <Pressable onPress={() => updateQuantity(item.quantity - 1)}>
-              <Icon name="remove" type="material" color="#2C4E70" />
-            </Pressable>
-            <Text style={{ marginTop: 2, color: "#2C4E70" }}>{item.quantity}</Text>
-            <Pressable onPress={() => updateQuantity(item.quantity + 1)}>
-              <Icon name="add" type="material" color="#2C4E70" />
-            </Pressable>
-          </View>
+          <View style={{padding:10}}>
+            <View style={{ flexDirection: "row", gap: 13 }}>
+              <Pressable onPress={() => updateQuantity(item.quantity - 1)}>
+                <Icon name="remove" type="material" color="#2C4E70" />
+              </Pressable>
+              <Text style={{ marginTop: 2, color: "#2C4E70" }}>{item.quantity}</Text>
+              <Pressable onPress={() => updateQuantity(item.quantity + 1)}>
+                <Icon name="add" type="material" color="#2C4E70" />
+              </Pressable >
+              <Pressable onPress={() => updateQuantity(0)}>
+              <Icon name="delete" type="material" color="#2C4E70" />
+              </Pressable>
+            </View>
+          </View> 
         </View>
       );
   };
