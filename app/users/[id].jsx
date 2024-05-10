@@ -105,7 +105,7 @@ export default function Book() {
                   style={{
                     color: "#2C4E70",
                     fontWeight: "300",
-                    fontSize: imageHeight * imageWidth * 0.001,
+                    fontSize: imageHeight * imageWidth * 0.0012,
                   }}
                 >
                   {book.author}{" "}
@@ -124,7 +124,7 @@ export default function Book() {
                     name="star"
                     type="material"
                     color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.001}
+                    size={imageHeight * imageWidth * 0.0015}
                   />
                 </Pressable>
                 <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
@@ -132,7 +132,7 @@ export default function Book() {
                     name="star"
                     type="material"
                     color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.001}
+                    size={imageHeight * imageWidth * 0.0015}
                   />
                 </Pressable>
                 <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
@@ -140,7 +140,7 @@ export default function Book() {
                     name="star"
                     type="material"
                     color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.001}
+                    size={imageHeight * imageWidth * 0.0015}
                   />
                 </Pressable>
                 <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
@@ -148,7 +148,7 @@ export default function Book() {
                     name="star"
                     type="material"
                     color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.001}
+                    size={imageHeight * imageWidth * 0.0015}
                   />
                 </Pressable>
                 <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
@@ -156,7 +156,7 @@ export default function Book() {
                     name="star"
                     type="material"
                     color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.001}
+                    size={imageHeight * imageWidth * 0.0015}
                   />
                 </Pressable>
               </View>
@@ -174,7 +174,7 @@ export default function Book() {
                     color: "#2C4E70",
                     fontWeight: "700",
                     alignSelf: "center",
-                    fontSize: imageHeight * imageWidth * 0.0006,
+                    fontSize: imageHeight * imageWidth * 0.0012,
                   }}
                 >
                   4.5
@@ -184,7 +184,7 @@ export default function Book() {
                     name="favorite"
                     type="material"
                     color={color}
-                    size={imageHeight * imageWidth * 0.0007}
+                    size={imageHeight * imageWidth * 0.0012}
                   />
                 </Pressable>
               </View>
