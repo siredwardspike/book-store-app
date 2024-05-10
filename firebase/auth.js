@@ -48,4 +48,4 @@ async function resetPass(email) {
   await sendPasswordResetEmail(auth, email);
 }
 
-export { register, login, resetPass };
+export { register, login, resetPass};
