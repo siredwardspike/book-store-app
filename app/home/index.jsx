@@ -14,6 +14,7 @@ import { router, Link } from "expo-router";
 import AppHeader from "../../components/AppHeader";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 let color = "#ccc";
 
 // let books = [
@@ -54,6 +55,7 @@ export default function Index() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all books");
   const [books, setBooks] = useState([]);
+  const [admin, setAdmin] =useState();
   const { height, width } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
@@ -79,6 +81,7 @@ export default function Index() {
     return unsubscribe;
   };
 
+  
   useEffect(() => {
     fetchBooks();
     fetchCategories();
@@ -113,7 +116,7 @@ export default function Index() {
       </View>
     </Pressable>
   );
-
+ 
   return (
     <SafeAreaProvider style={{ flex: 1 }}>
       <AppHeader></AppHeader>

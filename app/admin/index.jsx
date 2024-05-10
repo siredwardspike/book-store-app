@@ -21,6 +21,8 @@ import {
   deleteCategory,
 } from "../../firebase/firestore_fun"; // Rename addCategory import
 import { router } from "expo-router";
+import Index from "../home";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function AdminIndex() {
   const [categoryList, setCategoryList] = useState([]);
@@ -34,6 +36,7 @@ export default function AdminIndex() {
   const [newBookCategory, setNewBookCategory] = useState("");
   const [newBookImageUri, setNewBookImageUri] = useState("");
   const [newBookPrice, setNewBookPrice] = useState("");
+  const [admin,setAdmin] = useState();
   const fetchBooks = async () => {
     try {
       const books = await getBooks();
@@ -42,6 +45,12 @@ export default function AdminIndex() {
       console.error(error);
     }
   };
+  const fetchAdmin=async()=>{
+    const tempAdmin = await AsyncStorage.getItem("adminEmail");
+    if (tempAdmin) {
+      setAdmin(tempAdmin);
+    }
+  }
   const fetchCategories = async () => {
     try {
       const categories = await getCategories();
@@ -74,6 +83,7 @@ export default function AdminIndex() {
   useEffect(() => {
     fetchBooks();
     fetchCategories();
+    fetchAdmin();
   }, []);
   const renderItem = ({ item }) => (
     <Item item={item} onDeleteBook={deleteBook} />
@@ -112,6 +122,7 @@ export default function AdminIndex() {
       </Pressable>
     </View>
   );
+  
   const addNewBook = async () => {
     if (
       newBookName.trim() === "" ||
@@ -193,10 +204,20 @@ export default function AdminIndex() {
       },
     ]);
   };
+  if(!admin){
+    return<Text>Admin not define</Text>
+  }
   return (
     <SafeAreaProvider>
       <ScrollView>
         <View style={styles.container}>
+          <Pressable onPress={async()=>{
+            await AsyncStorage.removeItem("adminEmail")
+            router.replace(`/account/signIn`);
+          }}>
+
+          <Icon name="logout" />
+          </Pressable>
         <Pressable
             onPress={() => {
               

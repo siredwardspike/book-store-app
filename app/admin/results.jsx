@@ -12,18 +12,17 @@ import Item from "../../components/bookItem";
 import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import { router, Link } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getBooks } from "../../firebase/firestore_fun";
 
 export default function Results() {
   const renderItem = ({ item }) => <Item item={item} />;
 
   const { height, width, fontScale } = useWindowDimensions();
-  let books = [
-    { id: 0, name: "Magic Book 1", author: "Segara", category: "scientific" },
-    { id: 1, name: "Hello Book 2", author: "Segara", category: "Fantasy" },
-    { id: 2, name: "jo Book 3", author: "Segara", category: "coding" },
-  ];
-  const [searchData, setsearchData] = useState(books);
+  const [books,setBooks]=useState();
+  const [searchData, setsearchData] = useState();
   const [search, setSearch] = useState("");
+  const [admin,setAdmin]=useState();
 
   const searchElement = (searchText) => {
     setSearch(searchText);
@@ -37,7 +36,27 @@ export default function Results() {
       setsearchData(filteredData);
     }
   };
-
+  const fetchAdmin=async()=>{
+    
+    const tempAdmin = await AsyncStorage.getItem("adminEmail");
+    if (tempAdmin) {
+      setAdmin(tempAdmin);
+    }
+  }
+  const fetchBooks=async()=>{
+    const tempBooks=await getBooks();
+    if(tempBooks){
+      setBooks(tempBooks);
+      setsearchData(tempBooks);
+    }
+  }
+  useEffect(()=>{
+    fetchAdmin();
+    fetchBooks();
+  },[])
+  if(!admin){
+    return<Text>Admin not define</Text>
+  }
   return (
     <SafeAreaProvider>
       <View style={{ padding: 5, backgroundColor: "white", gap: 5 }}>
