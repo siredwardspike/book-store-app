@@ -8,12 +8,14 @@ import {
   Pressable,
   ScrollView,
   FlatList,
+  Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import BookHeader from "../../components/bookHeader";
-import { getBook } from "../../firebase/firestore_fun";
+import { addToCart, getBook } from "../../firebase/firestore_fun";
 import { ActivityIndicator } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // let books = [
 //   {
@@ -57,7 +59,14 @@ export default function Book() {
     console.error(error);
    }
   }
-  
+  const handelAddToCart=async()=>{
+    try{
+      const uid = await AsyncStorage.getItem("userUID");
+      await addToCart(uid,book);
+    }catch (error){
+      Alert.alert(error);
+    }
+  }
   useEffect(() => {
     fetchBook();
   }, []);
@@ -218,7 +227,7 @@ export default function Book() {
                   {book.price}
                 </Text>
 
-                <Pressable>
+                <Pressable onPress={handelAddToCart}>
                   <Icon
                     name="add"
                     type="material"

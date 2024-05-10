@@ -25,13 +25,7 @@ async function register(email, password, userName, _imageurl) {
     uid: cred.user.uid,
   });
 
-  const cartRef = collection(db, `users/${cred.user.uid}/cart`);
-
-  const cartDocRef = await addDoc(cartRef, {});
-  //   await deleteDoc(cartDocRef);
-  const favRef = collection(db, `users/${cred.user.uid}/fav`);
-  const favDocRef = await addDoc(favRef, {});
-  //   await deleteDoc(favDocRef);
+  
 
   return cred;
 }
