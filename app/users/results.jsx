@@ -12,6 +12,7 @@ import Item from "../../components/userBookItem";
 import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import { router, Link } from "expo-router";
+import { getBooks } from "../../firebase/firestore_fun";
 
 let books = [
   {
@@ -47,7 +48,7 @@ export default function results() {
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
 
-  const [searchData, setsearchData] = useState(books);
+  const [searchData, setsearchData] = useState();
   const [search, setSearch] = useState("");
 
   const searchElement = (searchText) => {
@@ -62,7 +63,17 @@ export default function results() {
       setsearchData(filteredData);
     }
   };
-
+  const fetchBooks=async()=>{
+    try {
+      const tempBooks=await getBooks();
+      setsearchData(tempBooks);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(()=>{
+    fetchBooks();
+  },[])
   return (
     <SafeAreaProvider>
       <View style={{ padding: 5, backgroundColor: "white", gap: 5 }}>
@@ -128,10 +139,9 @@ export default function results() {
 
       <FlatList
         contentContainerStyle={styles.container}
-        data={search === "" ? books : searchData}
+        data={searchData}
         renderItem={renderItem}
         numColumns={2}
-        keyExtractor={(item) => item.id.toString()}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       />
