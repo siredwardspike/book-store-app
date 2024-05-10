@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import AdminIndex from "./admin";
-import Results from "./admin/(tabs)/results";
+import Results from "./admin/results";
 import SignIn from "./account/signIn";
 import SignUp from "./account/signup";
 import Index from "./home";
