@@ -151,7 +151,6 @@ export default function Index() {
               data={item.data}
               renderItem={item.key === "Categories" ? categoryItem : renderItem}
               horizontal={item.key !== ""}
-              keyExtractor={(item) => item.id.toString()}
               numColumns={item.key === "" ? 2 : 0}
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}
