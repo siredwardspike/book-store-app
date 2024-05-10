@@ -30,9 +30,9 @@ export default function Results() {
     setSearch(searchText);
 
     if (searchText === "") {
-      setsearchData(books);
+     fetchBooks();
     } else {
-      const filteredData = books.filter((element) =>
+      const filteredData = searchData.filter((element) =>
         element.name.toLowerCase().includes(searchText)
       );
       setsearchData(filteredData);
