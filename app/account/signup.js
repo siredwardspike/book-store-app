@@ -12,6 +12,9 @@ import { register } from "../../firebase/auth";
 
 export default function SignUp() {
   const { height, width } = useWindowDimensions();
+  let imageWidth = width > 700 ? width * 0.5 : width ;
+  let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
+
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,68 +39,79 @@ export default function SignUp() {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View style={{flex:1,justifyContent:'center',alignSelf:'center',gap:20}}>
+      <View style={{flexDirection:'row-reverse',justifyContent:'space-between',alignItems:'center',borderRadius: 50, 
+      backgroundColor: 'white', borderWidth: 2, width: imageWidth *0.8, borderColor: '#B3C8CF',padding:5}}>
       <TextInput
         placeholder="Enter your name"
         value={name}
         onChangeText={setName}
+        textAlign='center'
         style={{
-          fontSize: height * 0.02,
-          maxWidth: width * 0.8,
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          borderColor: "#B3C8CF",
-          padding: 5,
-          marginBottom: 10,
+          fontSize:imageHeight*imageWidth * 0.0003 , 
+          maxWidth:width * 0.6 ,
+          flex:1,
+          textAlign:'left'
         }}
       />
+      
+      <Icon name='badge' type="material" color="#B3C8CF"/>
+      </View>
+
+        <View style={{flexDirection:'row-reverse',justifyContent:'space-between',alignItems:'center',borderRadius: 50, 
+      backgroundColor: 'white', borderWidth: 2, width: imageWidth*0.8 , borderColor: '#B3C8CF',padding:5}}>
       <TextInput
         placeholder="Enter your email"
         value={email}
         onChangeText={setEmail}
+        textAlign='center'
         style={{
-          fontSize: height * 0.02,
-          maxWidth: width * 0.8,
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          borderColor: "#B3C8CF",
-          padding: 5,
-          marginBottom: 10,
+          fontSize: imageHeight*imageWidth * 0.0003 , 
+          maxWidth:width * 0.6 ,
+          flex:1,
+          textAlign:'left'
         }}
       />
+      
+      <Icon name='mail' type="material" color="#B3C8CF"/>
+      </View>
+      
+      <View style={{flexDirection:'row-reverse',justifyContent:'space-between',alignItems:'center',borderRadius: 50, 
+      backgroundColor: 'white', borderWidth: 2, width: imageWidth*0.8, borderColor: '#B3C8CF',padding:5}}>
       <TextInput
         placeholder="Enter your password"
         value={password}
         onChangeText={setPassword}
+        textAlign='center'
         secureTextEntry={true}
         style={{
-          fontSize: height * 0.02,
-          maxWidth: width * 0.8,
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          borderColor: "#B3C8CF",
-          padding: 5,
-          marginBottom: 10,
+          fontSize: imageHeight*imageWidth * 0.0003 , 
+          maxWidth:width * 0.6 ,
+          flex:1,
+          textAlign:'left'
         }}
       />
+      
+      <Icon name='lock' type="material" color="#B3C8CF"/>
+      </View>
+
+      <View style={{flexDirection:'row-reverse',justifyContent:'space-between',alignItems:'center',borderRadius: 50, 
+      backgroundColor: 'white', borderWidth: 2, width: imageWidth*0.8, borderColor: '#B3C8CF',padding:5}}>
       <TextInput
-        placeholder="Enter your profile url"
+        placeholder="Enter your profile link"
         value={profileUrl}
         onChangeText={setProfileUrl}
+        textAlign='center'
         style={{
-          fontSize: height * 0.02,
-          maxWidth: width * 0.8,
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          borderColor: "#B3C8CF",
-          padding: 5,
-          marginBottom: 10,
+          fontSize:imageHeight*imageWidth * 0.0003 , 
+          maxWidth:width * 0.6 ,
+          flex:1,
+          textAlign:'left'
         }}
       />
+      
+      <Icon name='image' type="material" color="#B3C8CF"/>
+      </View>
       <Pressable onPress={handleSignUp}>
         <Text
           style={{

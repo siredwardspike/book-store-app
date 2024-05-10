@@ -60,7 +60,7 @@ export default function Results() {
             justifyContent: "space-around",
           }}
         >
-          <Link href="/" asChild>
+          <Link href="/admin" asChild>
             <Pressable
               style={{
                 borderWidth: 2,

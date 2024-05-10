@@ -27,6 +27,9 @@ export default function profile() {
       setUser(_user.data());
     }
   }
+  const handelChangePass = async()=>{
+    
+  }
   const handelSignOut=async()=>{
    try {
      await signOut(auth);
@@ -125,7 +128,12 @@ export default function profile() {
                 aspectRatio: 1,
               }}
             ></Image>
-
+            <Icon  name="person"
+                type="material"
+                color="#2C4E70"
+                size={100}
+                style={{ margin: 3 }}
+              /> 
             <View
               style={{
                 flexDirection: "row",
@@ -224,7 +232,7 @@ export default function profile() {
               />
             </Pressable>
 
-            <Pressable
+            <Pressable onPress={handelChangePass}
               style={{ flexDirection: "row-reverse", alignItems: "center" }}
             >
               <Text
