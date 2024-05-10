@@ -151,7 +151,10 @@ export default function Index() {
               data={item.data}
               renderItem={item.key === "Categories" ? categoryItem : renderItem}
               horizontal={item.key !== ""}
+<<<<<<< HEAD:app/home/index.jsx
               
+=======
+>>>>>>> c73f954f70d79c0e44e6a438fe42c4cbc9b552af:app/users/(tabs)/index.jsx
               numColumns={item.key === "" ? 2 : 0}
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}

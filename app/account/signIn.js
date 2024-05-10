@@ -92,7 +92,11 @@ export default function SignIn() {
       </View>
 
       <View style={{ alignSelf: "center", fontSize: height * 0.02 }}>
+<<<<<<< HEAD
         <Pressable onPress={handleSignIn}>
+=======
+        <Pressable>
+>>>>>>> c73f954f70d79c0e44e6a438fe42c4cbc9b552af
           <Text
             style={{
               textAlign: "center",
@@ -111,10 +115,22 @@ export default function SignIn() {
 
         <Pressable>
           <Text style={{ color: "#4D869C", fontWeight: "200" }}>
+<<<<<<< HEAD
             Forgot your password?
           </Text>
         </Pressable>
       </View>
+=======
+            Forgot your password ?
+          </Text>
+        </Pressable>
+      </View>
+      <Pressable onPress={() => router.replace("/account/signup")}>
+        <Text style={{ color: "#4D869C", fontWeight: "200", padding: 8 }}>
+          Don't have account ?
+        </Text>
+      </Pressable>
+>>>>>>> c73f954f70d79c0e44e6a438fe42c4cbc9b552af
     </View>
   );
 }
