@@ -14,32 +14,7 @@ import Icon from "react-native-elements/dist/icons/Icon";
 import { router, Link } from "expo-router";
 import { getBooks } from "../../firebase/firestore_fun";
 
-let books = [
-  {
-    id: 0,
-    name: "ALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
-    author: "Segara",
-    category: "science",
-    price: 120,
-    favorite: false,
-  },
-  {
-    id: 1,
-    name: "book2",
-    author: "Segara",
-    category: "Fantasy",
-    price: 15,
-    favorite: false,
-  },
-  {
-    id: 2,
-    name: "book3",
-    author: "Segara",
-    category: "coding",
-    price: 25,
-    favorite: false,
-  },
-];
+
 
 export default function results() {
   const renderItem = ({ item }) => <Item item={item} />;
@@ -55,9 +30,9 @@ export default function results() {
     setSearch(searchText);
 
     if (searchText === "") {
-      setsearchData(books);
+      fetchBooks();
     } else {
-      const filteredData = books.filter((element) =>
+      const filteredData = searchData.filter((element) =>
         element.name.toLowerCase().includes(searchText)
       );
       setsearchData(filteredData);

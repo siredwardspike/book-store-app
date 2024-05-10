@@ -128,7 +128,6 @@ export default function profile() {
                 aspectRatio: 1,
               }}
             ></Image>
-           
             <View
               style={{
                 flexDirection: "row",
