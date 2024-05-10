@@ -57,9 +57,9 @@ export default function AdminIndex() {
   }
   const fetchCategories = async () => {
     try {
-      const categories = await getCategories();
-      setCategoryList(categories);
-      categories.sort((a, b) => a.name.localeCompare(b.name));
+      const _categories = await getCategories();
+      _categories.sort((a, b) => a.name.localeCompare(b.name));
+      setCategoryList(_categories);
       console.log(categoryList);
     } catch (error) {
       console.error(error);

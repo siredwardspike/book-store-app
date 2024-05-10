@@ -21,16 +21,17 @@ export default function SignIn() {
   const adminMail = "admin@bookstore.com";
   const adminPass = "12345678";
   const handleSignIn = async () => {
-    if (adminMail == email && adminPass == adminPass) {
+    if (adminMail == email && adminPass == password) {
       await AsyncStorage.setItem("adminEmail", adminMail);
       router.replace("/admin");
+      return;
     }
     try {
       const cred = await login(email, password);
       await AsyncStorage.setItem("userUID", cred.user.uid);
       router.replace("/home");
     } catch (error) {
-      Alert.alert("Error", "Invalid email or password. Please try again.");
+      Alert.alert("Error", `${error}. Please try again.`);
       console.error("Sign-in error:", error);
     }
   };
