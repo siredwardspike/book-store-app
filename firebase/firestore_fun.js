@@ -53,6 +53,12 @@ async function addToCart(uid, book) {
     category: book.category,
     uid: uid,
   });
+  await updateDoc(BookRef,{
+    docId:BookRef.id
+  })
+}
+async function deleteFromCart(id){
+  await deleteDoc(doc(db, "cart", id));
 }
 async function getCarts(uid){
   const cartRef = collection(db, "cart");
@@ -84,7 +90,7 @@ async function addCategory(category) {
 }
 async function deleteCategory(category) {
   await deleteDoc(doc(db, "categories", category.id));
-  const q = query(collection(db, "books"), where("category", "==", category.name));
+  const q = query(collection(db, "books"), ("category", "==", category.name));
   const snapshot = await getDocs(q);
   snapshot.forEach(async (doc) => {
     await deleteDoc(doc.ref);
@@ -106,5 +112,6 @@ export {
   getCategories,
   getBook,
   addToCart,
-  getCarts
+  getCarts,
+  deleteFromCart
 };

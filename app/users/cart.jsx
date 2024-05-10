@@ -13,7 +13,7 @@ import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import { router, Link } from "expo-router";
 import { Try } from "expo-router/build/views/Try";
-import { getCarts } from "../../firebase/firestore_fun";
+import { deleteFromCart, getCarts } from "../../firebase/firestore_fun";
 
 
 export default function profile() {
@@ -26,6 +26,14 @@ export default function profile() {
     try{
       const _bookData = await getCarts();
       setBookData(_bookData);
+    }catch(error){
+      console.error(error);
+    }
+  }
+  const handeldeletitem=async(id)=>{
+    try{
+      await deleteFromCart(id);
+      await fetchBooksinCart();
     }catch(error){
       console.error(error);
     }
@@ -46,7 +54,7 @@ export default function profile() {
           <View style={{ padding: 10 }}>
             <View style={{ flexDirection: "row", gap: 13 }}>
              
-              <Pressable onPress={() => updateQuantity(0)}>
+              <Pressable onPress={()=>handeldeletitem(item.docId)}>
                 <Icon name="delete" type="material" color="#2C4E70" />
               </Pressable>
             </View>
