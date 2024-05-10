@@ -50,11 +50,13 @@ export default function UsrItem({ item }) {
               fontWeight: "bold",
               fontSize: imageHeight * imageWidth * 0.0015,
               color: "#2C4E70",
+              
             }}
+            numberOfLines={2}
           >
             {item.name}
           </Text>
-          <View style={{alignContent:"center",alignItems:"center"}}>
+          {/* <View style={{alignContent:"center",alignItems:"center",width:0,height:0}}>
             <Text
               style={{
                 fontWeight: "400",
@@ -64,7 +66,7 @@ export default function UsrItem({ item }) {
             >
               {item.category}
             </Text>
-            <View style={{ flexDirection: "row-reverse", alignItems: "center" }}>
+            <View style={{ flexDirection: "row-reverse", alignItems: "center" ,width:0,height:0}}>
               <Pressable onPress={() => { }} style={{}}>
                 <Icon name="add" type="material" color="#2C4E70" />
               </Pressable>
@@ -79,7 +81,7 @@ export default function UsrItem({ item }) {
               </Text>
             </View>
 
-          </View>
+          </View> */}
         </View>
       </View>
     </Pressable>
