@@ -16,7 +16,7 @@ import { router, Link } from "expo-router";
 let books = [
   {
     id: 0,
-    name: "book1",
+    name: "ALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
     author: "Segara",
     category: "science",
     price: 120,

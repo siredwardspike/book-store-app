@@ -37,6 +37,7 @@ export default function Item({ item, onDeleteBook }) {
         />
         <View style={{ flex: 1, marginLeft: 10 }}>
           <Text
+            numberOfLines={2}
             style={{
               fontSize: width > 1200 ? fontScale * 22 : fontScale * 22,
               marginTop: 7,
@@ -56,6 +57,7 @@ export default function Item({ item, onDeleteBook }) {
           </Text>
           <Text
             style={{ fontSize: width > 1200 ? fontScale * 20 : fontScale * 18 }}
+            
           >
             {item.price}
           </Text>
