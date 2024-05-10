@@ -37,13 +37,10 @@ export default function AdminIndex() {
   const [newBookCategory, setNewBookCategory] = useState("");
   const [newBookImageUri, setNewBookImageUri] = useState("");
   const [newBookPrice, setNewBookPrice] = useState("");
-<<<<<<< HEAD
-  const [admin,setAdmin] = useState();
-=======
+  const [admin,setAdmin]=useState();
   const { height, width } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
->>>>>>> 8756f081edf119e59eda3f271dd8b87791a92193
   const fetchBooks = async () => {
     try {
       const books = await getBooks();
