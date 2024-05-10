@@ -12,7 +12,7 @@ import Icon from "react-native-elements/dist/icons/Icon";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { router, Link } from "expo-router";
 import AppHeader from "../../../components/AppHeader";
-import { collection,onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase/config";
 let color = "#ccc";
 
@@ -43,34 +43,47 @@ let color = "#ccc";
 //   },
 // ];
 
-let categories = [
-  { id: 0, icon: "book", name: "All Books" },
-  { id: 1, icon: "science", name: "science" },
-  { id: 2, icon: "code", name: "coding" },
-];
+// let categories = [
+//   { id: 0, icon: "book", name: "All Books" },
+//   { id: 1, icon: "science", name: "science" },
+//   { id: 2, icon: "code", name: "coding" },
+// ];
 
 export default function Index() {
-  const [categoryList, setCategoryList] = useState();
-  const [selectedCategory, setSelectedCategory] = useState("All books");
-  const [books,setBooks]=useState();
-  const { height, width, fontScale } = useWindowDimensions();
+  const [categoryList, setCategoryList] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All Books");
+  const [books, setBooks] = useState([]);
+  const { height, width } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
-  
-  const fetchBooks = ()=>{
-    const booksRef = collection(db,"books");
+
+  const fetchBooks = () => {
+    const booksRef = collection(db, "books");
     const unsubscribe = onSnapshot(booksRef, (snapshot) => {
-        const updatedBooks = snapshot.docs.map((doc) => ({...doc.data() }));
-        setBooks(updatedBooks.sort((a, b) => b.name - a.name));
-        setCategoryList(books);
-      });
-      
-      return () => unsubscribe();
-  }
-  useEffect(()=>{
+      const updatedBooks = snapshot.docs.map((doc) => ({ ...doc.data() }));
+      setBooks(updatedBooks.sort((a, b) => a.name.localeCompare(b.name)));
+      setCategoryList(updatedBooks);
+    });
+    return () => unsubscribe();
+  };
+
+  const fetchCategories = () => {
+    const categoryRef = collection(db, "categories");
+    const unsubscribe = onSnapshot(categoryRef, (snapshot) => {
+      const updatedCategories = snapshot.docs.map((doc) => ({ ...doc.data() }));
+      setCategories(
+        updatedCategories.sort((a, b) => a.name.localeCompare(b.name))
+      ); // Sort categories by name
+    });
+    return unsubscribe;
+  };
+
+  useEffect(() => {
     fetchBooks();
-  },[]);
-  //book item
+    fetchCategories();
+  }, []);
+
   const renderItem = ({ item }) => <Item item={item} />;
 
   const categoryItem = ({ item }) => (
@@ -85,7 +98,8 @@ export default function Index() {
           setCategoryList(books);
         } else {
           let filteredData = books.filter(
-            (element) => element.category.toLowerCase() === item.name.toLowerCase()
+            (element) =>
+              element.category.toLowerCase() === item.name.toLowerCase()
           );
           setCategoryList(filteredData);
         }
@@ -93,11 +107,12 @@ export default function Index() {
     >
       <View style={{ paddingHorizontal: 20 }}>
         <Icon name={item.icon} type="material" color="#2C4E70" />
-        <Text style={{ fontWeight: "bold", color: "#2C4E70" }}>{item.name}</Text>
+        <Text style={{ fontWeight: "bold", color: "#2C4E70" }}>
+          {item.name}
+        </Text>
       </View>
     </Pressable>
   );
-  
 
   return (
     <SafeAreaProvider style={{ flex: 1 }}>

@@ -1,4 +1,4 @@
-import { collection, doc, updateDoc,deleteDoc, addDoc, getDocs } from "firebase/firestore";
+import { collection, doc, updateDoc,deleteDoc, addDoc, getDocs,getDoc } from "firebase/firestore";
 import { db } from "./config";
 
 async function addBook(book){
@@ -30,6 +30,12 @@ async function getBooks(){
   const books=temp.docs.map((doc)=>({...doc.data()}))
   return books;
 }
+async function getBook(id){
+  const bookRef = doc(db,"books",id);
+  const temp = await getDoc(bookRef);
+  const book=temp.data();
+  return book;
+}
 async function addCategory(category){
   const catRef = await addDoc(collection(db,"categories"),{
     name: category.name,
@@ -49,4 +55,4 @@ async function getCategories(){
   const categories=temp.docs.map((doc)=>({...doc.data()}))
   return categories;
 }
-export {addBook,delete_BooK as delet_BooK,addToFav,getBooks,addCategory,deleteCategory,getCategories};
+export {addBook,delete_BooK as delet_BooK,addToFav,getBooks,addCategory,deleteCategory,getCategories,getBook};

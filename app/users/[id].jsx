@@ -9,43 +9,62 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import BookHeader from "../../components/bookHeader";
+import { getBook } from "../../firebase/firestore_fun";
+import { ActivityIndicator } from "react-native-web";
 
-let books = [
-  {
-    id: 0,
-    name: "Book1",
-    author: "Segara",
-    category: "science",
-    price: 120,
-    favorite: false,
-  },
-  {
-    id: 1,
-    name: "Hegemony or Survival? : America's Quest for Global Dominance ",
-    author: "Noam Chomsky",
-    category: "Fantasy",
-    price: 15,
-    favorite: false,
-  },
-  {
-    id: 2,
-    name: "book3",
-    author: "Segara",
-    category: "coding",
-    price: 25,
-    favorite: false,
-  },
-];
+// let books = [
+//   {
+//     id: 0,
+//     name: "Book1",
+//     author: "Segara",
+//     category: "science",
+//     price: 120,
+//     favorite: false,
+//   },
+//   {
+//     id: 1,
+//     name: "Hegemony or Survival? : America's Quest for Global Dominance ",
+//     author: "Noam Chomsky",
+//     category: "Fantasy",
+//     price: 15,
+//     favorite: false,
+//   },
+//   {
+//     id: 2,
+//     name: "book3",
+//     author: "Segara",
+//     category: "coding",
+//     price: 25,
+//     favorite: false,
+//   },
+// ];
 
 export default function Book() {
   const { id } = useLocalSearchParams();
+  let [book, setBook] = useState();
   const { height, width, fontScale } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
 
+  const fetchBook=async()=>{
+   try {
+    const Book=await getBook(id);
+    setBook(Book);
+   } catch (error) {
+    console.error(error);
+   }
+  }
+  
+  useEffect(() => {
+    fetchBook();
+  }, []);
+
+ if(!book){
+    return <ActivityIndicator />
+ }
   return (
     <ScrollView
       style={{ flex: 1, backgroundColor: "white" }}
@@ -59,7 +78,7 @@ export default function Book() {
           <View style={{ alignItems: "center", gap: 10 }}>
             <Image
               source={{
-                uri: "https://m.media-amazon.com/images/I/71HJkYnQG-L._AC_UF894,1000_QL80_.jpg",
+                uri: book.image,
               }}
               style={{
                 width: imageWidth * imageHeight * 0.01,
@@ -78,7 +97,7 @@ export default function Book() {
                     padding: 20,
                   }}
                 >
-                  {books[id].name}
+                  {book.name}
                 </Text>
 
                 <Text
@@ -88,7 +107,7 @@ export default function Book() {
                     fontSize: imageHeight * imageWidth * 0.001,
                   }}
                 >
-                  {books[id].author}{" "}
+                  {book.author}{" "}
                 </Text>
               </View>
 
@@ -195,7 +214,7 @@ export default function Book() {
                     fontSize: imageHeight * imageWidth * 0.001,
                   }}
                 >
-                  ${books[id].price}
+                  {book.price}
                 </Text>
 
                 <Pressable>
