@@ -9,20 +9,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { setUserId } from "firebase/analytics";
 export default function Page() {
   const [userID, setUserId] = useState();
-  const [adminEmail,setAdminEmail]=useState();
   const fetchuser = async () => {
     const _userID = await AsyncStorage.getItem("userUID");
-    const _adminEmail =await AsyncStorage.getItem("adminEmail");
+    
     setUserId(_userID);
-    setAdminEmail(_adminEmail);
   };
   useEffect(() => {
     fetchuser();
   }, []);
   if (userID) {
     return <Index></Index>;
-  }else if(adminEmail){
-    return <AdminIndex />
   }
   return (
     //  <Index></Index>

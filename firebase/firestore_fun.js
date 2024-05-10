@@ -40,8 +40,6 @@ async function addToCart(uid, book) {
   const querySnapshot = await getDocs(
     query(cartRef, where("id", "==", book.id))
   );
-
-
   if (!querySnapshot.empty) {
     throw new Error("This book is already in the cart.");
   }
@@ -55,6 +53,12 @@ async function addToCart(uid, book) {
     category: book.category,
     uid: uid,
   });
+}
+async function getCarts(uid){
+  const cartRef = collection(db, "cart");
+  const temp = await getDocs(query(cartRef,("uid","==",uid)));
+  const carts = temp.docs.map((doc) => ({ ...doc.data() }));
+  return carts;
 }
 async function getBooks() {
   const bookRef = collection(db, "books");
@@ -80,7 +84,7 @@ async function addCategory(category) {
 }
 async function deleteCategory(category) {
   await deleteDoc(doc(db, "categories", category.id));
-  const q = query(collection(db, "books"), ("category", "==", category.name));
+  const q = query(collection(db, "books"), where("category", "==", category.name));
   const snapshot = await getDocs(q);
   snapshot.forEach(async (doc) => {
     await deleteDoc(doc.ref);
@@ -102,4 +106,5 @@ export {
   getCategories,
   getBook,
   addToCart,
+  getCarts
 };

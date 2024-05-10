@@ -36,7 +36,7 @@ export default function UsrItem({ item }) {
       >
         <Image
           source={{
-            uri: "https://i.pinimg.com/564x/22/63/82/226382aa5680ba4c76a8c6697bbe4321.jpg",
+            uri: item.image,
           }}
           style={{
             width: imageWidth * imageHeight * 0.01,
@@ -80,7 +80,7 @@ export default function UsrItem({ item }) {
                 color: "#2C4E70",
               }}
             >
-              {item.price}$
+              {item.price}
             </Text>
           </View>
         </View>

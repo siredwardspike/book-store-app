@@ -12,61 +12,43 @@ import Item from "../../components/cartBookItem";
 import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import { router, Link } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getCarts } from "../../firebase/firestore_fun";
 
-let books = [
-  {
-    userId: 0,
-    name: "book1",
-    author: "Segara",
-    category: "science",
-    price: 120,
-    favorite: false,
-    quantity: 1,
-  },
-  {
-    userId: 0,
-    name: "book2",
-    author: "Segara",
-    category: "Fantasy",
-    price: 15,
-    favorite: false,
-    quantity: 1,
-  },
-  {
-    userId: 2,
-    name: "book3",
-    author: "Segara",
-    category: "coding",
-    price: 25,
-    favorite: false,
-    quantity: 1,
-  },
-];
+
 
 export default function profile() {
   const { height, width, fontScale } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
-  const [bookData, setBookData] = useState([...books]); 
+  const [bookData, setBookData] = useState();
 
+  const fetchBooksinCart = async () => {
+    try {
+      const uid = await AsyncStorage.getItem("userUID");
+      
+      const _bookData = await getCarts(uid);
+      setBookData(_bookData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchBooksinCart();
+  }, []);
   const renderItem = ({ item, index }) => {
     const updateQuantity = (newQuantity) => {
-      const updatedBooks = [...bookData]; 
-      updatedBooks[index].quantity = newQuantity; 
-      setBookData(updatedBooks); 
+      const updatedBooks = [...bookData];
+      updatedBooks[index].quantity = newQuantity;
+      setBookData(updatedBooks);
     };
-
     return (
       <View style={{ alignContent: "center", alignItems: "center" }}>
         <Item item={item} />
         <View style={{ flexDirection: "row", gap: 15 }}>
-          <Pressable onPress={() => updateQuantity(item.quantity - 1)}>
-            <Icon name="remove" type="material" color="#2C4E70" />
-          </Pressable>
-          <Text style={{ marginTop: 2, color: "#2C4E70" }}>{item.quantity}</Text>
-          <Pressable onPress={() => updateQuantity(item.quantity + 1)}>
-            <Icon name="add" type="material" color="#2C4E70" />
-          </Pressable>
+       
+          
+         
         </View>
       </View>
     );
@@ -131,10 +113,9 @@ export default function profile() {
       </View>
       <FlatList
         contentContainerStyle={styles.container}
-        data={bookData} 
+        data={bookData}
         renderItem={renderItem}
         numColumns={2}
-        keyExtractor={(item) => item.userId.toString()}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       />
