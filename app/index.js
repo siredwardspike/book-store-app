@@ -5,7 +5,8 @@ import Results from "./admin/(tabs)/results";
 export default function Page() {
   return (
       
-     <TabLayout></TabLayout>
+    //  <TabLayout></TabLayout>
+    <AdminIndex/>
    //<View></View>
   );
 }

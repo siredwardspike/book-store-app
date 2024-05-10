@@ -44,7 +44,7 @@ import { ActivityIndicator } from "react-native-web";
 
 export default function Book() {
   const { id } = useLocalSearchParams();
-  let [book, setBook] = useState();
+  const [book, setBook] = useState();
   const { height, width, fontScale } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
@@ -243,13 +243,14 @@ export default function Book() {
                   fontSize: imageHeight * imageWidth * 0.0007,
                 }}
               >
-                Reading Chomsky today is sobering and instructive . . . He is a
+                {book.des}
+                {/* Reading Chomsky today is sobering and instructive . . . He is a
                 global phenomenon . . . perhaps the most widely read voice on
                 foreign policy on the planet." - The New York Times Book Review
                 An immediate national bestseller, Hegemony or Survival
                 demonstrates how, for more than half a century the United States
                 has been pursuing a grand imperial strategy with the aim of
-                staking out the globe.{" "}
+                staking out the globe.{" "} */}
               </Text>
             </View>
           </View>
