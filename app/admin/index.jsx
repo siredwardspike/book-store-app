@@ -21,6 +21,7 @@ import {
   addCategory as addCategoryToFirestore,
   deleteCategory,
 } from "../../firebase/firestore_fun"; // Rename addCategory import
+import { router } from "expo-router";
 
 export default function AdminIndex() {
   const [categoryList, setCategoryList] = useState([]);
@@ -200,6 +201,23 @@ export default function AdminIndex() {
     <SafeAreaProvider>
       <ScrollView>
         <View style={styles.container}>
+        <Pressable
+            onPress={() => {
+              
+              router.navigate(`/admin/results`);
+            }}
+            style={{
+              borderWidth: 2,
+              padding: 5,
+              borderRadius: 10,
+              backgroundColor: "white",
+              borderColor: "#B3C8CF",
+              width: 38,
+              height: 38,
+            }}
+          >
+            <Icon name="search" type="material" color="#2C4E70" />
+          </Pressable>
           <View style={styles.inputContainer}>
             <TextInput
               style={[styles.input, styles.smallInput]}

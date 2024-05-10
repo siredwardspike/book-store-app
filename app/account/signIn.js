@@ -16,10 +16,18 @@ export default function SignIn() {
   const { height, width } = useWindowDimensions();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+<<<<<<< HEAD
+  const adminPass = "12345678";
+  const adminMail = "admin@bookstore.com";
+=======
   let imageWidth = width > 700 ? width * 0.5 : width ;
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
+>>>>>>> fc2c4cd7f4a86a38ed3cfd7bf030e717a8d88b74
 
   const handleSignIn = async () => {
+    if (adminMail == adminMail && adminPass == adminPass) {
+      router.replace("/admin");
+    }
     try {
       const cred = await login(email, password);
       await AsyncStorage.setItem("userUID", cred.user.uid);
