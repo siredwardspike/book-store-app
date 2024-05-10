@@ -2,11 +2,16 @@ import { StyleSheet, Text, View } from "react-native";
 import AdminIndex from "./admin";
 import TabLayout from "./users/(tabs)/";
 import Results from "./admin/(tabs)/results";
+import SignIn from "./account/signIn";
+import SignUp from "./account/signup";
 export default function Page() {
   return (
-      //<AdminIndex></AdminIndex>
-     <TabLayout></TabLayout>
-   //<View></View>
+    //<AdminIndex></AdminIndex>
+    //  <TabLayout></TabLayout>
+    // <SignIn />
+    //<View></View>
+
+    <SignUp></SignUp>
   );
 }
 

@@ -6,33 +6,34 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { get } from "firebase/database";
-import { doc, setDoc, collection, addDoc } from "firebase/firestore";
+import { doc, setDoc, collection, addDoc, deleteDoc } from "firebase/firestore";
 
-async function register(email, password, userName) {
+async function register(email, password, userName, _imageurl) {
   const cred = await createUserWithEmailAndPassword(auth, email, password);
+
   await sendEmailVerification(auth.currentUser, {
     handleCodeInApp: true,
     url: "http://book-store-ea010.firebaseapp.com/",
   });
 
   const userRef = doc(db, "users", cred.user.uid);
+
   await setDoc(userRef, {
     userName: userName,
     email: email,
+    imageurl: _imageurl,
     uid: cred.user.uid,
   });
-  const cartref = collection(db, userRef, "cart");
-  await addDoc(cartref, {
-    date: Date.now().toString(),
-    book: { bookname: "7mo", author: "7amokasha" },
-  });
-  const favref = collection(db, userRef, "Fav");
-  await addDoc(favref, {
-    date: Date.now().toString(),
-    book: { bookname: "7mo", author: "7amokasha" },
-  });
 
-  return cred;
+  const cartRef = collection(db, `users/${cred.user.uid}/cart`);
+
+  const cartDocRef = await addDoc(cartRef, {});
+  //   await deleteDoc(cartDocRef);
+  const favRef = collection(db, `users/${cred.user.uid}/fav`);
+  const favDocRef = await addDoc(favRef, {});
+  //   await deleteDoc(favDocRef);
+
+  return { cartDocRef, favDocRef };
 }
 
 async function login(email, password) {
