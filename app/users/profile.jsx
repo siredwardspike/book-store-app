@@ -158,6 +158,7 @@ export default function profile() {
           >
             <Pressable
               style={{ flexDirection: "row-reverse", alignItems: "center" }}
+              onPress={()=>router.navigate(`/users/cartHistory`)}
             >
               <Text
                 style={{
@@ -178,6 +179,7 @@ export default function profile() {
 
             <Pressable
               style={{ flexDirection: "row-reverse", alignItems: "center" }}
+              onPress={()=>router.navigate(`/users/favorites`)}
             >
               <Text
                 style={{
@@ -186,10 +188,10 @@ export default function profile() {
                   color: "#4D869C",
                 }}
               >
-                Whishlist
+                favorites
               </Text>
               <Icon
-                name="list"
+                name="favorite"
                 type="material"
                 color="#4D869C"
                 style={{ margin: 3 }}

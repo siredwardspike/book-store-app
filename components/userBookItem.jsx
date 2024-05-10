@@ -19,8 +19,8 @@ export default function UsrItem({ item }) {
 
   return (
     <Pressable
-      style={{ paddingHorizontal: 12 }}
-      onPress={async() => {
+      style={{ padding: 12 }}
+      onPress={async () => {
         router.navigate(`/users/${item.id}`);
       }}
     >
@@ -54,28 +54,31 @@ export default function UsrItem({ item }) {
           >
             {item.name}
           </Text>
-          <Text
-            style={{
-              fontWeight: "400",
-              fontSize: imageHeight * imageWidth * 0.001,
-              color: "#2C4E70",
-            }}
-          >
-            {item.category}
-          </Text>
-          <View style={{ flexDirection: "row-reverse", alignItems: "center" }}>
-            {/* <Pressable onPress={() => {}} style={{}}>
-              <Icon name="add" type="material" color="#2C4E70" />
-            </Pressable> */}
+          <View style={{alignContent:"center",alignItems:"center"}}>
             <Text
               style={{
                 fontWeight: "400",
-                fontSize: imageHeight * imageWidth * 0.0009,
+                fontSize: imageHeight * imageWidth * 0.001,
                 color: "#2C4E70",
               }}
             >
-              {item.price}
+              {item.category}
             </Text>
+            <View style={{ flexDirection: "row-reverse", alignItems: "center" }}>
+              <Pressable onPress={() => { }} style={{}}>
+                <Icon name="add" type="material" color="#2C4E70" />
+              </Pressable>
+              <Text
+                style={{
+                  fontWeight: "400",
+                  fontSize: imageHeight * imageWidth * 0.0009,
+                  color: "#2C4E70",
+                }}
+              >
+                {item.price}
+              </Text>
+            </View>
+
           </View>
         </View>
       </View>

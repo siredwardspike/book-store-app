@@ -48,7 +48,7 @@ export default function Book() {
   const { height, width, fontScale } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
-
+ const [color,setColor]=useState("#ccc")
   const fetchBook=async()=>{
    try {
     const Book=await getBook(id);
@@ -178,11 +178,11 @@ export default function Book() {
                 >
                   4.5
                 </Text>
-                <Pressable>
+                <Pressable onPress={()=>color=="#ccc"?setColor("red"):setColor("#ccc")}>
                   <Icon
                     name="favorite"
                     type="material"
-                    color="#2C4E70"
+                    color={color}
                     size={imageHeight * imageWidth * 0.0007}
                   />
                 </Pressable>
