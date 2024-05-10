@@ -85,7 +85,7 @@ export default function results() {
             justifyContent: "space-around",
           }}
         >
-          <Link href="/" asChild>
+          <Link href="/home" asChild>
             <Pressable
               style={{
                 borderWidth: 2,

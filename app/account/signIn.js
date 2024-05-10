@@ -9,7 +9,7 @@ import {
   Alert,
 } from "react-native";
 import Icon from "react-native-elements/dist/icons/Icon";
-import { login } from "../../firebase/auth";
+import { login, resetPass } from "../../firebase/auth";
 import { router } from "expo-router";
 
 export default function SignIn() {
@@ -25,6 +25,14 @@ export default function SignIn() {
     } catch (error) {
       Alert.alert("Error", "Invalid email or password. Please try again.");
       console.error("Sign-in error:", error);
+    }
+  };
+  const handelResetPass = async () => {
+    try {
+      await resetPass(email);
+      Alert.alert("Please check Your mail.");
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -112,7 +120,7 @@ export default function SignIn() {
           </Text>
         </Pressable>
 
-        <Pressable>
+        <Pressable onPress={handelResetPass}>
           <Text style={{ color: "#4D869C", fontWeight: "200" }}>
             Forgot your password ?
           </Text>
