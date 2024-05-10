@@ -94,7 +94,7 @@ export default function Index() {
       }}
       onPress={() => {
         setSelectedCategory(item.name);
-        if (item.name === "All Books") {
+        if (item.name === "all books") {
           setCategoryList(books);
         } else {
           let filteredData = books.filter(
