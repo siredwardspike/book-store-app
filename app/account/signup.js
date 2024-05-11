@@ -177,22 +177,26 @@ export default function SignUp() {
         <Icon name="image" type="material" color="#B3C8CF" />
       </View>
 
-      <Pressable onPress={handleSignUp}>
-        <Text
-          style={{
+      <Pressable
+        onPress={handleSignUp}
+        style={({ pressed }) => [
+          {
+            backgroundColor: pressed ? "#82aab9" : "white",
+            borderColor: pressed ? "#82aab9" : "#B3C8CF",
+          },
+          {
             textAlign: "center",
             borderWidth: 2,
             borderRadius: 50,
             borderColor: "#B3C8CF",
-            backgroundColor: "white",
             padding: 5,
             fontWeight: "400",
-            color: "#82aab9",
+            color: pressed ? "white" : "#82aab9",
             fontSize: 14,
-          }}
-        >
-          Sign Up
-        </Text>
+          },
+        ]}
+      >
+        <Text>Sign Up</Text>
       </Pressable>
 
       <Pressable onPress={() => router.replace("/account/signIn")}>
