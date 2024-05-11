@@ -72,7 +72,7 @@ export default function SignIn() {
           onChangeText={setEmail}
           textAlign="center"
           style={{
-            fontSize: imageHeight * imageWidth * 0.0003,
+            fontSize: 14, // Adjust the font size here
             maxWidth: width * 0.6,
             flex: 1,
             textAlign: "left",
@@ -102,7 +102,7 @@ export default function SignIn() {
           textAlign="center"
           secureTextEntry={true}
           style={{
-            fontSize: imageHeight * imageWidth * 0.0003,
+            fontSize: 14,
             maxWidth: width * 0.6,
             flex: 1,
             textAlign: "left",
@@ -123,6 +123,7 @@ export default function SignIn() {
             padding: 5,
             fontWeight: "700",
             color: "#82aab9",
+            fontSize: 14,
           }}
         >
           Sign In
@@ -130,12 +131,25 @@ export default function SignIn() {
       </Pressable>
 
       <Pressable onPress={handelResetPass}>
-        <Text style={{ color: "#4D869C", fontWeight: "200" }}>
+        <Text
+          style={{
+            color: "#4D869C",
+            fontWeight: "200",
+            fontSize: 12,
+          }}
+        >
           Forgot your password ?
         </Text>
       </Pressable>
+
       <Pressable onPress={() => router.replace("/account/signup")}>
-        <Text style={{ color: "#4D869C", fontWeight: "200" }}>
+        <Text
+          style={{
+            color: "#4D869C",
+            fontWeight: "200",
+            fontSize: 12,
+          }}
+        >
           Don't have an account ?
         </Text>
       </Pressable>
