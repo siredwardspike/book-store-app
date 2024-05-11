@@ -4,6 +4,7 @@ import {
   Image,
   useWindowDimensions,
   Pressable,
+  Alert,
 } from "react-native";
 import React, { useEffect } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
@@ -12,6 +13,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase/config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { signOut } from "firebase/auth";
+import { resetPass } from "../../firebase/auth";
 
 export default function profile() {
   const { height, width, fontScale } = useWindowDimensions();
@@ -28,7 +30,12 @@ export default function profile() {
     }
   }
   const handelChangePass = async()=>{
-    
+    try{
+      await resetPass(user.email);
+      Alert.alert("please check Your mail");
+    }catch(error){
+      console.error(error);
+    }
   }
   const handelSignOut=async()=>{
    try {

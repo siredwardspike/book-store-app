@@ -15,6 +15,7 @@ import AppHeader from "../../components/AppHeader";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ActivityIndicator } from "react-native-web";
 let color = "#ccc";
 
 // let books = [
@@ -61,13 +62,17 @@ export default function Index() {
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
 
   const fetchBooks = () => {
-    const booksRef = collection(db, "books");
-    const unsubscribe = onSnapshot(booksRef, (snapshot) => {
-      const updatedBooks = snapshot.docs.map((doc) => ({ ...doc.data() }));
-      setBooks(updatedBooks.sort((a, b) => a.name.localeCompare(b.name)));
-      setCategoryList(updatedBooks);
-    });
-    return () => unsubscribe();
+    try {
+      const booksRef = collection(db, "books");
+      const unsubscribe = onSnapshot(booksRef, (snapshot) => {
+        const updatedBooks = snapshot.docs.map((doc) => ({ ...doc.data() }));
+        setBooks(updatedBooks.sort((a, b) => a.name.localeCompare(b.name)));
+        setCategoryList(updatedBooks);
+      });
+      return () => unsubscribe();
+    } catch (error) {
+      console.error(error)
+    }
   };
 
   const fetchCategories = () => {
@@ -86,7 +91,11 @@ export default function Index() {
     fetchBooks();
     fetchCategories();
   }, []);
-
+  if(!books){
+    return (
+      <ActivityIndicator />
+    )
+   }
   const renderItem = ({ item }) => <Item item={item} />;
 
   const categoryItem = ({ item }) => (

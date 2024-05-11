@@ -117,8 +117,9 @@ async function calcRate(id,rate){
   const bookRef = doc(db, "books", id);
   const temp = await getDoc(bookRef);
   const book = temp.data();
-  const _rate = book.rate;
-  const rateCount = book.rateCount;
+  let _rate = book.rate;
+  _rate+= rate;
+  let rateCount = book.rateCount+1;
   
   if(rateCount==0){
     await updateDoc(bookRef, {
@@ -126,7 +127,7 @@ async function calcRate(id,rate){
       rateCount: rateCount+1,
     });
   }else{
-  const newRate = (_rate+rate)/rateCount;
+  const newRate = (_rate)/rateCount;
   await updateDoc(bookRef, {
     rate: newRate,
     rateCount: rateCount+1,
