@@ -43,11 +43,10 @@ export default function SignUp() {
     }
 
     function validateEmail(email) {
-      // Email validation logic, you can use a regular expression or a library
       return /\S+@\S+\.\S+/.test(email);
     }
+
     function validatePassword(password) {
-      // Password validation logic, for example, minimum length
       return password.length >= 8;
     }
   };
@@ -80,7 +79,7 @@ export default function SignUp() {
           onChangeText={setName}
           textAlign="center"
           style={{
-            fontSize: imageHeight * imageWidth * 0.0003,
+            fontSize: 14, // Adjust the font size here
             maxWidth: width * 0.6,
             flex: 1,
             textAlign: "left",
@@ -109,7 +108,7 @@ export default function SignUp() {
           onChangeText={setEmail}
           textAlign="center"
           style={{
-            fontSize: imageHeight * imageWidth * 0.0003,
+            fontSize: 14, // Adjust the font size here
             maxWidth: width * 0.6,
             flex: 1,
             textAlign: "left",
@@ -139,7 +138,7 @@ export default function SignUp() {
           textAlign="center"
           secureTextEntry={true}
           style={{
-            fontSize: imageHeight * imageWidth * 0.0003,
+            fontSize: 14,
             maxWidth: width * 0.6,
             flex: 1,
             textAlign: "left",
@@ -168,7 +167,7 @@ export default function SignUp() {
           onChangeText={setProfileUrl}
           textAlign="center"
           style={{
-            fontSize: imageHeight * imageWidth * 0.0003,
+            fontSize: 14,
             maxWidth: width * 0.6,
             flex: 1,
             textAlign: "left",
@@ -177,6 +176,7 @@ export default function SignUp() {
 
         <Icon name="image" type="material" color="#B3C8CF" />
       </View>
+
       <Pressable onPress={handleSignUp}>
         <Text
           style={{
@@ -188,6 +188,7 @@ export default function SignUp() {
             padding: 5,
             fontWeight: "400",
             color: "#82aab9",
+            fontSize: 14,
           }}
         >
           Sign Up
@@ -195,8 +196,14 @@ export default function SignUp() {
       </Pressable>
 
       <Pressable onPress={() => router.replace("/account/signIn")}>
-        <Text style={{ color: "#4D869C", fontWeight: "200" }}>
-          Already registerd?
+        <Text
+          style={{
+            color: "#4D869C",
+            fontWeight: "200",
+            fontSize: 12,
+          }}
+        >
+          Already registered?
         </Text>
       </Pressable>
     </View>
