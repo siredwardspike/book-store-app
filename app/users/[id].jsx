@@ -128,16 +128,20 @@ export default function Book() {
                   flexDirection: "row",
                   alignItems: "center",
                   alignSelf: "center",
+                  justifyContent:'center',
+                  gap:10
                 }}
+
+                
               >
-                <Text>
-                %
-                </Text>
-                <TextInput
+
+              <TextInput
                 inputMode={"numeric"}
                 maxLength={2}
                 placeholderTextColor={'grey'}
-                placeholder="99"
+                placeholder="Review"
+                
+                
                 
                 style={{
                   color: "#2C4E70",
@@ -146,6 +150,10 @@ export default function Book() {
                   fontSize: imageHeight * imageWidth * 0.0012,
                 }}>
                 </TextInput>
+                <Text>
+                %99
+                </Text>
+               
               </View>
 
               
