@@ -170,9 +170,7 @@ export default function Book() {
                   fontSize: imageHeight * imageWidth * 0.0012,
                 }}>
                 </TextInput>
-                <Text>
-                %99
-                </Text>
+                
                
               </View>
 
