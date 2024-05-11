@@ -27,6 +27,17 @@ async function addBook(book) {
     id: bookid,
   });
 }
+async function updateBook(book){
+  const bookRef = doc(db,"books",book.id);
+await updateDoc(bookRef,{
+  name: book.name,
+  price: `${book.price}$`,
+  author: book.author,
+  image: book.imageUri,
+  category: book.category,
+  des: book.description,
+})
+}
 async function delete_BooK(id) {
   await deleteDoc(doc(db, "books", id));
   const querySnapshot = await getDoc(
@@ -140,5 +151,6 @@ export {
   getCarts,
   deleteFromCart,
   calcRate,
-  getRate
+  getRate,
+  updateBook
 };
