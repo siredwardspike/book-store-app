@@ -137,7 +137,7 @@ export default function Book() {
 
               <View
                 style={{
-                  flexDirection: "row",
+                  flexDirection: "row-reverse",
                   alignItems: "center",
                   alignSelf: "center",
                   justifyContent:'center',
@@ -153,7 +153,7 @@ export default function Book() {
                 inputMode={"numeric"}
                 maxLength={2}
                 placeholderTextColor={'grey'}
-                placeholder="99"
+                placeholder="Review"
                 onChangeText={setRate}
                 
                 onSubmitEditing={async()=>{
@@ -170,9 +170,7 @@ export default function Book() {
                   fontSize: imageHeight * imageWidth * 0.0012,
                 }}>
                 </TextInput>
-                <Text>
-                %99
-                </Text>
+                
                
               </View>
 
