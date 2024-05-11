@@ -14,7 +14,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
 import BookHeader from "../../components/bookHeader";
-import { addToCart, getBook } from "../../firebase/firestore_fun";
+import { addToCart, calcRate, getBook, getRate } from "../../firebase/firestore_fun";
 import { ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -49,6 +49,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export default function Book() {
   const { id } = useLocalSearchParams();
   const [book, setBook] = useState();
+  const [rate,setRate] = useState();
   const { height, width, fontScale } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.15 : height * 0.2;
@@ -61,6 +62,16 @@ export default function Book() {
     console.error(error);
    }
   }
+  const fetchRate = async(id)=>{
+    try {
+      const tempRate = await getRate(id);
+      if (tempRate) {
+        setRate(tempRate);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
   const handelAddToCart=async()=>{
     try{
       const uid = await AsyncStorage.getItem("userUID");
@@ -71,6 +82,7 @@ export default function Book() {
   }
   useEffect(() => {
     fetchBook();
+    fetchRate();
   }, []);
 
  if(!book){
@@ -131,13 +143,20 @@ export default function Book() {
                 }}
               >
                 <Text>
-                %
+                {book.rate}%
                 </Text>
                 <TextInput
                 inputMode={"numeric"}
                 maxLength={2}
                 placeholderTextColor={'grey'}
                 placeholder="99"
+                
+                onSubmitEditing={async(value)=>{
+                  await calcRate(book.id,value);
+                  fetchBook();
+                }
+                  
+                }
                 style={{
                   color: "#2C4E70",
                   fontWeight: "700",

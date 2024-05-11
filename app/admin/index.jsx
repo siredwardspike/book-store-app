@@ -85,9 +85,9 @@ export default function AdminIndex() {
     }
   };
   useEffect(() => {
+    fetchAdmin();
     fetchBooks();
     fetchCategories();
-    fetchAdmin();
   }, []);
   const renderItem = ({ item }) => (
     <Item item={item} onDeleteBook={deleteBook} />

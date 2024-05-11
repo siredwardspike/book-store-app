@@ -19,6 +19,8 @@ async function addBook(book) {
     image: book.imageUri,
     category: book.category,
     des: book.description,
+    rate:0,
+    rateCount:0,
   });
   const bookid = bookRef.id;
   await updateDoc(bookRef, {
@@ -100,6 +102,24 @@ async function getCategories() {
   const categories = temp.docs.map((doc) => ({ ...doc.data() }));
   return categories;
 }
+async function calcRate(id,rate){
+  const bookRef = doc(db, "books", id);
+  const temp = await getDoc(bookRef);
+  const book = temp.data();
+  const _rate = book.rate;
+  const rateCount = book.rateCount;
+  const newRate = (_rate+rate)/rateCount;
+  await updateDoc(bookRef, {
+    rate: newRate,
+    rateCount: rateCount+1,
+  });
+}
+async function getRate(id){
+  const bookRef = doc(db,"books",id);
+  const temp = await getDoc(bookRef);
+  const book = temp.data();
+  return book.rate;
+}
 export {
   addBook,
   delete_BooK as delet_BooK,
@@ -110,5 +130,7 @@ export {
   getBook,
   addToCart,
   getCarts,
-  deleteFromCart
+  deleteFromCart,
+  calcRate,
+  getRate
 };
