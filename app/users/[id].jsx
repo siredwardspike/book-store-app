@@ -9,6 +9,7 @@ import {
   ScrollView,
   FlatList,
   Alert,
+  TextInput
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import Icon from "react-native-elements/dist/icons/Icon";
@@ -16,6 +17,7 @@ import BookHeader from "../../components/bookHeader";
 import { addToCart, getBook } from "../../firebase/firestore_fun";
 import { ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 // let books = [
 //   {
@@ -128,75 +130,24 @@ export default function Book() {
                   alignSelf: "center",
                 }}
               >
-                <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
-                  <Icon
-                    name="star"
-                    type="material"
-                    color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.0015}
-                  />
-                </Pressable>
-                <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
-                  <Icon
-                    name="star"
-                    type="material"
-                    color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.0015}
-                  />
-                </Pressable>
-                <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
-                  <Icon
-                    name="star"
-                    type="material"
-                    color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.0015}
-                  />
-                </Pressable>
-                <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
-                  <Icon
-                    name="star"
-                    type="material"
-                    color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.0015}
-                  />
-                </Pressable>
-                <Pressable onPress={() => {}} style={{ borderRadius: 10 }}>
-                  <Icon
-                    name="star"
-                    type="material"
-                    color={"#4D869C"}
-                    size={imageHeight * imageWidth * 0.0015}
-                  />
-                </Pressable>
+                <Text>
+                %
+                </Text>
+                <TextInput
+                inputMode={"numeric"}
+                maxLength={2}
+                placeholderTextColor={'grey'}
+                placeholder="99"
+                style={{
+                  color: "#2C4E70",
+                  fontWeight: "700",
+                  alignSelf: "center",
+                  fontSize: imageHeight * imageWidth * 0.0012,
+                }}>
+                </TextInput>
               </View>
 
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignSelf: "center",
-                  alignItems: "center",
-                  gap: 20,
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#2C4E70",
-                    fontWeight: "700",
-                    alignSelf: "center",
-                    fontSize: imageHeight * imageWidth * 0.0012,
-                  }}
-                >
-                  4.5
-                </Text>
-                <Pressable onPress={()=>color=="#ccc"?setColor("red"):setColor("#ccc")}>
-                  <Icon
-                    name="favorite"
-                    type="material"
-                    color={color}
-                    size={imageHeight * imageWidth * 0.0012}
-                  />
-                </Pressable>
-              </View>
+              
             </View>
 
             <View
