@@ -22,13 +22,7 @@ export default function SignUp() {
 
   const handleSignUp = async () => {
     try {
-      if (!validateEmail(userInfo.email)) {
-        throw new Error("Invalid email address");
-      }
-
-      if (!validatePassword(userInfo.password)) {
-        throw new Error("Invalid password");
-      }
+      const userInfo = { name, email, password, profileUrl };
       const cred = await register(
         userInfo.email,
         userInfo.password,
@@ -39,15 +33,6 @@ export default function SignUp() {
       router.replace("/account/signIn");
     } catch (error) {
       console.error(error);
-      alert("An error occurred: " + error.message);
-    }
-
-    function validateEmail(email) {
-      return /\S+@\S+\.\S+/.test(email);
-    }
-
-    function validatePassword(password) {
-      return password.length >= 8;
     }
   };
 
