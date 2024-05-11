@@ -62,16 +62,16 @@ export default function Book() {
     console.error(error);
    }
   }
-  const fetchRate = async(id)=>{
-    try {
-      const tempRate = await getRate(id);
-      if (tempRate) {
-        setRate(tempRate);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // const fetchRate = async(id)=>{
+  //   try {
+  //     const tempRate = await getRate(id);
+  //     if (tempRate) {
+  //       setRate(tempRate);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
   const handelAddToCart=async()=>{
     try{
       const uid = await AsyncStorage.getItem("userUID");
@@ -82,7 +82,7 @@ export default function Book() {
   }
   useEffect(() => {
     fetchBook();
-    fetchRate();
+    // fetchRate();
   }, []);
 
  if(!book){
@@ -150,9 +150,11 @@ export default function Book() {
                 maxLength={2}
                 placeholderTextColor={'grey'}
                 placeholder="99"
+                onChangeText={setRate}
                 
-                onSubmitEditing={async(value)=>{
-                  await calcRate(book.id,value);
+                onSubmitEditing={async()=>{
+                  console.log("value is:",rate)
+                  await calcRate(book.id,rate);
                   fetchBook();
                 }
                   
