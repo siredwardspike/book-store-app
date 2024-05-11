@@ -49,112 +49,87 @@ export default function SignIn() {
       style={{
         flex: 1,
         justifyContent: "center",
-        alignSelf: "center",
-        gap: 20,
+        alignItems: "center",
+        paddingHorizontal: 20,
       }}
     >
       <View
         style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          width: imageWidth * 0.8,
-          borderColor: "#B3C8CF",
-          padding: 5,
+          marginBottom: 20,
+          width: "100%",
         }}
       >
         <TextInput
           placeholder="Enter your email"
           value={email}
           onChangeText={setEmail}
-          textAlign="center"
           style={{
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            backgroundColor: "white",
+            borderRadius: 30,
+            borderWidth: 2,
+            borderColor: "#B3C8CF",
             fontSize: 14,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
           }}
         />
-
-        <Icon name="mail" type="material" color="#B3C8CF" />
       </View>
 
       <View
         style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          width: imageWidth * 0.8,
-          borderColor: "#B3C8CF",
-          padding: 5,
+          marginBottom: 20,
+          width: "100%",
         }}
       >
         <TextInput
           placeholder="Enter your password"
           value={password}
           onChangeText={setPassword}
-          textAlign="center"
           secureTextEntry={true}
           style={{
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            backgroundColor: "white",
+            borderRadius: 30,
+            borderWidth: 2,
+            borderColor: "#B3C8CF",
             fontSize: 14,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
           }}
         />
-
-        <Icon name="lock" type="material" color="#B3C8CF" />
       </View>
 
       <Pressable
         onPress={handleSignIn}
         style={({ pressed }) => [
           {
-            backgroundColor: pressed ? "#82aab9" : "white",
-            borderColor: pressed ? "#82aab9" : "#B3C8CF",
-          },
-          {
-            textAlign: "center",
-            borderWidth: 2,
-            borderRadius: 40,
-            borderColor: "#B3C8CF",
-            padding: 5,
-            fontWeight: "700",
-            color: pressed ? "white" : "#82aab9",
-            fontSize: 14,
+            backgroundColor: pressed ? "#82aab9" : "#4D869C",
+            borderRadius: 30,
+            paddingHorizontal: 20,
+            paddingVertical: 10,
           },
         ]}
       >
-        <Text>Sign In</Text>
+        <Text
+          style={{
+            color: "white",
+            fontSize: 16,
+            fontWeight: "bold",
+            textAlign: "center",
+          }}
+        >
+          Sign In
+        </Text>
       </Pressable>
 
       <Pressable onPress={handelResetPass}>
-        <Text
-          style={{
-            color: "#4D869C",
-            fontWeight: "200",
-            fontSize: 12,
-          }}
-        >
-          Forgot your password ?
+        <Text style={{ color: "#4D869C", fontSize: 14, marginTop: 10 }}>
+          Forgot your password?
         </Text>
       </Pressable>
 
       <Pressable onPress={() => router.replace("/account/signup")}>
-        <Text
-          style={{
-            color: "#4D869C",
-            fontWeight: "200",
-            fontSize: 12,
-          }}
-        >
-          Don't have an account ?
+        <Text style={{ color: "#4D869C", fontSize: 14, marginTop: 10 }}>
+          Don't have an account? Sign Up
         </Text>
       </Pressable>
     </View>
