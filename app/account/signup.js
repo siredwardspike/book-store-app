@@ -56,125 +56,118 @@ export default function SignUp() {
       style={{
         flex: 1,
         justifyContent: "center",
-        alignSelf: "center",
+        alignItems: "center",
+        paddingHorizontal: 20,
         gap: 20,
       }}
     >
-      <View
-        style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          width: imageWidth * 0.8,
-          borderColor: "#B3C8CF",
-          padding: 5,
-        }}
-      >
-        <TextInput
-          placeholder="Enter your name"
-          value={name}
-          onChangeText={setName}
-          textAlign="center"
+      <View style={{ width: "100%" }}>
+        <View
           style={{
-            fontSize: 14, // Adjust the font size here
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
+            flexDirection: "row-reverse",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderRadius: 50,
+            backgroundColor: "white",
+            borderWidth: 2,
+            borderColor: "#B3C8CF",
+            padding: 12,
           }}
-        />
-
-        <Icon name="badge" type="material" color="#B3C8CF" />
+        >
+          <TextInput
+            placeholder="Enter your name"
+            value={name}
+            onChangeText={setName}
+            style={{
+              flex: 1,
+              fontSize: 14,
+              paddingHorizontal: 10,
+            }}
+          />
+          <Icon name="badge" type="material" color="#B3C8CF" />
+        </View>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          width: imageWidth * 0.8,
-          borderColor: "#B3C8CF",
-          padding: 5,
-        }}
-      >
-        <TextInput
-          placeholder="Enter your email"
-          value={email}
-          onChangeText={setEmail}
-          textAlign="center"
+      <View style={{ width: "100%" }}>
+        <View
           style={{
-            fontSize: 14, // Adjust the font size here
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
+            flexDirection: "row-reverse",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderRadius: 50,
+            backgroundColor: "white",
+            borderWidth: 2,
+            borderColor: "#B3C8CF",
+            padding: 12,
           }}
-        />
-
-        <Icon name="mail" type="material" color="#B3C8CF" />
+        >
+          <TextInput
+            placeholder="Enter your email"
+            value={email}
+            onChangeText={setEmail}
+            style={{
+              flex: 1,
+              fontSize: 14,
+              paddingHorizontal: 10,
+            }}
+          />
+          <Icon name="mail" type="material" color="#B3C8CF" />
+        </View>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          width: imageWidth * 0.8,
-          borderColor: "#B3C8CF",
-          padding: 5,
-        }}
-      >
-        <TextInput
-          placeholder="Enter your password"
-          value={password}
-          onChangeText={setPassword}
-          textAlign="center"
-          secureTextEntry={true}
+      <View style={{ width: "100%" }}>
+        <View
           style={{
-            fontSize: 14,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
+            flexDirection: "row-reverse",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderRadius: 50,
+            backgroundColor: "white",
+            borderWidth: 2,
+            borderColor: "#B3C8CF",
+            padding: 12,
           }}
-        />
-
-        <Icon name="lock" type="material" color="#B3C8CF" />
+        >
+          <TextInput
+            placeholder="Enter your password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={true}
+            style={{
+              flex: 1,
+              fontSize: 14,
+              paddingHorizontal: 10,
+            }}
+          />
+          <Icon name="lock" type="material" color="#B3C8CF" />
+        </View>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row-reverse",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderRadius: 50,
-          backgroundColor: "white",
-          borderWidth: 2,
-          width: imageWidth * 0.8,
-          borderColor: "#B3C8CF",
-          padding: 5,
-        }}
-      >
-        <TextInput
-          placeholder="Enter your profile link"
-          value={profileUrl}
-          onChangeText={setProfileUrl}
-          textAlign="center"
+      <View style={{ width: "100%" }}>
+        <View
           style={{
-            fontSize: 14,
-            maxWidth: width * 0.6,
-            flex: 1,
-            textAlign: "left",
+            flexDirection: "row-reverse",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderRadius: 50,
+            backgroundColor: "white",
+            borderWidth: 2,
+            borderColor: "#B3C8CF",
+            padding: 12,
           }}
-        />
-
-        <Icon name="image" type="material" color="#B3C8CF" />
+        >
+          <TextInput
+            placeholder="Enter your profile link"
+            value={profileUrl}
+            onChangeText={setProfileUrl}
+            style={{
+              flex: 1,
+              fontSize: 14,
+              paddingHorizontal: 10,
+            }}
+          />
+          <Icon name="image" type="material" color="#B3C8CF" />
+        </View>
       </View>
 
       <Pressable
@@ -183,16 +176,16 @@ export default function SignUp() {
           {
             backgroundColor: pressed ? "#82aab9" : "white",
             borderColor: pressed ? "#82aab9" : "#B3C8CF",
-          },
-          {
-            textAlign: "center",
             borderWidth: 2,
             borderRadius: 50,
-            borderColor: "#B3C8CF",
-            padding: 5,
+            padding: 12,
+            width: "100%",
+          },
+          {
             fontWeight: "400",
             color: pressed ? "white" : "#82aab9",
             fontSize: 14,
+            textAlign: "center",
           },
         ]}
       >
@@ -200,13 +193,7 @@ export default function SignUp() {
       </Pressable>
 
       <Pressable onPress={() => router.replace("/account/signIn")}>
-        <Text
-          style={{
-            color: "#4D869C",
-            fontWeight: "200",
-            fontSize: 12,
-          }}
-        >
+        <Text style={{ color: "#4D869C", fontWeight: "200", fontSize: 12 }}>
           Already registered?
         </Text>
       </Pressable>
