@@ -138,7 +138,7 @@ export default function Book() {
                 maxLength={2}
                 placeholderTextColor={'grey'}
                 placeholder="99"
-                onSubmitEditing={{}}
+                
                 style={{
                   color: "#2C4E70",
                   fontWeight: "700",
