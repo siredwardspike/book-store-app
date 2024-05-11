@@ -72,7 +72,7 @@ export default function SignIn() {
           onChangeText={setEmail}
           textAlign="center"
           style={{
-            fontSize: 14, // Adjust the font size here
+            fontSize: 14,
             maxWidth: width * 0.6,
             flex: 1,
             textAlign: "left",
@@ -112,22 +112,26 @@ export default function SignIn() {
         <Icon name="lock" type="material" color="#B3C8CF" />
       </View>
 
-      <Pressable onPress={handleSignIn}>
-        <Text
-          style={{
+      <Pressable
+        onPress={handleSignIn}
+        style={({ pressed }) => [
+          {
+            backgroundColor: pressed ? "#82aab9" : "white",
+            borderColor: pressed ? "#82aab9" : "#B3C8CF",
+          },
+          {
             textAlign: "center",
             borderWidth: 2,
             borderRadius: 40,
             borderColor: "#B3C8CF",
-            backgroundColor: "white",
             padding: 5,
             fontWeight: "700",
-            color: "#82aab9",
+            color: pressed ? "white" : "#82aab9",
             fontSize: 14,
-          }}
-        >
-          Sign In
-        </Text>
+          },
+        ]}
+      >
+        <Text>Sign In</Text>
       </Pressable>
 
       <Pressable onPress={handelResetPass}>
