@@ -117,11 +117,11 @@ export default function SignIn() {
           style={{
             textAlign: "center",
             borderWidth: 2,
-            borderRadius: 50,
+            borderRadius: 40,
             borderColor: "#B3C8CF",
             backgroundColor: "white",
             padding: 5,
-            fontWeight: "400",
+            fontWeight: "700",
             color: "#82aab9",
           }}
         >
