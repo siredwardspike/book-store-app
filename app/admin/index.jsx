@@ -92,40 +92,40 @@ export default function AdminIndex() {
   const renderItem = ({ item }) => (
     <Item item={item} onDeleteBook={deleteBook} />
   );
-  // const categoryItem = ({ item }) => (
-  //   <View style={styles.categoryItemContainer}>
-  //     <Pressable
-  //       style={[
-  //         styles.categoryItem,
-  //         selectedCategory === item.name && styles.selectedCategory,
-  //       ]}
-  //       onPress={() => {
-  //         setSelectedCategory(item.name);
-  //       }}
-  //     >
-  //       <Icon
-  //         name={item.icon}
-  //         type="material"
-  //         color={selectedCategory === item.name ? "#fff" : "#2C4E70"}
-  //       />
-  //       <Text
-  //         style={{
-  //           fontWeight: "bold",
-  //           color: selectedCategory === item.name ? "#fff" : "#2C4E70",
-  //           marginLeft: 10,
-  //         }}
-  //       >
-  //         {item.name}
-  //       </Text>
-  //     </Pressable>
-  //     <Pressable
-  //       onPress={() => _deleteCategory(item)}
-  //       style={styles.deleteCategoryButton}
-  //     >
-  //       <Icon name="delete" type="material" color="#FF6347" />
-  //     </Pressable>
-  //   </View>
-  // );
+  const categoryItem = ({ item }) => (
+    <View style={styles.categoryItemContainer}>
+      <Pressable
+        style={[
+          styles.categoryItem,
+          selectedCategory === item.name && styles.selectedCategory,
+        ]}
+        onPress={() => {
+          setSelectedCategory(item.name);
+        }}
+      >
+        <Icon
+          name={item.icon}
+          type="material"
+          color={selectedCategory === item.name ? "#fff" : "#2C4E70"}
+        />
+        <Text
+          style={{
+            fontWeight: "bold",
+            color: selectedCategory === item.name ? "#fff" : "#2C4E70",
+            marginLeft: 10,
+          }}
+        >
+          {item.name}
+        </Text>
+      </Pressable>
+      <Pressable
+        onPress={() => _deleteCategory(item)}
+        style={styles.deleteCategoryButton}
+      >
+        <Icon name="delete" type="material" color="#FF6347" />
+      </Pressable>
+    </View>
+  );
 
   const addNewBook = async () => {
     if (
