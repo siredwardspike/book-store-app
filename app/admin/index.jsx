@@ -299,7 +299,7 @@ export default function AdminIndex() {
               multiline
               numberOfLines={4}
             />
-          {/* </View>
+          </View>
           <Pressable style={styles.addButton} onPress={addNewBook}>
             <Icon name="add" type="material" color="#2C4E70" />
             <Text style={styles.buttonText}>Add book</Text>
@@ -307,7 +307,7 @@ export default function AdminIndex() {
         </View>
         <View style={styles.section}>
           <Text style={styles.heading}>Categories</Text>
-          <FlatList */}
+          <FlatList
             data={categoryList}
             renderItem={categoryItem}
             horizontal={true}
