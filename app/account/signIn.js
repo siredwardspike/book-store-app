@@ -70,7 +70,7 @@ export default function SignIn() {
             borderRadius: 30,
             borderWidth: 2,
             borderColor: "#B3C8CF",
-            fontSize: 14,
+            fontSize: 16,
           }}
         />
       </View>
@@ -93,7 +93,7 @@ export default function SignIn() {
             borderRadius: 30,
             borderWidth: 2,
             borderColor: "#B3C8CF",
-            fontSize: 14,
+            fontSize: 16,
           }}
         />
       </View>
