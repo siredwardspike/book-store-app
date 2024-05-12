@@ -65,7 +65,7 @@ export default function SignUp() {
             onChangeText={setName}
             style={{
               flex: 1,
-              fontSize: 14,
+              fontSize: 16,
               paddingHorizontal: 10,
             }}
           />
@@ -92,7 +92,7 @@ export default function SignUp() {
             onChangeText={setEmail}
             style={{
               flex: 1,
-              fontSize: 14,
+              fontSize: 16,
               paddingHorizontal: 10,
             }}
           />
@@ -120,7 +120,7 @@ export default function SignUp() {
             secureTextEntry={true}
             style={{
               flex: 1,
-              fontSize: 14,
+              fontSize: 16,
               paddingHorizontal: 10,
             }}
           />
@@ -147,7 +147,7 @@ export default function SignUp() {
             onChangeText={setProfileUrl}
             style={{
               flex: 1,
-              fontSize: 14,
+              fontSize: 16,
               paddingHorizontal: 10,
             }}
           />
@@ -169,7 +169,7 @@ export default function SignUp() {
           {
             fontWeight: "400",
             color: pressed ? "white" : "#82aab9",
-            fontSize: 14,
+            fontSize: 16,
             textAlign: "center",
           },
         ]}
