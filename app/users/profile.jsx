@@ -20,35 +20,35 @@ export default function profile() {
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
   const [user, setUser] = React.useState({});
-  const fetchUser=async()=>{
-    const userUID =await AsyncStorage.getItem("userUID");
-    
-    if(userUID){
-      const userRef = doc(db,"users",userUID);
-      const _user =await getDoc(userRef);
+  const fetchUser = async () => {
+    const userUID = await AsyncStorage.getItem("userUID");
+
+    if (userUID) {
+      const userRef = doc(db, "users", userUID);
+      const _user = await getDoc(userRef);
       setUser(_user.data());
     }
-  }
-  const handelChangePass = async()=>{
-    try{
+  };
+  const handelChangePass = async () => {
+    try {
       await resetPass(user.email);
       Alert.alert("please check Your mail");
-    }catch(error){
+    } catch (error) {
       console.error(error);
     }
-  }
-  const handelSignOut=async()=>{
-   try {
-     await signOut(auth);
-     AsyncStorage.removeItem("userUID");
-     router.replace("/account/signIn");
-   } catch (error) {
-    console.error(error);
-   }
-  }
-  useEffect(()=>{
+  };
+  const handelSignOut = async () => {
+    try {
+      await signOut(auth);
+      AsyncStorage.removeItem("userUID");
+      router.replace("/account/signIn");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
     fetchUser();
-  },[])
+  }, []);
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
       <View
@@ -125,7 +125,7 @@ export default function profile() {
           >
             <Image
               source={{
-                uri: user.imageurl
+                uri: user.imageurl,
                 // "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaT2WozXdM9ChvdlD38Wp0--s6sgOqG4lbgwvrO5Ou16gUzNsE",
               }}
               style={{
@@ -146,7 +146,7 @@ export default function profile() {
                 name="person"
                 type="material"
                 color="#2C4E70"
-                style={{ margin: 3 }}
+                style={{ margin: 5 }}
               />
               <Text
                 style={{
@@ -170,7 +170,7 @@ export default function profile() {
                 name="mail"
                 type="material"
                 color="#2C4E70"
-                style={{ margin: 3 }}
+                style={{ margin: 5 }}
               />
               <Text
                 style={{
@@ -233,7 +233,8 @@ export default function profile() {
               />
             </Pressable> */}
 
-            <Pressable onPress={handelChangePass}
+            <Pressable
+              onPress={handelChangePass}
               style={{ flexDirection: "row-reverse", alignItems: "center" }}
             >
               <Text
@@ -249,7 +250,7 @@ export default function profile() {
                 name="pin"
                 type="material"
                 color="#4D869C"
-                style={{ margin: 3 }}
+                style={{ margin: 5 }}
               />
             </Pressable>
 
@@ -270,7 +271,7 @@ export default function profile() {
                 name="logout"
                 type="material"
                 color="#4D869C"
-                style={{ margin: 3 }}
+                style={{ margin: 5 }}
               />
             </Pressable>
           </View>
