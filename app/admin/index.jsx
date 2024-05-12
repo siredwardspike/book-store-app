@@ -127,32 +127,32 @@ export default function AdminIndex() {
     </View>
   );
 
-  const addNewBook = async () => {
-    if (
-      newBookName.trim() === "" ||
-      newBookAuthor.trim() === "" ||
-      newBookCategory.trim() === "" ||
-      newBookImageUri.trim() === "" ||
-      newBookPrice.trim() === "" ||
-      newBookDescription.trim() === ""
-    ) {
-      Alert.alert(
-        "Error",
-        "Please enter book name, author, category, price, and image URI."
-      );
-      return;
-    }
-    if (newBookCategory === "all books") {
-      Alert.alert("Error", "The book must have a specific category.");
-      return;
-    }
-    const categoryExists = categoryList.some(
-      (category) => category.name === newBookCategory
-    );
-    if (!categoryExists) {
-      Alert.alert("Error", "Category does not exist.");
-      return;
-    }
+  // const addNewBook = async () => {
+  //   if (
+  //     newBookName.trim() === "" ||
+  //     newBookAuthor.trim() === "" ||
+  //     newBookCategory.trim() === "" ||
+  //     newBookImageUri.trim() === "" ||
+  //     newBookPrice.trim() === "" ||
+  //     newBookDescription.trim() === ""
+  //   ) {
+  //     Alert.alert(
+  //       "Error",
+  //       "Please enter book name, author, category, price, and image URI."
+  //     );
+  //     return;
+  //   }
+  //   if (newBookCategory === "all books") {
+  //     Alert.alert("Error", "The book must have a specific category.");
+  //     return;
+  //   }
+  //   const categoryExists = categoryList.some(
+  //     (category) => category.name === newBookCategory
+  //   );
+  //   if (!categoryExists) {
+  //     Alert.alert("Error", "Category does not exist.");
+  //     return;
+  //   }
     try {
       const newBook = {
         name: newBookName,
