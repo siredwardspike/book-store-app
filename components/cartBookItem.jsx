@@ -24,67 +24,7 @@ export default function UsrItem({ item }) {
         router.navigate(`/users/${item.id}`);
       }}
     >
-      <View
-        style={{
-          flexDirection: "column",
-          backgroundColor: "white",
-          borderRadius: 20,
-          alignSelf: "center",
-          alignItems: "center",
-          width: width * 0.4,
-        }}
-      >
-        <Image
-          source={{
-            uri: item.image,
-          }}
-          style={{
-            width: imageWidth * imageHeight * 0.01,
-            height: imageHeight * imageWidth * 0.015,
-            borderRadius: 10,
-          }}
-        />
-        <View style={{ flex: 1, alignContent: "center", alignItems: "center" }}>
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: imageHeight * imageWidth * 0.0015,
-              color: "#2C4E70",
-            }}
-          >
-            {item.name}
-          </Text>
-          <Text
-            style={{
-              fontWeight: "400",
-              fontSize: imageHeight * imageWidth * 0.001,
-              color: "#2C4E70",
-            }}
-          >
-            {item.category}
-          </Text>
-          <View
-            style={{
-              flexDirection: "row-reverse",
-              alignItems: "center",
-              alignContent: "center",
-            }}
-          >
-            {/*<Pressable onPress={() => {text=="approve"? setText("approved"):null }} style={{  }}>
-                            <Text style={{color:"#ccc",marginHorizontal:5,backgroundColor:"#33415c",padding:2,borderRadius:8}}>{text}</Text>
-    </Pressable>*/}
-            <Text
-              style={{
-                fontWeight: "400",
-                fontSize: imageHeight * imageWidth * 0.0009,
-                color: "#2C4E70",
-              }}
-            >
-              {item.price}
-            </Text>
-          </View>
-        </View>
-      </View>
+     
     </Pressable>
   );
 }
