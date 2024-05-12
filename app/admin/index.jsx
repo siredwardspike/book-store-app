@@ -176,22 +176,22 @@ export default function AdminIndex() {
       Alert.alert("Error", "Failed to add new book.");
     }
   };
-  const _deleteCategory = async (category) => {
-    try {
-      console.log("Deleting category:", category.name);
-      await deleteCategory(category);
-      const updatedCategories = categoryList.filter(
-        (_category) => _category.id !== category.id
-      );
-      const updatedBooks = booksData.filter(
-        (book) => book.category !== category.name
-      );
-      setCategoryList(updatedCategories);
-      setBooksData(updatedBooks);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const _deleteCategory = async (category) => {
+  //   try {
+  //     console.log("Deleting category:", category.name);
+  //     await deleteCategory(category);
+  //     const updatedCategories = categoryList.filter(
+  //       (_category) => _category.id !== category.id
+  //     );
+  //     const updatedBooks = booksData.filter(
+  //       (book) => book.category !== category.name
+  //     );
+  //     setCategoryList(updatedCategories);
+  //     setBooksData(updatedBooks);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   const deleteBook = async (id) => {
     Alert.alert("Delete Book", "Are you sure you want to delete this book?", [
       {
