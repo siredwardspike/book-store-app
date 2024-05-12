@@ -191,23 +191,23 @@ export default function AdminIndex() {
     } catch (error) {
       console.error(error);
     }
-  // };
-  // const deleteBook = async (id) => {
-  //   // Alert.alert("Delete Book", "Are you sure you want to delete this book?", [
-  //   //   {
-  //   //     text: "Cancel",
-  //   //     style: "cancel",
-  //   //   },
-  //     {
-  //       text: "Delete",
-  //       onPress: async () => {
-  //         await delet_BooK(id);
-  //         const updatedBooks = booksData.filter((book) => book.id !== id);
-  //         setBooksData(updatedBooks);
-  //       },
-  //     },
-  //   ]);
-  // };
+  };
+  const deleteBook = async (id) => {
+    Alert.alert("Delete Book", "Are you sure you want to delete this book?", [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "Delete",
+        onPress: async () => {
+          await delet_BooK(id);
+          const updatedBooks = booksData.filter((book) => book.id !== id);
+          setBooksData(updatedBooks);
+        },
+      },
+    ]);
+  };
   if (!admin) {
     return <Text>Admin not define</Text>;
   }
