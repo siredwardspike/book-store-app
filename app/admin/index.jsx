@@ -222,7 +222,7 @@ export default function AdminIndex() {
             }}
           >
             <Icon name="logout" />
-            {/* </Pressable>
+          </Pressable>
           <Pressable
             onPress={() => {
               router.navigate(`/admin/results`);
@@ -236,7 +236,7 @@ export default function AdminIndex() {
               width: 38,
               height: 38,
             }}
-          > */}
+          >
             <Icon name="search" type="material" color="#2C4E70" />
           </Pressable>
           <View style={styles.inputContainer}>
