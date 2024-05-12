@@ -37,7 +37,7 @@ export default function AdminIndex() {
   const [newBookCategory, setNewBookCategory] = useState("");
   const [newBookImageUri, setNewBookImageUri] = useState("");
   const [newBookPrice, setNewBookPrice] = useState("");
-  const [admin,setAdmin]=useState();
+  const [admin, setAdmin] = useState();
   const { height, width } = useWindowDimensions();
   let imageWidth = width > 1200 ? width * 0.1 : width * 0.28;
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
@@ -49,12 +49,12 @@ export default function AdminIndex() {
       console.error(error);
     }
   };
-  const fetchAdmin=async()=>{
+  const fetchAdmin = async () => {
     const tempAdmin = await AsyncStorage.getItem("adminEmail");
     if (tempAdmin) {
       setAdmin(tempAdmin);
     }
-  }
+  };
   const fetchCategories = async () => {
     try {
       const _categories = await getCategories();
@@ -89,9 +89,9 @@ export default function AdminIndex() {
     fetchBooks();
     fetchCategories();
   }, []);
-  const renderItem = ({ item }) => (
-    <Item item={item} onDeleteBook={deleteBook} />
-  );
+  // const renderItem = ({ item }) => (
+  //   <Item item={item} onDeleteBook={deleteBook} />
+  // );
   const categoryItem = ({ item }) => (
     <View style={styles.categoryItemContainer}>
       <Pressable
@@ -126,7 +126,7 @@ export default function AdminIndex() {
       </Pressable>
     </View>
   );
-  
+
   const addNewBook = async () => {
     if (
       newBookName.trim() === "" ||
@@ -208,23 +208,23 @@ export default function AdminIndex() {
       },
     ]);
   };
-  if(!admin){
-    return<Text>Admin not define</Text>
+  if (!admin) {
+    return <Text>Admin not define</Text>;
   }
   return (
     <SafeAreaProvider>
       <ScrollView>
         <View style={styles.container}>
-          <Pressable onPress={async()=>{
-            await AsyncStorage.removeItem("adminEmail")
-            router.replace(`/account/signIn`);
-          }}>
-
-          <Icon name="logout" />
+          <Pressable
+            onPress={async () => {
+              await AsyncStorage.removeItem("adminEmail");
+              router.replace(`/account/signIn`);
+            }}
+          >
+            <Icon name="logout" />
           </Pressable>
-        <Pressable
+          <Pressable
             onPress={() => {
-              
               router.navigate(`/admin/results`);
             }}
             style={{
