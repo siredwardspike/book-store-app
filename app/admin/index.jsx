@@ -89,9 +89,9 @@ export default function AdminIndex() {
     fetchBooks();
     fetchCategories();
   }, []);
-  // const renderItem = ({ item }) => (
-  //   <Item item={item} onDeleteBook={deleteBook} />
-  // );
+  const renderItem = ({ item }) => (
+    <Item item={item} onDeleteBook={deleteBook} />
+  );
   const categoryItem = ({ item }) => (
     <View style={styles.categoryItemContainer}>
       <Pressable
