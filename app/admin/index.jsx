@@ -193,11 +193,11 @@ export default function AdminIndex() {
     }
   };
   const deleteBook = async (id) => {
-    Alert.alert("Delete Book", "Are you sure you want to delete this book?", [
-      {
-        text: "Cancel",
-        style: "cancel",
-      },
+    // Alert.alert("Delete Book", "Are you sure you want to delete this book?", [
+    //   {
+    //     text: "Cancel",
+    //     style: "cancel",
+    //   },
       {
         text: "Delete",
         onPress: async () => {
