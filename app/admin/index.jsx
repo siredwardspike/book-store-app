@@ -256,7 +256,7 @@ export default function AdminIndex() {
               <Icon name="add" type="material" color="#2C4E70" />
               <Text style={styles.buttonText}>Add category</Text>
             </Pressable>
-            {/* </View>
+          </View>
         </View>
         <View style={styles.container}>
           <View style={styles.inputContainer}>
@@ -290,7 +290,7 @@ export default function AdminIndex() {
               placeholder="Image URL"
               value={newBookImageUri}
               onChangeText={setNewBookImageUri}
-            /> */}
+            />
             <TextInput
               style={[styles.input, styles.imageInput]}
               placeholder="Description"
