@@ -208,20 +208,20 @@ export default function AdminIndex() {
       },
     ]);
   };
-  if (!admin) {
-    return <Text>Admin not define</Text>;
-  }
-  return (
-    <SafeAreaProvider>
-      <ScrollView>
-        <View style={styles.container}>
-          <Pressable
-            onPress={async () => {
-              await AsyncStorage.removeItem("adminEmail");
-              router.replace(`/account/signIn`);
-            }}
-          >
-            <Icon name="logout" />
+  // if (!admin) {
+  //   return <Text>Admin not define</Text>;
+  // }
+  // return (
+  //   <SafeAreaProvider>
+  //     <ScrollView>
+  //       <View style={styles.container}>
+  //         <Pressable
+  //           onPress={async () => {
+  //             await AsyncStorage.removeItem("adminEmail");
+  //             router.replace(`/account/signIn`);
+  //           }}
+  //         >
+  //           <Icon name="logout" />
           </Pressable>
           <Pressable
             onPress={() => {
