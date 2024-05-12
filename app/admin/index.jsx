@@ -153,29 +153,29 @@ export default function AdminIndex() {
       Alert.alert("Error", "Category does not exist.");
       return;
     }
-  //   try {
-  //     const newBook = {
-  //       name: newBookName,
-  //       author: newBookAuthor,
-  //       category: newBookCategory,
-  //       price: newBookPrice,
-  //       imageUri: newBookImageUri,
-  //       description: newBookDescription,
-  //     };
-  //     await addBook(newBook);
-  //     setBooksData((prevBooks) => [...prevBooks, newBook]);
-  //     setNewBookName("");
-  //     setNewBookAuthor("");
-  //     setNewBookCategory("");
-  //     setNewBookPrice("");
-  //     setNewBookImageUri("");
-  //     setNewBookDescription("");
-  //     Alert.alert("Success", "New book added.");
-  //   } catch (error) {
-  //     console.error(error);
-  //     Alert.alert("Error", "Failed to add new book.");
-  //   }
-  // };
+    try {
+      const newBook = {
+        name: newBookName,
+        author: newBookAuthor,
+        category: newBookCategory,
+        price: newBookPrice,
+        imageUri: newBookImageUri,
+        description: newBookDescription,
+      };
+      await addBook(newBook);
+      setBooksData((prevBooks) => [...prevBooks, newBook]);
+      setNewBookName("");
+      setNewBookAuthor("");
+      setNewBookCategory("");
+      setNewBookPrice("");
+      setNewBookImageUri("");
+      setNewBookDescription("");
+      Alert.alert("Success", "New book added.");
+    } catch (error) {
+      console.error(error);
+      Alert.alert("Error", "Failed to add new book.");
+    }
+  };
   const _deleteCategory = async (category) => {
     try {
       console.log("Deleting category:", category.name);
