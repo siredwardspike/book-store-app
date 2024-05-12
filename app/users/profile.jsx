@@ -112,7 +112,7 @@ export default function profile() {
           <View
             style={{
               borderRadius: 30,
-              padding: 10,
+              padding: 12,
               alignItems: "center",
               marginBottom: 10,
               borderWidth: 2,
