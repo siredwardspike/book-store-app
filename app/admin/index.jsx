@@ -237,7 +237,7 @@ export default function AdminIndex() {
               height: 38,
             }}
           >
-            <Icon name="search" type="material" color="#2C4E70" />
+            {/* <Icon name="search" type="material" color="#2C4E70" />
           </Pressable>
           <View style={styles.inputContainer}>
             <TextInput
@@ -255,7 +255,7 @@ export default function AdminIndex() {
             <Pressable style={styles.addButton} onPress={addCategory}>
               <Icon name="add" type="material" color="#2C4E70" />
               <Text style={styles.buttonText}>Add category</Text>
-            </Pressable>
+            </Pressable> */}
           </View>
         </View>
         <View style={styles.container}>
