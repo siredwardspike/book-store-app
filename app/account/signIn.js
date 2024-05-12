@@ -18,6 +18,7 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   let imageWidth = width > 700 ? width * 0.5 : width;
   let imageHeight = height > 900 ? height * 0.08 : height * 0.2;
+  
   const adminMail = "admin@bookstore.com";
   const adminPass = "12345678";
   const handleSignIn = async () => {
