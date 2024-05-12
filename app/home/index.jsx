@@ -128,7 +128,49 @@ export default function Index() {
  
   return (
     <SafeAreaProvider style={{ flex: 1 }}>
-      
+      <AppHeader></AppHeader>
+      <FlatList
+        contentContainerStyle={styles.container}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        data={[
+          { key: "New Releases", data: books, icon: "history" },
+          { key: "Categories", data: categories },
+          { key: "", data: categoryList },
+        ]}
+        renderItem={({ item }) => (
+          <View style={styles.section}>
+            <View style={{ flexDirection: "row" }}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: imageHeight * imageWidth * 0.0015,
+                  color: "#2C4E70",
+                }}
+              >
+                {item.key}
+              </Text>
+              <Icon
+                name={item.icon}
+                type="material"
+                color="#2C4E70"
+                style={{ margin: 8 }}
+              />
+            </View>
+
+            <FlatList
+              contentContainerStyle={styles.container}
+              data={item.data}
+              renderItem={item.key === "Categories" ? categoryItem : renderItem}
+              horizontal={item.key !== ""}
+              numColumns={item.key === "" ? 2 : 0}
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+            />
+          </View>
+        )}
+        keyExtractor={(item) => item.key}
+      />
     </SafeAreaProvider>
   );
 }
