@@ -178,7 +178,7 @@ export default function SignUp() {
       </Pressable>
 
       <Pressable onPress={() => router.replace("/account/signIn")}>
-        <Text style={{ color: "#4D869C", fontWeight: "200", fontSize: 12 }}>
+        <Text style={{ color: "#4D869C", fontWeight: "200", fontSize: 16 }}>
           Already registered?
         </Text>
       </Pressable>
